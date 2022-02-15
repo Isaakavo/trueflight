@@ -1,0 +1,1733 @@
+{
+  "data": {
+    "routes": [
+      {
+        "origin": {
+          "type": "Airport",
+          "code": "MID",
+          "name": "Merida",
+          "countryCode": "MX"
+        },
+        "destination": {
+          "type": "Airport",
+          "code": "MEX",
+          "name": "Mexico City",
+          "countryCode": "MX"
+        },
+        "requestedDate": "2022-02-16",
+        "journeys": [
+          {
+            "key": "VkJ_MTEwMX4gfn5NSUR_MDIvMTYvMjAyMiAwOToxMH5NRVh_MDIvMTYvMjAyMiAxMToyMH5_",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T09:10:00",
+            "arrivalDate": "2022-02-16T11:20:00",
+            "journeyDuration": "02:10:00",
+            "isSoldout": true,
+            "travelType": "NonStop",
+            "stops": 0
+          },
+          {
+            "key": "VkJ_MTEwNX4gfn5NSUR_MDIvMTYvMjAyMiAxNTo1MH5NRVh_MDIvMTYvMjAyMiAxODowMH5_",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T15:50:00",
+            "arrivalDate": "2022-02-16T18:00:00",
+            "journeyDuration": "02:10:00",
+            "isSoldout": true,
+            "travelType": "NonStop",
+            "stops": 0
+            
+          },
+          {
+            "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_XlZCfjExMzN_IH5_TVRZfjAyLzE3LzIwMjIgMDY6MDB_TUVYfjAyLzE3LzIwMjIgMDc6MzV_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T19:30:00",
+            "arrivalDate": "2022-02-17T07:35:00",
+            "transportationType": "Air",
+            "lowestFareKey": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_Qn5_VkJ_QlpTTzAwTn5WQjIwfn4wfjN_flghMTExNQ--",
+            "journeyDuration": "12:05:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_Qn5_VkJ_QlpTTzAwTn5WQjIwfn4wfjN_flghMTExNQ--",
+                "fare": {
+                  "amount": 1269.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "IZSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1269.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                }
+              },
+              {
+                "key": "MX5Jfn5WQn5JTFNPMDBOflZCMTB_fjB_MX5_XjJ_Qn5_VkJ_QkxTTzAwTn5WQjEwfn4wfjF_flghOTEz",
+                "fare": {
+                  "amount": 1304.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VL",
+                "fareCode": "ILSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1304.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1254.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "MX5Jfn5WQn5JQlNPMDBOflZCMTF_fjB_MX5_XjJ_Qn5_VkJ_QkJTTzAwTn5WQjExfn4wfjF_flghMTAxNA--",
+                "fare": {
+                  "amount": 1466.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VB",
+                "fareCode": "IBSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1466.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1316.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "MX5Jfn5WQn5JU1NPMDBOflZCMTJ_fjB_MX5_XjJ_Qn5_VkJ_QlNTTzAwTn5WQjEyfn4wfjF_flghODEy",
+                "fare": {
+                  "amount": 1709.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "ISSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1709.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1509.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T19:30:00",
+                "arrivalDate": "2022-02-16T21:40:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "4287",
+                "marketingCarrier": "VB",
+                "marketingCode": "4287",
+                "segmentDuration": "02:10:00",
+                "layoverTime": "08:20:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB4287",
+                "departureTerminal": null,
+                "arrivalTerminal": "C",
+                "notifications": [],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTEzM34gfn5NVFl_MDIvMTcvMjAyMiAwNjowMH5NRVh_MDIvMTcvMjAyMiAwNzozNX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T06:00:00",
+                "arrivalDate": "2022-02-17T07:35:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1133",
+                "marketingCarrier": "VB",
+                "marketingCode": "1133",
+                "segmentDuration": "01:35:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1133",
+                "departureTerminal": "A",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "321VB5",
+                "cabinAmenities": [],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          },
+          {
+            "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_XlZCfjExMjF_IH5_TVRZfjAyLzE3LzIwMjIgMDg6MTV_TUVYfjAyLzE3LzIwMjIgMDk6NTB_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T19:30:00",
+            "arrivalDate": "2022-02-17T09:50:00",
+            "lowestFareKey": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_R35_VkJ_R1pTTzAwTn5WQjIwfn4wfjN_flghMTkyMw--",
+            "journeyDuration": "14:20:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "fares": [
+              {
+                "key": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_R35_VkJ_R1pTTzAwTn5WQjIwfn4wfjN_flghMTkyMw--",
+                "fare": {
+                  "amount": 1499.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "IZSO00N",
+                "classOfService": "I",
+                "availableCount": 1,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1499.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1499.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  },
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Jfn5WQn5JTFNPMDBOflZCMTB_fjB_MX5_XjJ_R35_VkJ_R0xTTzAwTn5WQjEwfn4wfjF_flghMTcyMQ--",
+                "fare": {
+                  "amount": 1534.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VL",
+                "fareCode": "ILSO00N",
+                "classOfService": "I",
+                "availableCount": 1,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1534.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1484.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Jfn5WQn5JQlNPMDBOflZCMTF_fjB_MX5_XjJ_R35_VkJ_R0JTTzAwTn5WQjExfn4wfjF_flghMTgyMg--",
+                "fare": {
+                  "amount": 1696.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VB",
+                "fareCode": "IBSO00N",
+                "classOfService": "I",
+                "availableCount": 1,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1696.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1546.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Jfn5WQn5JU1NPMDBOflZCMTJ_fjB_MX5_XjJ_R35_VkJ_R1NTTzAwTn5WQjEyfn4wfjF_flghMTYyMA--",
+                "fare": {
+                  "amount": 1939.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "ISSO00N",
+                "classOfService": "I",
+                "availableCount": 1,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1939.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1739.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_XlZCfjExMjl_IH5_TVRZfjAyLzE3LzIwMjIgMTE6MzV_TUVYfjAyLzE3LzIwMjIgMTM6MTB_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T19:30:00",
+            "arrivalDate": "2022-02-17T13:10:00",
+            "transportationType": "Air",
+            "lowestFareKey": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_Sn5_VkJ_SlpTTzAwTn5WQjIwfn4wfjN_flghMjczMQ--",
+            "journeyDuration": "17:40:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_Sn5_VkJ_SlpTTzAwTn5WQjIwfn4wfjN_flghMjczMQ--",
+                "fare": {
+                  "amount": 1709.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "IZSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1709.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1709.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Jfn5WQn5JTFNPMDBOflZCMTB_fjB_MX5_XjJ_Sn5_VkJ_SkxTTzAwTn5WQjEwfn4wfjF_flghMjUyOQ--",
+                "fare": {
+                  "amount": 1744.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VL",
+                "fareCode": "ILSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1744.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1694.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "MX5Jfn5WQn5JQlNPMDBOflZCMTF_fjB_MX5_XjJ_Sn5_VkJ_SkJTTzAwTn5WQjExfn4wfjF_flghMjYzMA--",
+                "fare": {
+                  "amount": 1906.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VB",
+                "fareCode": "IBSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1906.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1756.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "MX5Jfn5WQn5JU1NPMDBOflZCMTJ_fjB_MX5_XjJ_Sn5_VkJ_SlNTTzAwTn5WQjEyfn4wfjF_flghMjQyOA--",
+                "fare": {
+                  "amount": 2149.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "ISSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2149.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1949.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T19:30:00",
+                "arrivalDate": "2022-02-16T21:40:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "4287",
+                "marketingCarrier": "VB",
+                "marketingCode": "4287",
+                "segmentDuration": "02:10:00",
+                "layoverTime": "13:55:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB4287",
+                "departureTerminal": null,
+                "arrivalTerminal": "C",
+                "notifications": [],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTEyOX4gfn5NVFl_MDIvMTcvMjAyMiAxMTozNX5NRVh_MDIvMTcvMjAyMiAxMzoxMH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T11:35:00",
+                "arrivalDate": "2022-02-17T13:10:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1129",
+                "marketingCarrier": "VB",
+                "marketingCode": "1129",
+                "segmentDuration": "01:35:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1129",
+                "departureTerminal": "A",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "321VB5",
+                "cabinAmenities": [],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          },
+          {
+            "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_XlZCfjExMzd_IH5_TVRZfjAyLzE3LzIwMjIgMTY6NDB_TUVYfjAyLzE3LzIwMjIgMTg6MTV_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T19:30:00",
+            "arrivalDate": "2022-02-17T18:15:00",
+            "transportationType": "Air",
+            "lowestFareKey": "Mn5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_WF4xfk9_flZCfk9aU08wME5_VkIyMH5_MH4zfn4hMzUzOQ--",
+            "journeyDuration": "22:45:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "Mn5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_WF4xfk9_flZCfk9aU08wME5_VkIyMH5_MH4zfn4hMzUzOQ--",
+                "fare": {
+                  "amount": 2509.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "IZSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2509.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2509.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "Mn5Jfn5WQn5JTFNPMDBOflZCMTB_fjB_MX5_WF4xfk9_flZCfk9MU08wME5_VkIxMH5_MH4xfn4hMzMzNw--",
+                "fare": {
+                  "amount": 2544.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VL",
+                "fareCode": "ILSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2544.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2494.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "Mn5Jfn5WQn5JQlNPMDBOflZCMTF_fjB_MX5_WF4xfk9_flZCfk9CU08wME5_VkIxMX5_MH4xfn4hMzQzOA--",
+                "fare": {
+                  "amount": 2706.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VB",
+                "fareCode": "IBSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2706.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2556.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "Mn5Jfn5WQn5JU1NPMDBOflZCMTJ_fjB_MX5_WF4xfk9_flZCfk9TU08wME5_VkIxMn5_MH4xfn4hMzIzNg--",
+                "fare": {
+                  "amount": 2949.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "ISSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2949.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2749.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T19:30:00",
+                "arrivalDate": "2022-02-16T21:40:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "4287",
+                "marketingCarrier": "VB",
+                "marketingCode": "4287",
+                "segmentDuration": "02:10:00",
+                "layoverTime": "19:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB4287",
+                "departureTerminal": null,
+                "arrivalTerminal": "C",
+                "notifications": [],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTEzN34gfn5NVFl_MDIvMTcvMjAyMiAxNjo0MH5NRVh_MDIvMTcvMjAyMiAxODoxNX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T16:40:00",
+                "arrivalDate": "2022-02-17T18:15:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1137",
+                "marketingCarrier": "VB",
+                "marketingCode": "1137",
+                "segmentDuration": "01:35:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1137",
+                "departureTerminal": "A",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "321VB5",
+                "cabinAmenities": [],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          },
+          {
+            "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_XlZCfjExMjd_IH5_TVRZfjAyLzE3LzIwMjIgMTg6MTB_TUVYfjAyLzE3LzIwMjIgMTk6NDV_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T19:30:00",
+            "arrivalDate": "2022-02-17T19:45:00",
+            "transportationType": "Air",
+            "lowestFareKey": "Mn5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_WF4xfk5_flZCfk5aU08wME5_VkIyMH5_MH4zfn4hNDM0Nw--",
+            "journeyDuration": "1.00:15:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "Mn5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_WF4xfk5_flZCfk5aU08wME5_VkIyMH5_MH4zfn4hNDM0Nw--",
+                "fare": {
+                  "amount": 2309.52,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "IZSO00N",
+                "classOfService": "I",
+                "availableCount": 2,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2309.52,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2309.52,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  },
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "Mn5Jfn5WQn5JTFNPMDBOflZCMTB_fjB_MX5_WF4xfk5_flZCfk5MU08wME5_VkIxMH5_MH4xfn4hNDE0NQ--",
+                "fare": {
+                  "amount": 2344.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VL",
+                "fareCode": "ILSO00N",
+                "classOfService": "I",
+                "availableCount": 2,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2344.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2294.32,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              },
+              {
+                "key": "Mn5Jfn5WQn5JQlNPMDBOflZCMTF_fjB_MX5_WF4xfk5_flZCfk5CU08wME5_VkIxMX5_MH4xfn4hNDI0Ng--",
+                "fare": {
+                  "amount": 2506.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VB",
+                "fareCode": "IBSO00N",
+                "classOfService": "I",
+                "availableCount": 2,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2506.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2356.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              },
+              {
+                "key": "Mn5Jfn5WQn5JU1NPMDBOflZCMTJ_fjB_MX5_WF4xfk5_flZCfk5TU08wME5_VkIxMn5_MH4xfn4hNDA0NA--",
+                "fare": {
+                  "amount": 2749.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "ISSO00N",
+                "classOfService": "I",
+                "availableCount": 2,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2749.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2549.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T19:30:00",
+                "arrivalDate": "2022-02-16T21:40:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "4287",
+                "marketingCarrier": "VB",
+                "marketingCode": "4287",
+                "segmentDuration": "02:10:00",
+                "layoverTime": "20:30:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB4287",
+                "departureTerminal": null,
+                "arrivalTerminal": "C",
+                "notifications": [],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTEyN34gfn5NVFl_MDIvMTcvMjAyMiAxODoxMH5NRVh_MDIvMTcvMjAyMiAxOTo0NX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T18:10:00",
+                "arrivalDate": "2022-02-17T19:45:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1127",
+                "marketingCarrier": "VB",
+                "marketingCode": "1127",
+                "segmentDuration": "01:35:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1127",
+                "departureTerminal": "A",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          },
+          {
+            "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_XlZCfjExNDN_IH5_TVRZfjAyLzE3LzIwMjIgMjA6MTV_TUVYfjAyLzE3LzIwMjIgMjE6NTB_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T19:30:00",
+            "arrivalDate": "2022-02-17T21:50:00",
+            "transportationType": "Air",
+            "lowestFareKey": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_S35_VkJ_S1pTTzAwTn5WQjIwfn4wfjN_flghNTE1NQ--",
+            "journeyDuration": "1.02:20:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "MX5Jfn5WQn5JWlNPMDBOflZCMjB_fjB_M35_XjJ_S35_VkJ_S1pTTzAwTn5WQjIwfn4wfjN_flghNTE1NQ--",
+                "fare": {
+                  "amount": 1799.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "IZSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1799.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1799.51,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Jfn5WQn5JTFNPMDBOflZCMTB_fjB_MX5_XjJ_S35_VkJ_S0xTTzAwTn5WQjEwfn4wfjF_flghNDk1Mw--",
+                "fare": {
+                  "amount": 1834.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VL",
+                "fareCode": "ILSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1834.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1784.31,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "MX5Jfn5WQn5JQlNPMDBOflZCMTF_fjB_MX5_XjJ_S35_VkJ_S0JTTzAwTn5WQjExfn4wfjF_flghNTA1NA--",
+                "fare": {
+                  "amount": 1996.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VB",
+                "fareCode": "IBSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1996.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1846.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              },
+              {
+                "key": "MX5Jfn5WQn5JU1NPMDBOflZCMTJ_fjB_MX5_XjJ_S35_VkJ_S1NTTzAwTn5WQjEyfn4wfjF_flghNDg1Mg--",
+                "fare": {
+                  "amount": 2239.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "ISSO00N",
+                "classOfService": "I",
+                "availableCount": 4,
+                "labels": [],
+                "originalFare": {
+                  "amount": 2239.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 2039.33,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_NDI4N34gfn5NSUR_MDIvMTYvMjAyMiAxOTozMH5NVFl_MDIvMTYvMjAyMiAyMTo0MH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T19:30:00",
+                "arrivalDate": "2022-02-16T21:40:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "4287",
+                "marketingCarrier": "VB",
+                "marketingCode": "4287",
+                "segmentDuration": "02:10:00",
+                "layoverTime": "22:35:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB4287",
+                "departureTerminal": null,
+                "arrivalTerminal": "C",
+                "notifications": [],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTE0M34gfn5NVFl_MDIvMTcvMjAyMiAyMDoxNX5NRVh_MDIvMTcvMjAyMiAyMTo1MH5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MTY",
+                  "name": "Monterrey",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T20:15:00",
+                "arrivalDate": "2022-02-17T21:50:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1143",
+                "marketingCarrier": "VB",
+                "marketingCode": "1143",
+                "segmentDuration": "01:35:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1143",
+                "departureTerminal": "A",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "321VB5",
+                "cabinAmenities": [],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          },
+          {
+            "key": "VkJ_MzA2OX4gfn5NSUR_MDIvMTYvMjAyMiAyMTo1NX5HREx_MDIvMTcvMjAyMiAwMDoyNX5_XlZCfjEwNTd_IH5_R0RMfjAyLzE3LzIwMjIgMDY6MDB_TUVYfjAyLzE3LzIwMjIgMDc6MjV_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T21:55:00",
+            "arrivalDate": "2022-02-17T07:25:00",
+            "transportationType": "Air",
+            "lowestFareKey": "MX5Gfn5WQn5GWlNPMDBOflZCMjB_fjB_M35_XjJ_Q35_VkJ_Q1pTTzAwTn5WQjIwfn4wfjR_flghMTM-",
+            "journeyDuration": "09:30:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "MX5Gfn5WQn5GWlNPMDBOflZCMjB_fjB_M35_XjJ_Q35_VkJ_Q1pTTzAwTn5WQjIwfn4wfjR_flghMTM-",
+                "fare": {
+                  "amount": 1069.38,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "FZSO00N",
+                "classOfService": "F",
+                "availableCount": 1,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1069.38,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1069.38,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  },
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Gfn5WQn5GU1NPMDBOflZCMTJ_fjB_MX5_XjJ_Q35_VkJ_Q1NTTzAwTn5WQjEyfn4wfjJ_flghMDI-",
+                "fare": {
+                  "amount": 1509.2,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "FSSO00N",
+                "classOfService": "F",
+                "availableCount": 1,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1509.2,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1309.2,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "CapacityLeft",
+                    "description": "Capacity left below warning threshold"
+                  }
+                ]
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_MzA2OX4gfn5NSUR_MDIvMTYvMjAyMiAyMTo1NX5HREx_MDIvMTcvMjAyMiAwMDoyNX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "GDL",
+                  "name": "Guadalajara",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T21:55:00",
+                "arrivalDate": "2022-02-17T00:25:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "3069",
+                "marketingCarrier": "VB",
+                "marketingCode": "3069",
+                "segmentDuration": "02:30:00",
+                "layoverTime": "05:35:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB3069",
+                "departureTerminal": null,
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  }
+                ],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTA1N34gfn5HREx_MDIvMTcvMjAyMiAwNjowMH5NRVh_MDIvMTcvMjAyMiAwNzoyNX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "GDL",
+                  "name": "Guadalajara",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T06:00:00",
+                "arrivalDate": "2022-02-17T07:25:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1057",
+                "marketingCarrier": "VB",
+                "marketingCode": "1057",
+                "segmentDuration": "01:25:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1057",
+                "departureTerminal": "1",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          },
+          {
+            "key": "VkJ_MzA2OX4gfn5NSUR_MDIvMTYvMjAyMiAyMTo1NX5HREx_MDIvMTcvMjAyMiAwMDoyNX5_XlZCfjEwNTl_IH5_R0RMfjAyLzE3LzIwMjIgMDg6MDB_TUVYfjAyLzE3LzIwMjIgMDk6MjV_fg--",
+            "origin": {
+              "type": "Airport",
+              "code": "MID",
+              "name": "Merida",
+              "countryCode": "MX"
+            },
+            "destination": {
+              "type": "Airport",
+              "code": "MEX",
+              "name": "Mexico City",
+              "countryCode": "MX"
+            },
+            "departureDate": "2022-02-16T21:55:00",
+            "arrivalDate": "2022-02-17T09:25:00",
+            "transportationType": "Air",
+            "lowestFareKey": "MX5Gfn5WQn5GWlNPMDBOflZCMjB_fjB_M35_XjJ_RX5_VkJ_RVpTTzAwTn5WQjIwfn4wfjR_flghNTc-",
+            "journeyDuration": "11:30:00",
+            "isSoldout": false,
+            "travelType": "Connecting",
+            "stops": 1,
+            "isInternational": false,
+            "fares": [
+              {
+                "key": "MX5Gfn5WQn5GWlNPMDBOflZCMjB_fjB_M35_XjJ_RX5_VkJ_RVpTTzAwTn5WQjIwfn4wfjR_flghNTc-",
+                "fare": {
+                  "amount": 1209.38,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VZ",
+                "fareCode": "FZSO00N",
+                "classOfService": "F",
+                "availableCount": 6,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1209.38,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1209.38,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": [
+                  {
+                    "code": "TuaWillBeAdded",
+                    "description": "TUA will be automatically added after adding this fare to the basket"
+                  }
+                ]
+              },
+              {
+                "key": "MX5Gfn5WQn5GU1NPMDBOflZCMTJ_fjB_MX5_XjJ_RX5_VkJ_RVNTTzAwTn5WQjEyfn4wfjJ_flghNDY-",
+                "fare": {
+                  "amount": 1649.2,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "fareType": "VS",
+                "fareCode": "FSSO00N",
+                "classOfService": "F",
+                "availableCount": 6,
+                "labels": [],
+                "originalFare": {
+                  "amount": 1649.2,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "vivaFanFare": {
+                  "amount": 1449.2,
+                  "pointAmount": 0,
+                  "taxAmount": 0.0,
+                  "cashBackValue": 0.0
+                },
+                "notifications": []
+              }
+            ],
+            "segments": [
+              {
+                "key": "VkJ_MzA2OX4gfn5NSUR_MDIvMTYvMjAyMiAyMTo1NX5HREx_MDIvMTcvMjAyMiAwMDoyNX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "MID",
+                  "name": "Merida",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "GDL",
+                  "name": "Guadalajara",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-16T21:55:00",
+                "arrivalDate": "2022-02-17T00:25:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "3069",
+                "marketingCarrier": "VB",
+                "marketingCode": "3069",
+                "segmentDuration": "02:30:00",
+                "layoverTime": "07:35:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB3069",
+                "departureTerminal": null,
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  }
+                ],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              },
+              {
+                "key": "VkJ_MTA1OX4gfn5HREx_MDIvMTcvMjAyMiAwODowMH5NRVh_MDIvMTcvMjAyMiAwOToyNX5_",
+                "origin": {
+                  "type": "Airport",
+                  "code": "GDL",
+                  "name": "Guadalajara",
+                  "countryCode": "MX"
+                },
+                "destination": {
+                  "type": "Airport",
+                  "code": "MEX",
+                  "name": "Mexico City",
+                  "countryCode": "MX"
+                },
+                "departureDate": "2022-02-17T08:00:00",
+                "arrivalDate": "2022-02-17T09:25:00",
+                "transportationType": "Air",
+                "operatingCarrier": "VB",
+                "operatingCode": "1059",
+                "marketingCarrier": "VB",
+                "marketingCode": "1059",
+                "segmentDuration": "01:25:00",
+                "layoverTime": "00:00:00",
+                "subjectToGovernmentApproval": false,
+                "segmentType": "NonStop",
+                "flightNumber": "VB1059",
+                "departureTerminal": "1",
+                "arrivalTerminal": "1",
+                "notifications": [
+                  {
+                    "code": "NextDayArrival",
+                    "description": "Flight is arriving next day after searched date"
+                  },
+                  {
+                    "code": "NextDayDeparture",
+                    "description": "Flight is departing next day after searched date"
+                  }
+                ],
+                "equipmentType": "326VB4",
+                "cabinAmenities": [{ "code": "DBLWC", "name": "Two toilets" }],
+                "serviceAvailability": null
+              }
+            ],
+            "notifications": [
+              {
+                "code": "NextDayArrival",
+                "description": "Flight is arriving next day after searched date"
+              },
+              {
+                "code": "TuaNotAdded",
+                "description": "TUA amount not included in fare price"
+              },
+              { "code": "TuaPrice", "description": "480.0" }
+            ]
+          }
+        ]
+      }
+    ],
+    "promoCode": null, 
+    "currencyCode": "MXN"
+  },
+  "type": "SUCCESS",
+  "action": "CONTINUE"
+}

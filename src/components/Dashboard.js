@@ -10,10 +10,6 @@ import { availableAirports } from '../features/airportReducer';
 
 import '../styles/dashboard.css';
 
-const selectDates = (state) => {
-  const { dates } = state;
-  return dates;
-};
 
 const airportsStatus = (state) => state.airports.fetchStatus;
 
@@ -29,7 +25,7 @@ const Dashboard = () => {
   const [hide, setHide] = useState(true);
   const [disabled, setDisabled] = useState({ dates: true, passagers: true });
   const dispatch = useDispatch();
-  const flyDates = useSelector(selectDates);
+  
   const { input } = useSelector(availableAirports);
   const airportsStatusSelector = useSelector(airportsStatus);
 
@@ -65,7 +61,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(fetchDates());
     dispatch(fetchAirports());
-  }, []);
+  }, [dispatch]);
 
   if (
     airportsStatusSelector.loading === 'pending' ||

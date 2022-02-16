@@ -16,3 +16,9 @@ export const availableAirports = (state) => {
   }
   return state.airports.reducer;
 };
+
+export const selectDates = (state) => {
+  debugger;
+  const { maxDate, minDate } = state.dates;
+  return {maxDate, minDate};
+};

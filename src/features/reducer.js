@@ -21,7 +21,7 @@ export const fetchDates = () => async (dispatch) => {
         data: { availableDates },
       },
     } = await axios.get('http://localhost:3001/available-dates');
-    const dates = availableDates.slice(0, 20);
+    const dates = availableDates.slice(0, 100);
     dispatch({ type: 'dates/fulfilled', payload: dates });
   } catch (error) {
     dispatch({ type: 'dates/error', error: error.message });
@@ -44,17 +44,23 @@ export const fetchAirports = () => async (dispatch) => {
 };
 
 const availableDatesReducer = (state = {}, action) => {
+  const { payload } = action;
   switch (action.type) {
     case 'dates/fulfilled':
-      return { ...state, loading: 'succeeded' };
+      const minDate = payload[0];
+      const maxDate = payload[payload.length - 1];
+      return { ...state, minDate, maxDate };
 
+    case 'dates/selectdate':
+      debugger;
+      return { ...state, payload };
     default:
       return state;
   }
 };
 
 const airportsReducer = (state = {}, action) => {
-  const {payload} = action
+  const { payload } = action;
   switch (action.type) {
     case 'airports/fulfilled': {
       return { airport: action.payload };

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { fetchDates, fetchAirports } from '../store/reducer';
 import { useDispatch, useSelector } from 'react-redux';
 
+import '../styles/dashboard.css';
+
 const selectDates = (state) => {
   const { dates } = state;
   return dates;
@@ -39,8 +41,7 @@ const Dashboard = () => {
   const airports = useSelector(availableAirports);
   const airportsStatusSelector = useSelector(airportsStatus);
 
-  const handleSelectedAirport = (e) => {
-    const { target } = e;
+  const handleSelectedAirport = ({ target }) => {
     if (inputs.origin === '') {
       setInputs({ ...inputs, origin: target.id });
     } else if (inputs.destination === '') {
@@ -95,29 +96,62 @@ const Dashboard = () => {
     return <h1>Loading</h1>;
   }
 
+  console.log({ hide });
+
   return (
-    <div>
-      <div>
-        <div>
+    <div className='wrapper'>
+      <div className='inputs-container'>
+        <div className='airports-container'>
           <input
             id='origin'
+            className='inputs'
             type='text'
             placeholder='Origin'
             value={inputs.origin}
             onChange={handleChange}
             onClick={handleHide}
+            autoComplete='off'
           />
           <input
             id='destination'
+            className='inputs'
             type='text'
             placeholder='Destination'
             value={inputs.destination}
             onChange={handleChange}
             onClick={handleHide}
+            autoComplete='off'
           />
         </div>
-        <div hidden={!hide}>
+        {!hide ? (
+          <div className='airports-list'>
+            <ul>
+              {airports.map((x, i) => {
+                return (
+                  <li id={x.code} key={i} onClick={handleSelectedAirport}>
+                    <p
+                      id={x.code}
+                      onClick={handleSelectedAirport}
+                      className='airports-name'
+                    >
+                      {x.name}
+                    </p>{' '}
+                    <p
+                      id={x.code}
+                      onClick={handleSelectedAirport}
+                      className='airports-code'
+                    >
+                      {x.code}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ) : null}
+        <div className='airports-container' hidden={!hide}>
           <input
+            className='inputs inputs-disabled'
             type='date'
             name='departure'
             id='departure'
@@ -126,6 +160,7 @@ const Dashboard = () => {
             disabled={disabled.dates}
           />
           <input
+            className='inputs inputs-disabled'
             type='date'
             name='comeback'
             id='comeback'
@@ -133,8 +168,14 @@ const Dashboard = () => {
             onChange={handleSelectDate}
           />
         </div>
-        <div hidden={!hide}>
+        <div
+          className='airports-container '
+          hidden={!hide}
+          onChange={handlePassagersNumber}
+          disabled={disabled.passagers}
+        >
           <input
+            className='inputs inputs-disabled'
             type='number'
             name='passagers'
             id='passagers'
@@ -144,18 +185,9 @@ const Dashboard = () => {
             disabled={disabled.passagers}
           />
         </div>
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-      <div hidden={hide}>
-        <ul>
-          {airports.map((x, i) => {
-            return (
-              <li id={x.code} key={i} onClick={handleSelectedAirport}>
-                <p>{x.code}</p> <p>{x.name}</p>{' '}
-              </li>
-            );
-          })}
-        </ul>
+        <button className='search-button' hidden={!hide} onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
     </div>
   );

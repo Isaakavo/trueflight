@@ -43,7 +43,10 @@ export const fetchAirports = () => async (dispatch) => {
   }
 };
 
-const availableDatesReducer = (state = {}, action) => {
+const availableDatesReducer = (
+  state = { departure: '', comeback: '' },
+  action
+) => {
   const { payload } = action;
   switch (action.type) {
     case 'dates/fulfilled':
@@ -53,28 +56,32 @@ const availableDatesReducer = (state = {}, action) => {
 
     case 'dates/selectdate':
       debugger;
-      return { ...state, payload };
+      return { ...state, ...payload };
     default:
       return state;
   }
 };
 
-const airportsReducer = (state = {}, action) => {
+const airportReducerDefault = { input: { departure: '' }, hideR: true };
+
+const airportsReducer = (
+  state = airportReducerDefault,
+  action
+) => {
   const { payload } = action;
   switch (action.type) {
     case 'airports/fulfilled': {
-      return { airport: action.payload };
+      return { ...state, airport: action.payload };
     }
     case 'airports/selected':
       return { ...state, selected: action.payload };
 
     case 'airports/inputs':
-      debugger;
       return { ...state, input: action.payload };
 
     case 'airports/hidelist':
       debugger;
-      return { ...state, payload };
+      return { ...state, ...payload };
 
     default:
       return state;

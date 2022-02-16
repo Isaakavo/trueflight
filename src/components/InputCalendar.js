@@ -16,21 +16,19 @@ const InputCalendar = ({ hide }) => {
   const { minDate, maxDate } = useSelector(selectDates);
 
   const handleSelectDate = ({ target }) => {
-    setDates((state) => ({
-      ...state,
-      [target.name]: target.value,
-    }));
-
     if (target.name === 'departure') {
-      setDates({ ...dates, minDate: target.value });
+      setDates({ ...dates, [target.name]: target.value, minDate: target.value });
+      return;
     }
-
+    setDates({ ...dates, [target.name]: target.value, maxDate: target.value });
+    debugger;
     dispatch({
       type: 'dates/selectdate',
       payload: { ...dates, [target.name]: target.value },
     });
   };
-
+  
+  console.log('DAtes: ',{ dates });
   // useEffect(() => {
 
   // }, [dates])

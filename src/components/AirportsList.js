@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { availableAirports } from '../features/airportReducer';
 
-const AirportList = ({ setHide }) => {
+const AirportList = () => {
   const [inputs, setInputs] = useState({ origin: '', destination: '' });
-  // const [hide, setHide] = useState(true);
   const dispatch = useDispatch();
   const { airport } = useSelector(availableAirports);
 
@@ -13,25 +12,32 @@ const AirportList = ({ setHide }) => {
     if (inputs.origin === '') {
       setInputs({ ...inputs, origin: target.id });
     } else if (inputs.destination === '') {
-      setHide(true);
       setInputs({ ...inputs, destination: target.id });
-      // setDisabled({ ...disabled, dates: false });
     }
-    // debugger;
     dispatch({
       type: 'airports/selected',
-      payload: { airport, selected: target.id, inputs },
+      payload: { airport, selected: target.id },
     });
+    // setHide(true);
   };
 
   useEffect(() => {
     console.log('useEffect');
+
+
+    if (inputs.origin !== '' && inputs.destination !== '') {
+      debugger;
+      dispatch({
+        type: 'airports/hidelist',
+        payload: { hideR: true },
+      });
+    }
+
     dispatch({
       type: 'airports/inputs',
       payload: { origin: inputs.origin, destination: inputs.destination },
     });
-  }, [inputs, inputs.destination, dispatch]);
-
+  }, [inputs, dispatch]);
 
   return (
     <div className='airports-list'>

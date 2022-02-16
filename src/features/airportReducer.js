@@ -1,24 +1,19 @@
 export const availableAirports = (state) => {
   const {
-    airports: { reducer: {airport, selected, input, hide} },
+    airports: {
+      reducer: { airport, selected, input, hideR },
+    },
   } = state;
-
-
+  debugger;
   if (selected) {
+    const filtered = airport.filter((x) => x.code !== selected.selected);
     debugger;
-    const filtered = airport.filter(
-      (x) => x.code !== selected.selected
-    );
-    if (hide) {
-      return { airport: filtered, input: input, hide };
-    }
-    return { airport: filtered, input: input };
+    return { airport: filtered, input: input, hideR };
   }
   return state.airports.reducer;
 };
 
 export const selectDates = (state) => {
-  debugger;
-  const { maxDate, minDate } = state.dates;
-  return {maxDate, minDate};
+  const { maxDate, minDate, comeback, departure } = state.dates;
+  return { maxDate, minDate, comeback, departure, ...state.dates };
 };

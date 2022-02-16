@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
-import { fetchDates, fetchAirports } from '../store/reducer';
+import { fetchDates, fetchAirports } from '../features/reducer';
 import { useDispatch, useSelector } from 'react-redux';
+
+import InputAirport from './InputAirport';
+import AirportList from './AirportsList';
+
+import { availableAirports } from '../features/airportReducer';
 
 import '../styles/dashboard.css';
 
@@ -8,25 +13,11 @@ const selectDates = (state) => {
   const { dates } = state;
   return dates;
 };
-const availableAirports = (state) => {
-  const {
-    airports: { reducer },
-  } = state;
-
-  if (reducer.selected) {
-    const filtered = reducer.airports.filter(
-      (x) => x.code !== reducer.selected
-    );
-    return filtered;
-  }
-
-  return reducer;
-};
 
 const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
-  const [inputs, setInputs] = useState({ origin: '', destination: '' });
+  // const [inputs, setInputs] = useState({ origin: '', destination: '' });
   const [dates, setDates] = useState({
     departure: '',
     comeback: '',
@@ -38,22 +29,8 @@ const Dashboard = () => {
   const [disabled, setDisabled] = useState({ dates: true, passagers: true });
   const dispatch = useDispatch();
   const flyDates = useSelector(selectDates);
-  const airports = useSelector(availableAirports);
+  const { input } = useSelector(availableAirports);
   const airportsStatusSelector = useSelector(airportsStatus);
-
-  const handleSelectedAirport = ({ target }) => {
-    if (inputs.origin === '') {
-      setInputs({ ...inputs, origin: target.id });
-    } else if (inputs.destination === '') {
-      setInputs({ ...inputs, destination: target.id });
-      setHide(true);
-      setDisabled({ ...disabled, dates: false });
-    }
-    dispatch({
-      type: 'airports/selected',
-      payload: { airports, selected: target.id },
-    });
-  };
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -62,7 +39,7 @@ const Dashboard = () => {
   const handleHide = (e) => {
     if (e.target.id === 'origin') {
       setHide(!hide);
-    } else if (e.target.id === 'destination' && inputs.origin === '') {
+    } else if (e.target.id === 'destination' && input.origin === '') {
       setHide(!hide);
     }
   };
@@ -80,8 +57,8 @@ const Dashboard = () => {
   };
 
   const handleSubmit = () => {
-    const obj = { ...inputs, dates, passagers };
-    dispatch({ type: 'booking/set', payload: obj });
+    // const obj = { ...inputs, dates, passagers };
+    // dispatch({ type: 'booking/set', payload: obj });
   };
 
   useEffect(() => {
@@ -96,59 +73,17 @@ const Dashboard = () => {
     return <h1>Loading</h1>;
   }
 
-  console.log({ hide });
-
   return (
     <div className='wrapper'>
       <div className='inputs-container'>
-        <div className='airports-container'>
-          <input
-            id='origin'
-            className='inputs'
-            type='text'
-            placeholder='Origin'
-            value={inputs.origin}
-            onChange={handleChange}
-            onClick={handleHide}
-            autoComplete='off'
-          />
-          <input
-            id='destination'
-            className='inputs'
-            type='text'
-            placeholder='Destination'
-            value={inputs.destination}
-            onChange={handleChange}
-            onClick={handleHide}
-            autoComplete='off'
-          />
-        </div>
-        {!hide ? (
-          <div className='airports-list'>
-            <ul>
-              {airports.map((x, i) => {
-                return (
-                  <li id={x.code} key={i} onClick={handleSelectedAirport}>
-                    <p
-                      id={x.code}
-                      onClick={handleSelectedAirport}
-                      className='airports-name'
-                    >
-                      {x.name}
-                    </p>{' '}
-                    <p
-                      id={x.code}
-                      onClick={handleSelectedAirport}
-                      className='airports-code'
-                    >
-                      {x.code}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ) : null}
+        <InputAirport
+          setHide={setHide}
+          disabled={disabled}
+          setDisabled={setDisabled}
+          handleHide={handleHide}
+          handleChange={handleChange}
+        />
+        {!hide ? <AirportList /> : null}
         <div className='airports-container' hidden={!hide}>
           <input
             className='inputs inputs-disabled'

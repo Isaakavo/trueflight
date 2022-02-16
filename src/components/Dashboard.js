@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import InputAirport from './InputAirport';
 import AirportList from './AirportsList';
+import InputCalendar from './InputCalendar';
 
 import { availableAirports } from '../features/airportReducer';
 
@@ -18,12 +19,12 @@ const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
   // const [inputs, setInputs] = useState({ origin: '', destination: '' });
-  const [dates, setDates] = useState({
-    departure: '',
-    comeback: '',
-    minDate: '',
-    maxDate: '',
-  });
+  // const [dates, setDates] = useState({
+  //   departure: '',
+  //   comeback: '',
+  //   minDate: '',
+  //   maxDate: '',
+  // });
   const [passagers, setPassagers] = useState({ number: 1 });
   const [hide, setHide] = useState(true);
   const [disabled, setDisabled] = useState({ dates: true, passagers: true });
@@ -44,13 +45,13 @@ const Dashboard = () => {
     }
   };
 
-  const handleSelectDate = ({ target }) => {
-    setDates((state) => ({
-      ...state,
-      [target.name]: target.value,
-    }));
-    setDisabled({ ...disabled, passagers: false });
-  };
+  // const handleSelectDate = ({ target }) => {
+  //   setDates((state) => ({
+  //     ...state,
+  //     [target.name]: target.value,
+  //   }));
+  //   setDisabled({ ...disabled, passagers: false });
+  // };
 
   const handlePassagersNumber = ({ target }) => {
     setPassagers({ ...passagers, number: target.value });
@@ -73,36 +74,13 @@ const Dashboard = () => {
     return <h1>Loading</h1>;
   }
 
+  console.log({ hide });
   return (
     <div className='wrapper'>
       <div className='inputs-container'>
-        <InputAirport
-          setHide={setHide}
-          disabled={disabled}
-          setDisabled={setDisabled}
-          handleHide={handleHide}
-          handleChange={handleChange}
-        />
-        {!hide ? <AirportList /> : null}
-        <div className='airports-container' hidden={!hide}>
-          <input
-            className='inputs inputs-disabled'
-            type='date'
-            name='departure'
-            id='departure'
-            onChange={handleSelectDate}
-            min='2022-02-16'
-            disabled={disabled.dates}
-          />
-          <input
-            className='inputs inputs-disabled'
-            type='date'
-            name='comeback'
-            id='comeback'
-            disabled={disabled.dates}
-            onChange={handleSelectDate}
-          />
-        </div>
+        <InputAirport handleHide={handleHide} handleChange={handleChange} />
+        {!hide ? <AirportList setHide={setHide} /> : null}
+        <InputCalendar hide={hide} />
         <div
           className='airports-container '
           hidden={!hide}

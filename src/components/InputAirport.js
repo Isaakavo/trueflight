@@ -7,7 +7,6 @@ import { availableAirports } from '../features/airportReducer';
 const InputAirport = ({  handleHide, handleChange }) => {
   const {input} = useSelector(availableAirports);
 
-  debugger;
   console.log(input);
 
   return (

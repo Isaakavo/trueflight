@@ -34,6 +34,12 @@
   color: #e0e0e0;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .airports-container {
   display: flex;
   background: #fff;

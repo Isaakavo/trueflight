@@ -44,7 +44,6 @@ export const fetchAirports = () => async (dispatch) => {
 };
 
 const availableDatesReducer = (state = {}, action) => {
-  debugger;
   switch (action.type) {
     case 'dates/fulfilled':
       return { ...state, loading: 'succeeded' };
@@ -59,6 +58,8 @@ const airportsReducer = (state = {}, action) => {
     case 'airports/fulfilled': {
       return action.payload;
     }
+    case 'airports/selected':
+      return action.payload;
     default:
       return state;
   }

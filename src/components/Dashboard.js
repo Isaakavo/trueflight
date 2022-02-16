@@ -10,19 +10,55 @@ const availableAirports = (state) => {
   const {
     airports: { reducer },
   } = state;
+
+  if (reducer.selected) {
+    const filtered = reducer.airports.filter(
+      (x) => x.code !== reducer.selected
+    );
+    console.log(filtered);
+    return filtered;
+  }
+
   return reducer;
 };
 
 const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
+  const [inputs, setInputs] = useState({ origin: '', destination: '' });
+  const [dates, setDates] = useState({ departure: '', comeback: '' });
   const [hide, setHide] = useState(true);
   const dispatch = useDispatch();
   const flyDates = useSelector(selectDates);
   const airports = useSelector(availableAirports);
   const airportsStatusSelector = useSelector(airportsStatus);
 
-  
+  const handleSelectedAirport = (e) => {
+    const { target } = e;
+    if (inputs.origin === '') {
+      setInputs({ ...inputs, origin: target.id });
+    } else if (inputs.destination === '') {
+      setInputs({ ...inputs, destination: target.id });
+      setHide(true);
+    }
+    dispatch({
+      type: 'airports/selected',
+      payload: { airports, selected: target.id },
+    });
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const handleHide = (e) => {
+    if (e.target.id === 'origin') {
+      setHide(!hide);
+    } else if (e.target.id === 'destination' && inputs.origin === '') {
+      setHide(!hide);
+    }
+  };
+
   useEffect(() => {
     dispatch(fetchDates());
     dispatch(fetchAirports());
@@ -38,18 +74,48 @@ const Dashboard = () => {
   return (
     <form>
       <div>
-        <input
-          type='text'
-          placeholder='Origin'
-          onClick={() => setHide(!hide)}
-        />
-        <input type='text' placeholder='Destination' />
+        <div>
+          <input
+            id='origin'
+            type='text'
+            placeholder='Origin'
+            value={inputs.origin}
+            onChange={handleChange}
+            onClick={handleHide}
+          />
+          <input
+            id='destination'
+            type='text'
+            placeholder='Destination'
+            value={inputs.destination}
+            onChange={handleChange}
+            onClick={handleHide}
+          />
+        </div>
+        <div hidden={!hide}>
+          <input
+            type='date'
+            name='departure'
+            id='departure'
+            onChange={(e) => console.log(e.target.value)}
+            min='2022-02-16'
+          />
+          <input type='date' name='comeback' id='comeback' />
+        </div>
+        <div hidden={!hide}>
+          <input
+            type='number'
+            name='passagers'
+            id='passagers'
+            placeholder='Passagers'
+          />
+        </div>
       </div>
       <div hidden={hide}>
         <ul>
           {airports.map((x, i) => {
             return (
-              <li id={x.code} key={i} onClick={(e) => console.log(e.target.id)}>
+              <li id={x.code} key={i} onClick={handleSelectedAirport}>
                 <p>{x.code}</p> <p>{x.name}</p>{' '}
               </li>
             );

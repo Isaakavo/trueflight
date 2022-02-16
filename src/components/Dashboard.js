@@ -15,7 +15,6 @@ const availableAirports = (state) => {
     const filtered = reducer.airports.filter(
       (x) => x.code !== reducer.selected
     );
-    console.log(filtered);
     return filtered;
   }
 
@@ -26,8 +25,15 @@ const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
   const [inputs, setInputs] = useState({ origin: '', destination: '' });
-  const [dates, setDates] = useState({ departure: '', comeback: '' });
+  const [dates, setDates] = useState({
+    departure: '',
+    comeback: '',
+    minDate: '',
+    maxDate: '',
+  });
+  const [passagers, setPassagers] = useState({ number: 1 });
   const [hide, setHide] = useState(true);
+  const [disabled, setDisabled] = useState({ dates: true, passagers: true });
   const dispatch = useDispatch();
   const flyDates = useSelector(selectDates);
   const airports = useSelector(availableAirports);
@@ -40,6 +46,7 @@ const Dashboard = () => {
     } else if (inputs.destination === '') {
       setInputs({ ...inputs, destination: target.id });
       setHide(true);
+      setDisabled({ ...disabled, dates: false });
     }
     dispatch({
       type: 'airports/selected',
@@ -59,6 +66,23 @@ const Dashboard = () => {
     }
   };
 
+  const handleSelectDate = ({ target }) => {
+    setDates((state) => ({
+      ...state,
+      [target.name]: target.value,
+    }));
+    setDisabled({ ...disabled, passagers: false });
+  };
+
+  const handlePassagersNumber = ({ target }) => {
+    setPassagers({ ...passagers, number: target.value });
+  };
+
+  const handleSubmit = () => {
+    const obj = { ...inputs, dates, passagers };
+    dispatch({ type: 'booking/set', payload: obj });
+  };
+
   useEffect(() => {
     dispatch(fetchDates());
     dispatch(fetchAirports());
@@ -72,7 +96,7 @@ const Dashboard = () => {
   }
 
   return (
-    <form>
+    <div>
       <div>
         <div>
           <input
@@ -97,10 +121,17 @@ const Dashboard = () => {
             type='date'
             name='departure'
             id='departure'
-            onChange={(e) => console.log(e.target.value)}
+            onChange={handleSelectDate}
             min='2022-02-16'
+            disabled={disabled.dates}
           />
-          <input type='date' name='comeback' id='comeback' />
+          <input
+            type='date'
+            name='comeback'
+            id='comeback'
+            disabled={disabled.dates}
+            onChange={handleSelectDate}
+          />
         </div>
         <div hidden={!hide}>
           <input
@@ -108,8 +139,12 @@ const Dashboard = () => {
             name='passagers'
             id='passagers'
             placeholder='Passagers'
+            value={passagers.number}
+            onChange={handlePassagersNumber}
+            disabled={disabled.passagers}
           />
         </div>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
       <div hidden={hide}>
         <ul>
@@ -122,7 +157,7 @@ const Dashboard = () => {
           })}
         </ul>
       </div>
-    </form>
+    </div>
   );
 };
 

@@ -65,6 +65,17 @@ const airportsReducer = (state = {}, action) => {
   }
 };
 
+const bookingReducer = (state = {}, action) => {
+  switch (action.type) {
+    case 'booking/set':
+      console.log(action.payload);
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
 const fetchingAirportsReducer = (
   state = { loading: 'idle', error: null },
   action
@@ -87,4 +98,5 @@ export const reducer = combineReducers({
     reducer: airportsReducer,
     fetchStatus: fetchingAirportsReducer,
   }),
+  booking: bookingReducer,
 });

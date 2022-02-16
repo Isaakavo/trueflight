@@ -14,12 +14,9 @@ import '../styles/dashboard.css';
 const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
-  // const [passagers, setPassagers] = useState({ number: 1 });
-  const [hide, setHide] = useState(true);
-  const [disabled, setDisabled] = useState({ dates: true, passagers: true });
   const dispatch = useDispatch();
 
-  const { input, hideR } = useSelector(availableAirports);
+  const { input, hideR, passagers } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
   const { loading } = useSelector(airportsStatus);
 
@@ -27,12 +24,8 @@ const Dashboard = () => {
     console.log(e.target.value);
   };
 
-  // const handlePassagersNumber = ({ target }) => {
-  //   setPassagers({ ...passagers, number: target.value });
-  // };
-
   const handleSubmit = () => {
-    const obj = { ...input, dates };
+    const obj = { ...input, dates, passagers };
     console.log({ obj });
     dispatch({ type: 'booking/set', payload: obj });
   };

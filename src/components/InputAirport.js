@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Input from './Input';
 
 import { availableAirports } from '../features/airportReducer';
 
 const InputAirport = () => {
-  const { input, hideR, airportData } = useSelector(availableAirports);
+  const { input, hideR } = useSelector(availableAirports);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -27,6 +26,7 @@ const InputAirport = () => {
       });
     }
   };
+
   return (
     <div className='airports-container'>
       <Input
@@ -34,7 +34,7 @@ const InputAirport = () => {
         className='inputs'
         type='text'
         placeholder='Origin'
-        value={input?.origin?.code}
+        value={input.origin.code}
         onChange={handleChange}
         onClick={handleHide}
       />
@@ -43,7 +43,7 @@ const InputAirport = () => {
         className='inputs'
         type='text'
         placeholder='Destination'
-        value={input?.destination?.code}
+        value={input.destination.code}
         onChange={handleChange}
         onClick={handleHide}
       />

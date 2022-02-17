@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
 import { fetchFlights } from '../features/reducer';
@@ -11,6 +12,7 @@ import Input from './Input';
 import '../styles/selectFlights.css';
 
 const SelectFlight = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { payload } = useSelector(getFlights);
   const { dates, passagers, route } = useSelector(getBookingForFlights);
@@ -30,6 +32,7 @@ const SelectFlight = () => {
       type: 'booking/setamount',
       payload: { amount: selectedFlight.fare.amount, cartFlag: true },
     });
+    navigate('/');
   };
 
   const getFlightsByDate = () => {

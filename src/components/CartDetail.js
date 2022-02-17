@@ -4,13 +4,14 @@ import { getFinalBooking } from '../features/bookingReducer';
 
 import '../styles/cartDetail.css';
 
-const CartDetail = () => {
+const CartDetail = ({setShowCart}) => {
   const navigate = useNavigate();
   const { booking } = useSelector(getFinalBooking);
   debugger;
   console.log({ booking });
 
   const handlePay = () => {
+    setShowCart(false);
     navigate('/finish-purchase');
   };
 

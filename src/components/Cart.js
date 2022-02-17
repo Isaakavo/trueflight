@@ -19,7 +19,7 @@ const Cart = () => {
         </span>
       ) : null}
       <ShoppingBagIcon fontSize='large' onClick={handleShowCart} />
-      {showCart ? <CartDetail /> : null}
+      {showCart ? <CartDetail setShowCart={setShowCart} /> : null}
     </div>
   );
 };

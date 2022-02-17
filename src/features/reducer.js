@@ -43,6 +43,20 @@ export const fetchAirports = () => async (dispatch) => {
   }
 };
 
+export const fetchFlights = () => async (dispatch) => {
+  dispatch({ type: 'flights/pending' });
+  try {
+    const {
+      data: {
+        data: { routes },
+      },
+    } = await axios.get('http://localhost:3001/available-fligths');
+    dispatch({ type: 'flights/fulfilled', payload: routes });
+  } catch (error) {
+    dispatch({ type: 'flights/error', error: error.message });
+  }
+};
+
 const availableDatesReducer = (
   state = { departure: '', comeback: '' },
   action
@@ -55,7 +69,6 @@ const availableDatesReducer = (
       return { ...state, minDate, maxDate };
 
     case 'dates/selectdate':
-      debugger;
       return { ...state, ...payload };
     default:
       return state;
@@ -72,20 +85,18 @@ const airportsReducer = (state = airportReducerDefault, action) => {
   const { payload } = action;
   switch (action.type) {
     case 'airports/fulfilled': {
-      return { ...state, airport: action.payload };
+      return { ...state, airport: payload };
     }
     case 'airports/selected':
-      return { ...state, selected: action.payload };
+      return { ...state, selected: payload };
 
     case 'airports/inputs':
-      return { ...state, input: action.payload };
+      return { ...state, input: payload };
 
     case 'airports/passagers':
-      debugger;
       return { ...state, ...payload };
 
     case 'airports/hidelist':
-      debugger;
       return { ...state, ...payload };
 
     default:
@@ -96,8 +107,21 @@ const airportsReducer = (state = airportReducerDefault, action) => {
 const bookingReducer = (state = {}, action) => {
   switch (action.type) {
     case 'booking/set':
-      debugger;
       return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+const flightReducer = (state = {}, action) => {
+  const { payload } = action;
+  switch (action.type) {
+    case 'flights/fulfilled':
+      return { ...state, payload };
+
+    case 'flights/senddata':
+      return { ...state, payload };
 
     default:
       return state;
@@ -127,4 +151,5 @@ export const reducer = combineReducers({
     fetchStatus: fetchingAirportsReducer,
   }),
   booking: bookingReducer,
+  flights: flightReducer,
 });

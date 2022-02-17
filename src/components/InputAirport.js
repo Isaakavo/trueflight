@@ -5,12 +5,12 @@ import Input from './Input';
 import { availableAirports } from '../features/airportReducer';
 
 const InputAirport = () => {
-  const {input, hideR} = useSelector(availableAirports);
-const dispatch = useDispatch();
+  const { input, hideR, airportData } = useSelector(availableAirports);
+  const dispatch = useDispatch();
 
-const handleChange = (e) => {
-  console.log(e.target.value);
-};
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
 
   const handleHide = (e) => {
     if (e.target.id === 'origin') {
@@ -27,7 +27,6 @@ const handleChange = (e) => {
       });
     }
   };
-
   return (
     <div className='airports-container'>
       <Input
@@ -35,7 +34,7 @@ const handleChange = (e) => {
         className='inputs'
         type='text'
         placeholder='Origin'
-        value={input?.origin}
+        value={input?.origin?.code}
         onChange={handleChange}
         onClick={handleHide}
       />
@@ -44,7 +43,7 @@ const handleChange = (e) => {
         className='inputs'
         type='text'
         placeholder='Destination'
-        value={input?.destination}
+        value={input?.destination?.code}
         onChange={handleChange}
         onClick={handleHide}
       />

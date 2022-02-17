@@ -75,7 +75,7 @@ const availableDatesReducer = (
 };
 
 const airportReducerDefault = {
-  input: { departure: '' },
+  input: { departure: '', origin: { code: '' }, destination: { code: '' } },
   hideR: true,
   passagers: { number: 1 },
 };
@@ -90,7 +90,6 @@ const airportsReducer = (state = airportReducerDefault, action) => {
       return { ...state, selected: payload };
 
     case 'airports/inputs':
-      debugger;
       return { ...state, input: payload };
 
     case 'airports/passagers':
@@ -98,6 +97,9 @@ const airportsReducer = (state = airportReducerDefault, action) => {
 
     case 'airports/hidelist':
       return { ...state, ...payload };
+
+    case 'airports/reset':
+      return airportReducerDefault;
 
     default:
       return state;
@@ -108,7 +110,6 @@ const bookingReducer = (state = [], action) => {
   const { payload } = action;
   switch (action.type) {
     case 'booking/set':
-      debugger;
       return [...state, { ...payload }];
 
     default:

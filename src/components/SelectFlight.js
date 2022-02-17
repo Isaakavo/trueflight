@@ -36,6 +36,10 @@ const SelectFlight = () => {
       type: 'booking/set',
       payload: newState,
     });
+
+    dispatch({
+      type: 'airports/reset'
+    })
     navigate('/');
   };
 
@@ -44,7 +48,6 @@ const SelectFlight = () => {
       return null;
     }
 
-    debugger;
     const flights = payload[route];
     if (!flights) {
       return <h1>Something went wrong</h1>;
@@ -87,7 +90,6 @@ const SelectFlight = () => {
   };
 
   useEffect(() => {
-    debugger;
     dispatch(fetchFlights());
   }, [dispatch]);
   return (

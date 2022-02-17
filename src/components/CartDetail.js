@@ -7,6 +7,11 @@ const CartDetail = () => {
   const { booking } = useSelector(getFinalBooking);
   debugger;
   console.log({ booking });
+
+  const handlePay = () => {
+    
+  };
+
   return (
     <div className='cart-detail-container'>
       <ul>
@@ -20,6 +25,9 @@ const CartDetail = () => {
           );
         })}
       </ul>
+      <button className='pay-button' onClick={handlePay}>
+        Go to pay
+      </button>
     </div>
   );
 };

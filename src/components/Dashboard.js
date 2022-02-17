@@ -28,7 +28,7 @@ const Dashboard = () => {
     ) {
       const obj = { ...input, dates, passagers };
       console.log({ obj });
-      dispatch({ type: 'booking/set', payload: obj });
+      dispatch({ type: 'booking/set', payload: { data: obj, cartFlag: true } });
     }
   };
 

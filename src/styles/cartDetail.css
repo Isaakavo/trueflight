@@ -1,0 +1,18 @@
+.cart-detail-container {
+  /* width: 10%; */
+  position: absolute;
+  width: 400px;
+  right: 0.5rem;
+  margin-top: 5rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.cart-item {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #aaa;
+}

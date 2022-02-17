@@ -22,9 +22,6 @@ const AirportList = () => {
   };
 
   useEffect(() => {
-    console.log('useEffect');
-
-
     if (inputs.origin !== '' && inputs.destination !== '') {
       debugger;
       dispatch({

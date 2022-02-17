@@ -15,19 +15,21 @@ const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-
   const { input, hideR, passagers } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
   const { loading } = useSelector(airportsStatus);
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
-
   const handleSubmit = () => {
-    const obj = { ...input, dates, passagers };
-    console.log({ obj });
-    dispatch({ type: 'booking/set', payload: obj });
+    if (
+      dates.comeback &&
+      dates.departure &&
+      input.destination &&
+      input.origin
+    ) {
+      const obj = { ...input, dates, passagers };
+      console.log({ obj });
+      dispatch({ type: 'booking/set', payload: obj });
+    }
   };
 
   useEffect(() => {
@@ -39,14 +41,13 @@ const Dashboard = () => {
     return <h1>Loading</h1>;
   }
 
-  console.log({ hideR });
   return (
     <div className='wrapper'>
       <div className='inputs-container'>
-        <InputAirport handleChange={handleChange} />
+        <InputAirport />
         {!hideR ? <AirportList /> : null}
-        <InputCalendar hide={hideR} />
-        <InputPassagers />
+        {hideR ? <InputCalendar /> : null}
+        {hideR ? <InputPassagers /> : null}
         <button
           className='search-button'
           hidden={!hideR}

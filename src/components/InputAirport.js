@@ -4,21 +4,22 @@ import Input from './Input';
 
 import { availableAirports } from '../features/airportReducer';
 
-const InputAirport = ({ handleChange }) => {
+const InputAirport = () => {
   const {input, hideR} = useSelector(availableAirports);
 const dispatch = useDispatch();
 
+const handleChange = (e) => {
+  console.log(e.target.value);
+};
+
   const handleHide = (e) => {
-    debugger;
     if (e.target.id === 'origin') {
-      // setHide(!hide);
       const value = !hideR;
       dispatch({
         type: 'airports/hidelist',
         payload: { hideR: value },
       });
     } else if (e.target.id === 'destination' && input.origin !== '') {
-      // setHide(!hide);
       const value = !hideR;
       dispatch({
         type: 'airports/hidelist',
@@ -26,8 +27,6 @@ const dispatch = useDispatch();
       });
     }
   };
-
-  console.log(input);
 
   return (
     <div className='airports-container'>

@@ -17,7 +17,11 @@ const InputCalendar = ({ hide }) => {
 
   const handleSelectDate = ({ target }) => {
     if (target.name === 'departure') {
-      setDates({ ...dates, [target.name]: target.value, minDate: target.value });
+      setDates({
+        ...dates,
+        [target.name]: target.value,
+        minDate: target.value,
+      });
       return;
     }
     setDates({ ...dates, [target.name]: target.value, maxDate: target.value });
@@ -27,14 +31,13 @@ const InputCalendar = ({ hide }) => {
       payload: { ...dates, [target.name]: target.value },
     });
   };
-  
-  console.log('DAtes: ',{ dates });
+
   // useEffect(() => {
 
   // }, [dates])
-
+  console.log({ hide });
   return (
-    <div className='airports-container' hidden={!hide}>
+    <div className='airports-container' hidden={hide}>
       <Input
         className='inputs inputs-disabled'
         type='date'

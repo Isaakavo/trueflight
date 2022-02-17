@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
-import { getBoking } from '../features/bookingReducer';
+import { getFinalBooking } from '../features/bookingReducer';
 
 import '../styles/cartDetail.css';
 
 const CartDetail = () => {
-  const {booking} = useSelector(getBoking);
+  const { booking } = useSelector(getFinalBooking);
+  debugger;
   console.log({ booking });
   return (
     <div className='cart-detail-container'>
@@ -12,8 +13,9 @@ const CartDetail = () => {
         {booking.map((x) => {
           return (
             <li className='cart-item'>
-              <p>Flight origin: {x.origin}</p>
-              <p>Flight arrival: {x.destination}</p>
+              <p>Flight origin: {x.origin.name}</p>
+              <p>Flight arrival: {x.destination.name}</p>
+              <p>Price: ${x.amount}</p>
             </li>
           );
         })}

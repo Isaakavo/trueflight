@@ -105,9 +105,15 @@ const airportsReducer = (state = airportReducerDefault, action) => {
 };
 
 const bookingReducer = (state = {}, action) => {
+  const {payload} = action
   switch (action.type) {
     case 'booking/set':
-      return action.payload;
+      debugger;
+      return payload;
+
+    case 'booking/setamount':
+      debugger;
+      return {...state, ...payload}
 
     default:
       return state;

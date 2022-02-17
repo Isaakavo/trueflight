@@ -1,0 +1,52 @@
+.flights-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flights-data-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flights-data{
+  display: flex;
+}
+
+.flights-data p {
+  margin: 0.5rem 1rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.flights-list {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 70%;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+}
+
+.flights-list li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flights-departure-container{
+  align-self: center;
+  margin: 1rem 0.5rem;
+}
+
+.flights-departure-price {
+  cursor: pointer;
+}
+
+.flights-departure-price:hover {
+  border: 1px solid #0361e4;
+  border-radius: 0 6px 6px 0;
+}
+
+.flights-departure-container p{
+  margin: 0.3rem 1rem;
+}

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 
 import { fetchFlights } from '../features/reducer';
 import { getFlights } from '../features/flightReducer';
@@ -7,47 +8,75 @@ import { getBookingForFlights } from '../features/bookingReducer';
 import { availableAirports } from '../features/airportReducer';
 import Input from './Input';
 
+import '../styles/selectFlights.css';
+
 const SelectFlight = () => {
   const dispatch = useDispatch();
   const { payload } = useSelector(getFlights);
-  const { airportData, dates, passagers } = useSelector(getBookingForFlights);
+  const { dates, passagers, route } = useSelector(getBookingForFlights);
   const { input } = useSelector(availableAirports);
 
   debugger;
-  console.log({ dates });
+  console.log({ route });
+
+  const handleSelectedFlight = ({ target }) => {
+    debugger;
+    const { id } = target;
+    const [selectedFlight] = payload[route].journeys.filter(
+      (x) => x.key === id
+    );
+    console.log(selectedFlight);
+    dispatch({
+      type: 'booking/setamount',
+      payload: { amount: selectedFlight.fare.amount, cartFlag: true },
+    });
+  };
 
   const getFlightsByDate = () => {
-    debugger;
     if (!payload) {
       return null;
     }
-    // return payload[0].journeys.map((y) => {
-    //   return (
-    //     <div>
-    //       <p>Arrival Date: {y.arrivalDate}</p>
-    //       <p>Departure date: {y.departureDate} </p>
-    //       <p>Destination: {y.destination.name}</p>
-    //       <p>Origin: {y.origin.name}</p>
-    //       <p>Duration: {y.journeyDuration} hrs</p>
-    //       {/* {!y.isSoldOut ?  <p>Price: ${y.fares[0].fare.amount}</p> :null} */}
-    //     </div>
-    //   );
-    // });
-    return payload.map((x) => {
-      return (x.journeys.map((y) => {
-        return (
-          <div>
 
-            <p>Arrival Date: {y.arrivalDate}</p>
-            <p>Departure date: {y.departureDate} </p>
-            <p>Destination: {y.destination.name}</p>
-            <p>Origin: {y.origin.name}</p>
-            <p>Duration: {y.journeyDuration} hrs</p>
-            {/* {!y.isSoldOut ?  <p>Price: ${y.fares[0].fare.amount}</p> :null} */}
-          </div>
-        )
-      }))
-    })
+    debugger;
+    const flights = payload[route];
+    if (!flights) {
+      return <h1>Something went wrong</h1>;
+    }
+    moment.locale('en');
+
+    return flights.journeys.map((x) => {
+      return (
+        <div
+          className='flights-list'
+          style={x.isSoldout ? { pointerEvents: 'none', opacity: '0.4' } : {}}
+        >
+          <li>
+            <div className='flights-departure-container'>
+              <p>{moment(x.departureDate).format('H:m')} hrs</p>
+              <p>{x.origin.code}</p>
+            </div>
+            <div className='flights-departure-container'>
+              <p> {moment(x.arrivalDate).format('H:m')} hrs</p>
+              <p> {x.destination.code}</p>
+            </div>
+            <div className='flights-departure-container'>
+              <p>Duration </p>
+              <p>{x.journeyDuration} hrs</p>
+            </div>
+            <div
+              id={x.key}
+              className='flights-departure-price'
+              onClick={handleSelectedFlight}
+            >
+              <div id={x.key} className='flights-departure-container '>
+                <p id={x.key}>Price</p>
+                <p id={x.key}>${x.fare.amount}</p>
+              </div>
+            </div>
+          </li>
+        </div>
+      );
+    });
   };
 
   useEffect(() => {
@@ -56,13 +85,16 @@ const SelectFlight = () => {
   }, [dispatch]);
   return (
     <div>
-      <div>{getFlightsByDate()}</div>
-      <p>Origin: {input.origin.name}</p>
-      <p>Destination: {input.destination.name}</p>
-      <p>Departure: {dates.departure}</p>
-      <p>Comeback: {dates.comeback}</p>
-      <p>Number of passagers: {passagers.number}</p>
-      <p></p>
+      <div className='flights-container'>
+        <div className='flights-data'>
+          <p>Origin: {input.origin.name}</p>
+          <p>Destination: {input.destination.name}</p>
+          <p>Departure: {dates.departure}</p>
+          <p>Comeback: {dates.comeback}</p>
+          <p>Number of passagers: {passagers.number}</p>
+        </div>
+      </div>
+      <div className='flights-data-container'>{getFlightsByDate()}</div>
     </div>
   );
 };

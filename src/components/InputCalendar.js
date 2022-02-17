@@ -25,7 +25,6 @@ const InputCalendar = ({ hide }) => {
       return;
     }
     setDates({ ...dates, [target.name]: target.value, maxDate: target.value });
-    debugger;
     dispatch({
       type: 'dates/selectdate',
       payload: { ...dates, [target.name]: target.value },

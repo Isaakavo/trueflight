@@ -11,8 +11,6 @@ const Cart = () => {
     setShowCart(!showCart);
   };
 
-  debugger;
-  console.log({ cartFlag });
   return (
     <div className='shopping-cart'>
       {cartFlag ? (

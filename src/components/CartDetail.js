@@ -5,7 +5,6 @@ import '../styles/cartDetail.css';
 
 const CartDetail = () => {
   const {booking} = useSelector(getBoking);
-  debugger;
   console.log({ booking });
   return (
     <div className='cart-detail-container'>

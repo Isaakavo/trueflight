@@ -25,7 +25,6 @@ export const fetchDates = () => async (dispatch) => {
     dispatch({ type: 'dates/fulfilled', payload: dates });
   } catch (error) {
     dispatch({ type: 'dates/error', error: error.message });
-    console.log(error);
   }
 };
 
@@ -110,7 +109,6 @@ const bookingReducer = (state = [], action) => {
   switch (action.type) {
     case 'booking/set':
       debugger;
-      console.log([...state, { ...payload }]);
       return [...state, { ...payload }];
 
     default:

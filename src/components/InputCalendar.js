@@ -31,10 +31,6 @@ const InputCalendar = ({ hide }) => {
     });
   };
 
-  // useEffect(() => {
-
-  // }, [dates])
-  console.log({ hide });
   return (
     <div className='airports-container' hidden={hide}>
       <Input

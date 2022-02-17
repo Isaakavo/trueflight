@@ -7,8 +7,6 @@ import '../styles/cartDetail.css';
 const CartDetail = ({setShowCart}) => {
   const navigate = useNavigate();
   const { booking } = useSelector(getBooking);
-  debugger;
-  console.log({ booking });
 
   const handlePay = () => {
     setShowCart(false);

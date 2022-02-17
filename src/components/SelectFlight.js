@@ -17,16 +17,12 @@ const SelectFlight = () => {
   const { input, passagers, route } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
 
-  debugger;
-  console.log({ input });
 
   const handleSelectedFlight = ({ target }) => {
-    debugger;
     const { id } = target;
     const [selectedFlight] = payload[route].journeys.filter(
       (x) => x.key === id
     );
-    console.log(selectedFlight);
     const amount = selectedFlight.fare.amount;
     const newState = {
       amount: amount,

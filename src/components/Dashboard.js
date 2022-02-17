@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { fetchDates, fetchAirports } from '../features/reducer';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import InputAirport from './InputAirport';
 import AirportList from './AirportsList';
 import InputCalendar from './InputCalendar';
 import InputPassagers from './InputPassagers';
-import SelectFlight from './SelectFlight';
 
 import { availableAirports, selectDates } from '../features/airportReducer';
 
@@ -15,8 +15,8 @@ import '../styles/dashboard.css';
 const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
-  const [render, setRender] = useState(true);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { input, hideR, passagers, airportData } =
     useSelector(availableAirports);
   const dates = useSelector(selectDates);
@@ -30,13 +30,13 @@ const Dashboard = () => {
       input.origin
     ) {
       debugger;
-      console.log({input});
+      console.log({ input });
       const route = input.origin.code + '-' + input.destination.code;
       const obj = { ...input, dates, passagers, airportData, route };
       // dispatch({ type: 'booking/set', payload: { data: obj, cartFlag: true } });
       dispatch({ type: 'booking/set', payload: obj });
       // dispatch({ type: 'flights/senddata', payload: obj });
-      setRender(false);
+      navigate('/book')
     }
   };
 
@@ -55,25 +55,19 @@ const Dashboard = () => {
 
   return (
     <div className='wrapper'>
-      {render ? (
-        <div className='inputs-container'>
-          <InputAirport />
-          {!hideR ? <AirportList /> : null}
-          {hideR ? <InputCalendar /> : null}
-          {hideR ? <InputPassagers /> : null}
-          <button
-            className='search-button'
-            hidden={!hideR}
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        </div>
-      ) : (
-        <div >
-          <SelectFlight />
-        </div>
-      )}
+      <div className='inputs-container'>
+        <InputAirport />
+        {!hideR ? <AirportList /> : null}
+        {hideR ? <InputCalendar /> : null}
+        {hideR ? <InputPassagers /> : null}
+        <button
+          className='search-button'
+          hidden={!hideR}
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

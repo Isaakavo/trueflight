@@ -1,15 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getFinalBooking } from '../features/bookingReducer';
 
 import '../styles/cartDetail.css';
 
 const CartDetail = () => {
+  const navigate = useNavigate();
   const { booking } = useSelector(getFinalBooking);
   debugger;
   console.log({ booking });
 
   const handlePay = () => {
-    
+    navigate('/finish-purchase');
   };
 
   return (

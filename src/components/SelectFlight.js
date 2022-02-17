@@ -5,9 +5,8 @@ import moment from 'moment';
 
 import { fetchFlights } from '../features/reducer';
 import { getFlights } from '../features/flightReducer';
-import { getBookingForFlights } from '../features/bookingReducer';
 import { availableAirports } from '../features/airportReducer';
-import Input from './Input';
+import { selectDates } from '../features/airportReducer';
 
 import '../styles/selectFlights.css';
 
@@ -15,11 +14,11 @@ const SelectFlight = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { payload } = useSelector(getFlights);
-  const { dates, passagers, route } = useSelector(getBookingForFlights);
-  const { input } = useSelector(availableAirports);
+  const { input, passagers, route } = useSelector(availableAirports);
+  const dates = useSelector(selectDates);
 
   debugger;
-  console.log({ route });
+  console.log({ input });
 
   const handleSelectedFlight = ({ target }) => {
     debugger;
@@ -28,9 +27,18 @@ const SelectFlight = () => {
       (x) => x.key === id
     );
     console.log(selectedFlight);
+    const amount = selectedFlight.fare.amount;
+    const newState = {
+      amount: amount,
+      cartFlag: true,
+      route: route,
+      passagers: passagers,
+      ...input,
+      ...dates,
+    };
     dispatch({
-      type: 'booking/setamount',
-      payload: { amount: selectedFlight.fare.amount, cartFlag: true },
+      type: 'booking/set',
+      payload: newState,
     });
     navigate('/');
   };

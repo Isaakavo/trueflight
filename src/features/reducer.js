@@ -91,6 +91,7 @@ const airportsReducer = (state = airportReducerDefault, action) => {
       return { ...state, selected: payload };
 
     case 'airports/inputs':
+      debugger;
       return { ...state, input: payload };
 
     case 'airports/passagers':
@@ -104,16 +105,13 @@ const airportsReducer = (state = airportReducerDefault, action) => {
   }
 };
 
-const bookingReducer = (state = {}, action) => {
-  const {payload} = action
+const bookingReducer = (state = [], action) => {
+  const { payload } = action;
   switch (action.type) {
     case 'booking/set':
       debugger;
-      return payload;
-
-    case 'booking/setamount':
-      debugger;
-      return {...state, ...payload}
+      console.log([...state, { ...payload }]);
+      return [...state, { ...payload }];
 
     default:
       return state;

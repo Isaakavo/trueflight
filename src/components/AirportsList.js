@@ -10,13 +10,13 @@ const AirportList = () => {
 
   const handleSelectedAirport = ({ target }) => {
     debugger;
-    const name = target.getAttribute('name')
+    const name = target.getAttribute('name');
     if (inputs.origin === '') {
-      setInputs({ ...inputs, origin: {code: target.id, name: name }});
+      setInputs({ ...inputs, origin: { code: target.id, name: name } });
     } else if (inputs.destination === '') {
-      setInputs({ ...inputs, destination: {code: target.id, name: name} });
+      setInputs({ ...inputs, destination: { code: target.id, name: name } });
     }
-    console.log({airport});
+    console.log({ airport });
     dispatch({
       type: 'airports/selected',
       payload: { ...airport, selected: target.id },
@@ -31,10 +31,14 @@ const AirportList = () => {
         payload: { hideR: true },
       });
     }
-
+    
     dispatch({
       type: 'airports/inputs',
-      payload: { origin: inputs.origin, destination: inputs.destination },
+      payload: {
+        origin: inputs.origin,
+        destination: inputs.destination,
+        route: inputs.origin.code + '-' + inputs.destination.code,
+      },
     });
   }, [inputs, dispatch]);
 

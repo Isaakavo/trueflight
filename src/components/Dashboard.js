@@ -1,4 +1,4 @@
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import { fetchDates, fetchAirports } from '../features/reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +9,6 @@ import InputCalendar from './InputCalendar';
 import InputPassagers from './InputPassagers';
 
 import { availableAirports, selectDates } from '../features/airportReducer';
-
 import '../styles/dashboard.css';
 
 const airportsStatus = (state) => state.airports.fetchStatus;
@@ -29,14 +28,12 @@ const Dashboard = () => {
       input.destination &&
       input.origin
     ) {
-      debugger;
-      console.log({ input });
       const route = input.origin.code + '-' + input.destination.code;
       const obj = { ...input, dates, passagers, airportData, route };
       // dispatch({ type: 'booking/set', payload: { data: obj, cartFlag: true } });
-      dispatch({ type: 'booking/set', payload: obj });
+      // dispatch({ type: 'booking/set', payload: obj });
       // dispatch({ type: 'flights/senddata', payload: obj });
-      navigate('/book')
+      navigate('/book');
     }
   };
 

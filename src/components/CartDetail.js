@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getFinalBooking } from '../features/bookingReducer';
+import { getBooking } from '../features/bookingReducer';
 
 import '../styles/cartDetail.css';
 
 const CartDetail = ({setShowCart}) => {
   const navigate = useNavigate();
-  const { booking } = useSelector(getFinalBooking);
+  const { booking } = useSelector(getBooking);
   debugger;
   console.log({ booking });
 
@@ -23,7 +23,8 @@ const CartDetail = ({setShowCart}) => {
             <li className='cart-item'>
               <p>Flight origin: {x.origin.name}</p>
               <p>Flight arrival: {x.destination.name}</p>
-              <p>Price: ${x.amount}</p>
+              <p>Number of passagers: {x.passagers.number}</p>
+              <p>Price: ${x.passagers.number * x.amount}</p>
             </li>
           );
         })}

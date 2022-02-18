@@ -4,7 +4,7 @@ import './index.css';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer, asyncMiddleware } from './features/reducer';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter, BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,11 +12,11 @@ const store = createStore(reducer, applyMiddleware(asyncMiddleware));
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

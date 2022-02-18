@@ -45,7 +45,7 @@ const SelectFlight = () => {
     dispatch({
       type: 'airports/reset',
     });
-    navigate('/');
+    navigate('/trueflight');
   };
 
   //TODO create a component
@@ -60,6 +60,7 @@ const SelectFlight = () => {
     }
     moment.locale('en');
 
+    debugger;
     const flights = payload[route];
     return flights.journeys.map((x) => {
       return (

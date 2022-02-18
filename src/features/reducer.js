@@ -1,5 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { combineReducers } from 'redux';
+import { firestore } from '../firebaseConfig';
 
 export const asyncMiddleware = (store) => (next) => (action) => {
   if (typeof action === 'function') {
@@ -11,26 +12,24 @@ export const asyncMiddleware = (store) => (next) => (action) => {
 export const fetchDates = () => async (dispatch) => {
   dispatch({ type: 'dates/pending' });
   try {
-    const {
-      data: {
-        data: { availableDates },
-      },
-    } = await axios.get('http://localhost:3001/available-dates');
-    const dates = availableDates.slice(0, 100);
-    dispatch({ type: 'dates/fulfilled', payload: dates });
+    const collection = await firestore.collection('available-dates').get();
+    const dates = [];
+    collection.forEach((x) => dates.push(x.data().availableDates));
+    dispatch({ type: 'dates/fulfilled', payload: dates[0] });
   } catch (error) {
     dispatch({ type: 'dates/error', error: error.message });
+    console.log(error.message);
   }
 };
 
 export const fetchAirports = () => async (dispatch) => {
   dispatch({ type: 'airports/pending' });
   try {
-    const {
-      data: {
-        data: { airports },
-      },
-    } = await axios.get('http://localhost:3001/airports');
+    const collection = await firestore.collection('airports').get();
+    const airports = [];
+    collection.forEach((x) => {
+      airports.push(...x.data().airports);
+    });
     dispatch({ type: 'airports/fulfilled', payload: airports });
   } catch (error) {
     dispatch({ type: 'airports/error', error: error.message });
@@ -40,14 +39,15 @@ export const fetchAirports = () => async (dispatch) => {
 export const fetchFlights = () => async (dispatch) => {
   dispatch({ type: 'flights/pending' });
   try {
-    const {
-      data: {
-        data: { routes },
-      },
-    } = await axios.get('http://localhost:3001/available-fligths');
-    dispatch({ type: 'flights/fulfilled', payload: routes });
+    const collection = await firestore.collection('available-fligths').get();
+    const flights = [];
+    collection.forEach((x) => {
+      flights.push(x.data());
+    });
+    dispatch({ type: 'flights/fulfilled', payload: flights[0] });
   } catch (error) {
     dispatch({ type: 'flights/error', error: error.message });
+    console.log(error.message);
   }
 };
 
@@ -108,11 +108,9 @@ const bookingReducer = (state = [], action) => {
       return [...state, { ...payload }];
 
     case 'booking/final':
-      debugger;
       return { ...state, ...payload };
 
     case 'booking/delete':
-      debugger;
       const removedItem = state.filter((x) => x.id !== payload);
       return removedItem;
 
@@ -154,6 +152,22 @@ const fetchingAirportsReducer = (
   }
 };
 
+const fetchingFlightsReducer = (
+  state = { loading: 'idle', error: null },
+  action
+) => {
+  switch (action.type) {
+    case 'flights/pending':
+      return { ...state, loading: 'pending' };
+    case 'flights/fulfilled':
+      return { ...state, loading: 'succeded' };
+    case 'flights/error':
+      return { error: action.error, loading: 'rejected' };
+    default:
+      return state;
+  }
+};
+
 export const reducer = combineReducers({
   dates: availableDatesReducer,
   airports: combineReducers({
@@ -161,5 +175,8 @@ export const reducer = combineReducers({
     fetchStatus: fetchingAirportsReducer,
   }),
   booking: bookingReducer,
-  flights: flightReducer,
+  flights: combineReducers({
+    flightReducer,
+    fetchingFlightsReducer
+  }),
 });

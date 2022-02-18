@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import Input from './Input';
 import Modal from './Modal';
+import FinishModal from './FinishModal';
 import Wrapper from './Wrapper';
 
 const inputsDefault = {
@@ -11,20 +13,99 @@ const inputsDefault = {
   surname: '',
   direction: '',
   email: '',
+  firstnameValid: false,
+  lastnameValid: false,
+  surnameValid: false,
+  directionValid: false,
+  emailValid: false,
+};
+
+const formErrorsDefault = {
+  firstname: '',
+  lastname: '',
+  surname: '',
+  direction: '',
+  email: '',
+};
+
+const FormErrors = ({ formErrors }) => {
+  return (
+    <div>
+      {Object.keys(formErrors).map((x, i) => {
+        if (formErrors[x].length > 0) {
+          return (
+            <p key={i}>
+              {x} {formErrors[x]}
+            </p>
+          );
+        } else {
+          return '';
+        }
+      })}
+    </div>
+  );
 };
 
 const FinishBooking = () => {
   const [inputs, setInputs] = useState(inputsDefault);
-  const [disabled, setDisabled] = useState(false);
+  const [formErrors, setFormErrors] = useState(formErrorsDefault);
+  const [disabled, setDisabled] = useState(true);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const booking = useSelector(({ booking }) => booking);
 
   console.log(booking);
 
   const handleChange = ({ target }) => {
-    console.log({ ...inputs, [target.name]: target.value });
-    setInputs({ ...inputs, [target.name]: target.value });
+    const name = target.name;
+    const value = target.value;
+    let fieldValidationErrors = formErrors;
+    let firstnameValid = inputs.firstnameValid;
+    let lastnameValid = inputs.lastname;
+    let surnameValid = inputs.surname;
+    let directionValid = inputs.direction;
+    let emailValid = inputs.email;
+
+    switch (name) {
+      case 'firstname':
+        firstnameValid = value.length > 0;
+        fieldValidationErrors.firstname = firstnameValid ? '' : ' not valid';
+        break;
+      case 'lastname':
+        lastnameValid = value.length > 0;
+        fieldValidationErrors.lastname = lastnameValid ? '' : ' not valid';
+        break;
+      case 'surname':
+        surnameValid = value.length > 0;
+        fieldValidationErrors.surname = surnameValid ? '' : ' not valid';
+        break;
+      case 'direction':
+        directionValid = value.length > 0;
+        fieldValidationErrors.direction = directionValid ? '' : ' not valid';
+        break;
+      case 'email':
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        fieldValidationErrors.email = emailValid ? '' : ' not valid';
+        break;
+      default:
+        break;
+    }
+
+    const newInputs = {
+      ...inputs,
+      [name]: value,
+      firstnameValid,
+      lastnameValid,
+      surnameValid,
+      directionValid,
+      emailValid,
+    };
+
+    setInputs(newInputs);
+    setFormErrors({ ...formErrors, fieldValidationErrors });
+    validateDisabled();
   };
 
   const handleSubmit = (e) => {
@@ -33,100 +114,119 @@ const FinishBooking = () => {
     // debugger;
     // console.log({newObj});
     // dispatch({type: 'booking/final', payload: newObj});
-    setShowModal(true);
+    const {
+      firstnameValid,
+      lastnameValid,
+      surnameValid,
+      directionValid,
+      emailValid,
+    } = inputs;
+    if (
+      firstnameValid &&
+      lastnameValid &&
+      surnameValid &&
+      directionValid &&
+      emailValid
+    ) {
+      setShowModal(true);
+      setDisabled(false);
+    }
   };
 
   const hideModal = () => {
     setShowModal(false);
+    dispatch({ type: 'booking/reset' });
+    navigate('/');
   };
+
+  const validateDisabled = () => {
+    if (
+      inputs.firstnameValid &&
+      inputs.lastnameValid &&
+      inputs.surnameValid &&
+      inputs.directionValid &&
+      inputs.emailValid
+    ) {
+      setDisabled(false);
+      setButtonDisabled(false);
+    }
+  };
+
+  useEffect(() => {
+    if (booking.length === 0) {
+      setDisabled(true);
+      setButtonDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [booking]);
 
   return (
     <Wrapper>
       <Modal show={showModal} handleClose={hideModal}>
-        <div className='modal-container'>
-          <h2>This tickets are yours!</h2>
-          <h4>Your purchase: </h4>
-          <section className='modal-section'>
-            <div>
-              <b>Name: </b>{' '}
-              <p>
-                {inputs.firstname}
-                {inputs.lastname}
-                {inputs.surname}
-              </p>
-            </div>
-            <div>
-              <b>Direction: </b>
-              <p>{inputs.direction}</p>
-            </div>
-            <div>
-              <b>email:</b>
-              <p>{inputs.email}</p>
-            </div>
-          </section>
-          <section>
-            <h4>Flight information: </h4>
-            <div>
-              {booking.map((x, i) => {
-                return (
-                  <div className='flight-container' key={i}>
-                    <div >
-                      <b>Origin</b>{' '}
-                      <p>
-                        {x.origin.name} {x.origin.code}
-                      </p>
-                      <b>Destination</b>{' '}
-                      <p>
-                        {x.destination.name} {x.destination.code}
-                      </p>
-                    </div>
-                    <div>
-                      <b>Departure</b> <p>{x.departure}</p>
-                      <b>Comeback</b> <p>{x.comeback}</p>
-                    </div>
-                    <div>
-                      <b>Passagers</b> <p>{x.passagers.number}</p>
-                      <b>Total</b> <p>{x.passagers.number * x.amount}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        </div>
+        <FinishModal inputs={inputs} />
       </Modal>
+      <h3>Fill the form to get your tickets!</h3>
       <form className='inputs-container' onSubmit={handleSubmit}>
+        <div className='airports-container'>
+          <Input
+            name='firstname'
+            type='text'
+            className='inputs'
+            placeholder='First name'
+            onChange={handleChange}
+            disabled={disabled}
+          />
+          <Input
+            name='lastname'
+            className='inputs'
+            type='text'
+            placeholder='Last name'
+            onChange={handleChange}
+            disabled={disabled}
+          />
+          <Input
+            name='surname'
+            className='inputs'
+            type='text'
+            placeholder='Sur name'
+            onChange={handleChange}
+            disabled={disabled}
+          />
+        </div>
+        <div className='airports-container'>
+          <Input
+            name='direction'
+            className='inputs'
+            type='text'
+            placeholder='Direction'
+            onChange={handleChange}
+            disabled={disabled}
+          />
+          <Input
+            name='email'
+            className='inputs'
+            type='text'
+            placeholder='e-mail'
+            onChange={handleChange}
+            disabled={disabled}
+          />
+          <Input 
+            name='code'
+            className='inputs'
+            type='text'
+            placeholder='discount coupon'
+            onChange={handleChange}
+            disabled={disabled}
+          />
+        </div>
+        <FormErrors formErrors={formErrors} />
         <Input
-          name='firstname'
-          type='text'
-          placeholder='First name'
-          onChange={handleChange}
+          type='submit'
+          className='search-button'
+          value='Get Tickets!'
+          disabled={buttonDisabled}
         />
-        <Input
-          name='lastname'
-          type='text'
-          placeholder='Last name'
-          onChange={handleChange}
-        />
-        <Input
-          name='surname'
-          type='text'
-          placeholder='Sur name'
-          onChange={handleChange}
-        />
-        <Input
-          name='direction'
-          type='text'
-          placeholder='Direction'
-          onChange={handleChange}
-        />
-        <Input
-          name='email'
-          type='text'
-          placeholder='e-mail'
-          onChange={handleChange}
-        />
-        <Input type='submit' value='Get Tickets!' disabled={disabled} />
       </form>
     </Wrapper>
   );

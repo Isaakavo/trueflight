@@ -19,7 +19,6 @@ const SelectFlight = () => {
   const { input, passagers, route } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
 
-
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
     const [selectedFlight] = payload[route].journeys.filter(
@@ -27,6 +26,7 @@ const SelectFlight = () => {
     );
     const amount = selectedFlight.fare.amount;
     const newState = {
+      id: id,
       amount: amount,
       cartFlag: true,
       route: route,
@@ -40,8 +40,8 @@ const SelectFlight = () => {
     });
 
     dispatch({
-      type: 'airports/reset'
-    })
+      type: 'airports/reset',
+    });
     navigate('/');
   };
 
@@ -59,6 +59,7 @@ const SelectFlight = () => {
     return flights.journeys.map((x) => {
       return (
         <div
+          key={x.key}
           className='flights-list'
           style={x.isSoldout ? { pointerEvents: 'none', opacity: '0.4' } : {}}
         >

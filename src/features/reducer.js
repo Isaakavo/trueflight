@@ -1,11 +1,6 @@
 import axios from 'axios';
 import { combineReducers } from 'redux';
 
-// const initialState = {
-//   availableDates: {},
-//   airports: {},
-// };
-
 export const asyncMiddleware = (store) => (next) => (action) => {
   if (typeof action === 'function') {
     return action(store.dispatch, store.getState);
@@ -111,6 +106,18 @@ const bookingReducer = (state = [], action) => {
   switch (action.type) {
     case 'booking/set':
       return [...state, { ...payload }];
+
+    case 'booking/final':
+      debugger;
+      return { ...state, ...payload };
+
+    case 'booking/delete':
+      debugger;
+      const removedItem = state.filter((x) => x.id !== payload);
+      return removedItem;
+
+    case 'booking/reset':
+      return [];
 
     default:
       return state;

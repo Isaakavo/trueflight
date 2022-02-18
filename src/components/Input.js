@@ -9,6 +9,7 @@ const Input = ({
   onClick,
   max,
   min,
+  disabled
 }) => {
   return (
     <input
@@ -23,6 +24,7 @@ const Input = ({
       autoComplete='off'
       max={type === 'date' ? max : ''}
       min={type === 'date' ? min : ''}
+      disabled={disabled}
     />
   );
 };

@@ -7,6 +7,7 @@ import InputAirport from './InputAirport';
 import AirportList from './AirportsList';
 import InputCalendar from './InputCalendar';
 import InputPassagers from './InputPassagers';
+import Wrapper from './Wrapper';
 
 import { availableAirports, selectDates } from '../features/airportReducer';
 import '../styles/dashboard.css';
@@ -45,7 +46,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className='wrapper'>
+    <Wrapper className='wrapper'>
       <div className='inputs-container'>
         <InputAirport />
         {!hideR ? <AirportList /> : null}
@@ -59,7 +60,7 @@ const Dashboard = () => {
           Submit
         </button>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

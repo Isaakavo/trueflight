@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
+import Wrapper from './Wrapper';
+
 import { fetchFlights } from '../features/reducer';
 import { getFlights } from '../features/flightReducer';
 import { availableAirports } from '../features/airportReducer';
@@ -93,7 +95,7 @@ const SelectFlight = () => {
     dispatch(fetchFlights());
   }, [dispatch]);
   return (
-    <div>
+    <Wrapper>
       <div className='flights-container'>
         <div className='flights-data'>
           <p>Origin: {input.origin.name}</p>
@@ -104,7 +106,7 @@ const SelectFlight = () => {
         </div>
       </div>
       <div className='flights-data-container'>{getFlightsByDate()}</div>
-    </div>
+    </Wrapper>
   );
 };
 

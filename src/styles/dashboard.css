@@ -108,14 +108,27 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.pay-button {
+.search-button:disabled {
   width: 30%;
   padding: 0.25rem 1rem;   
   background-color: transparent;
   border-radius: 6px;
-  border: 3px solid #0361e4;
-  color: #0361e4;
-  font-size: 1.1rem;
+  border: 3px solid #ff7961;
+  color: #ff7961;
+  font-size: 1.3rem;
+  font-weight: 600;
   align-self: center;
+}
+
+
+svg {
   cursor: pointer;
+}
+
+
+.total-column {
+  grid-column: none;
+  margin: 1rem 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bolder;
 }

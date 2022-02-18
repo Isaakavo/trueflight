@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
 import Wrapper from './Wrapper';
+import Loading from './Loading';
 
 import { fetchFlights } from '../features/reducer';
 import { getFlights } from '../features/flightReducer';
@@ -18,7 +19,9 @@ const SelectFlight = () => {
   const { payload } = useSelector(getFlights);
   const { input, passagers, route } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
-  const {loading} = useSelector(({flights: {fetchingFlightsReducer}} ) => fetchingFlightsReducer );
+  const { loading } = useSelector(
+    ({ flights: { fetchingFlightsReducer } }) => fetchingFlightsReducer
+  );
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
     const [selectedFlight] = payload[route].journeys.filter(
@@ -56,7 +59,7 @@ const SelectFlight = () => {
       return <h1>Something went wrong</h1>;
     }
     moment.locale('en');
-    
+
     const flights = payload[route];
     return flights.journeys.map((x) => {
       return (
@@ -98,18 +101,24 @@ const SelectFlight = () => {
     dispatch(fetchFlights());
   }, [dispatch]);
   return (
-    <Wrapper>
-      <div className='flights-container'>
-        <div className='flights-data'>
-          <p>Origin: {input.origin.name}</p>
-          <p>Destination: {input.destination.name}</p>
-          <p>Departure: {dates.departure}</p>
-          <p>Comeback: {dates.comeback}</p>
-          <p>Number of passagers: {passagers.number}</p>
-        </div>
-      </div>
-      <div className='flights-data-container'>{loading !== 'pending' ? getFlightsByDate() : <h1>Loading</h1> }</div>
-    </Wrapper>
+    <>
+      {loading !== 'pending' ? (
+        <Wrapper>
+          <div className='flights-container'>
+            <div className='flights-data'>
+              <p>Origin: {input.origin.name}</p>
+              <p>Destination: {input.destination.name}</p>
+              <p>Departure: {dates.departure}</p>
+              <p>Comeback: {dates.comeback}</p>
+              <p>Number of passagers: {passagers.number}</p>
+            </div>
+          </div>
+          <div className='flights-data-container'>{getFlightsByDate()}</div>
+        </Wrapper>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 };
 

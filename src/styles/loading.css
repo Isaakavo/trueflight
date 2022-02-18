@@ -1,0 +1,31 @@
+.loading-icon {
+  color: #0361e4;
+  animation: move 2s ease infinite;
+}
+
+.loading-text {
+  font-size: 3rem;
+  color: #0361e4;
+  font-weight: bolder;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-25%);
+  }
+
+  25% {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(25%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}

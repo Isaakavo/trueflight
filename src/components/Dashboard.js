@@ -7,6 +7,7 @@ import InputAirport from './InputAirport';
 import AirportList from './AirportsList';
 import InputCalendar from './InputCalendar';
 import InputPassagers from './InputPassagers';
+import Loading from './Loading';
 import Wrapper from './Wrapper';
 
 import { availableAirports, selectDates } from '../features/airportReducer';
@@ -23,11 +24,7 @@ const Dashboard = () => {
 
   const handleSubmit = () => {
     debugger;
-    if (
-      dates.departure &&
-      input.destination &&
-      input.origin
-    ) {
+    if (dates.departure && input.destination && input.origin) {
       navigate('/book');
     }
   };
@@ -38,7 +35,7 @@ const Dashboard = () => {
   }, [dispatch]);
 
   if (loading === 'pending' || loading === 'idle') {
-    return <h1>Loading</h1>;
+    return <Loading />;
   }
 
   if (loading === 'rejected') {

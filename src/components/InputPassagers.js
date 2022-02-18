@@ -7,7 +7,7 @@ const InputPassagers = ({ hide }) => {
 
   const handlePassagersNumber = ({ target }) => {
     const { value } = target;
-    if (value < 0) {
+    if (value <= 0) {
       setPassagers({ ...passagers, number: 1 });
       return;
     }

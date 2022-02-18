@@ -22,8 +22,8 @@ const Dashboard = () => {
   const { loading } = useSelector(airportsStatus);
 
   const handleSubmit = () => {
+    debugger;
     if (
-      dates.comeback &&
       dates.departure &&
       input.destination &&
       input.origin

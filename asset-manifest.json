@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Isaakavo/trueflight/tree/githubpages/static/css/main.de33ba9a.css",
+    "main.js": "/Isaakavo/trueflight/tree/githubpages/static/js/main.a7d4c485.js",
+    "static/js/787.2589662e.chunk.js": "/Isaakavo/trueflight/tree/githubpages/static/js/787.2589662e.chunk.js",
+    "index.html": "/Isaakavo/trueflight/tree/githubpages/index.html",
+    "main.de33ba9a.css.map": "/Isaakavo/trueflight/tree/githubpages/static/css/main.de33ba9a.css.map",
+    "main.a7d4c485.js.map": "/Isaakavo/trueflight/tree/githubpages/static/js/main.a7d4c485.js.map",
+    "787.2589662e.chunk.js.map": "/Isaakavo/trueflight/tree/githubpages/static/js/787.2589662e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de33ba9a.css",
+    "static/js/main.a7d4c485.js"
+  ]
+}

@@ -1,5 +1,6 @@
 
 
-export const getFlights = ({flights}) => {
-  return flights;
+export const getFlights = ({flights: {flightReducer}}) => {
+  debugger;
+  return flightReducer;
 }

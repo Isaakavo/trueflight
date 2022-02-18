@@ -16,13 +16,18 @@ const InputCalendar = ({ hide }) => {
   const { minDate, maxDate } = useSelector(selectDates);
 
   const handleSelectDate = ({ target }) => {
+    debugger;
     if (target.name === 'departure') {
       setDates({
         ...dates,
         [target.name]: target.value,
         minDate: target.value,
       });
-      return;
+      // return;
+      dispatch({
+        type: 'dates/selectdate',
+        payload: { ...dates, [target.name]: target.value },
+      });
     }
     setDates({ ...dates, [target.name]: target.value, maxDate: target.value });
     dispatch({
@@ -43,7 +48,7 @@ const InputCalendar = ({ hide }) => {
         max={maxDate?.date}
         // disabled={disabled.dates}
       />
-      <Input
+      {/* <Input
         className='inputs inputs-disabled'
         type='date'
         name='comeback'
@@ -52,7 +57,7 @@ const InputCalendar = ({ hide }) => {
         max={maxDate?.date}
         min={dates?.minDate}
         onChange={handleSelectDate}
-      />
+      /> */}
     </div>
   );
 };

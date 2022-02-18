@@ -18,7 +18,7 @@ const SelectFlight = () => {
   const { payload } = useSelector(getFlights);
   const { input, passagers, route } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
-
+  const {loading} = useSelector(({flights: {fetchingFlightsReducer}} ) => fetchingFlightsReducer );
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
     const [selectedFlight] = payload[route].journeys.filter(
@@ -45,17 +45,19 @@ const SelectFlight = () => {
     navigate('/');
   };
 
+  //TODO create a component
+
   const getFlightsByDate = () => {
     if (!payload) {
       return null;
     }
 
-    const flights = payload[route];
-    if (!flights) {
+    if (loading === 'rejected') {
       return <h1>Something went wrong</h1>;
     }
     moment.locale('en');
-
+    
+    const flights = payload[route];
     return flights.journeys.map((x) => {
       return (
         <div
@@ -106,7 +108,7 @@ const SelectFlight = () => {
           <p>Number of passagers: {passagers.number}</p>
         </div>
       </div>
-      <div className='flights-data-container'>{getFlightsByDate()}</div>
+      <div className='flights-data-container'>{loading !== 'pending' ? getFlightsByDate() : <h1>Loading</h1> }</div>
     </Wrapper>
   );
 };

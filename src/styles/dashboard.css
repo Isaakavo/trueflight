@@ -123,8 +123,16 @@ input::-webkit-inner-spin-button {
 
 svg {
   cursor: pointer;
+  color: #0361e4;
+  padding: 0.3rem;
 }
 
+svg:hover {
+  background-color: #0361e4;
+  color: white;
+  border-radius: 3px;
+  padding: 0.3rem;
+}
 
 .total-column {
   grid-column: none;

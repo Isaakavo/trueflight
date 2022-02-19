@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { availableAirports } from '../features/airportReducer';
+import { availableAirports } from '../reducers/airportReducer';
 
 import Input from './Input';
 import CancelIcon from '@mui/icons-material/Cancel';

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { availableAirports } from '../features/airportReducer';
+import { availableAirports } from '../reducers/airportReducer';
 
 const AirportList = () => {
   const [inputs, setInputs] = useState({ origin: '', destination: '' });

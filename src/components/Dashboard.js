@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { fetchDates, fetchAirports } from '../features/reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +9,8 @@ import InputPassagers from './InputPassagers';
 import Loading from './Loading';
 import Wrapper from './Wrapper';
 
-import { availableAirports, selectDates } from '../features/airportReducer';
+import { fetchDates, fetchAirports } from '../actions/dataActions';
+import { availableAirports, selectDates } from '../reducers/airportReducer';
 import '../styles/dashboard.css';
 
 const airportsStatus = (state) => state.airports.fetchStatus;

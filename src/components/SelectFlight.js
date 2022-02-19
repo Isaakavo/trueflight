@@ -6,9 +6,9 @@ import FlightsList from './FlightsList';
 import Wrapper from './Wrapper';
 import Loading from './Loading';
 
-import { fetchFlights } from '../features/reducer';
-import { availableAirports } from '../features/airportReducer';
-import { selectDates } from '../features/airportReducer';
+import { fetchFlights } from '../actions/dataActions';
+import { availableAirports } from '../reducers/airportReducer';
+import { selectDates } from '../reducers/airportReducer';
 
 import '../styles/selectFlights.css';
 

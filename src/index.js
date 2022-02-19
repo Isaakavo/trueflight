@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { reducer, asyncMiddleware } from './features/reducer';
 import { HashRouter, BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-const store = createStore(reducer, applyMiddleware(asyncMiddleware));
+import {store} from './store';
 
 ReactDOM.render(
   <React.StrictMode>

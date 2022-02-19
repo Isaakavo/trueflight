@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooking } from '../features/bookingReducer';
+import { getBooking } from '../reducers/bookingReducer';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../styles/cartDetail.css';

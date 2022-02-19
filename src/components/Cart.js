@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getBooking } from '../features/bookingReducer';
+import { getBooking } from '../reducers/bookingReducer';
 import CartDetail from './CartDetail';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 

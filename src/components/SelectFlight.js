@@ -70,7 +70,6 @@ const SelectFlight = () => {
               <p>Origin: {input.origin.name}</p>
               <p>Destination: {input.destination.name}</p>
               <p>Departure: {dates.departure}</p>
-              <p>Comeback: {dates.comeback}</p>
               <p>Number of passagers: {passagers.number}</p>
             </div>
           </div>

@@ -10,7 +10,7 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: 80%;
+  width: 50%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -76,4 +76,27 @@
   max-height: 300px;
   border: 1px solid #e0e0e0;
   overflow-y: scroll;
+}
+
+
+@media only screen and (max-width: 421px) {
+  .modal-main{ 
+    width: 80%;
+  }
+
+  .modal-container h4 {
+    margin: 0.5rem 0;
+  }
+
+  .modal-section {
+    flex-direction: column;
+  }
+
+  .flight-info-container {
+    padding: 1rem;
+  }
+
+  .flight-container {
+    display: block;
+  }
 }

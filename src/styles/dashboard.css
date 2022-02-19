@@ -7,7 +7,7 @@
 }
 
 .inputs-container {
-  width: 80%;
+  width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
   border: 1px solid #b7c2cc;
@@ -139,4 +139,19 @@ svg:hover {
   margin: 1rem 1.2rem;
   font-size: 1.3rem;
   font-weight: bolder;
+}
+
+
+@media only screen and (max-width: 421px) {
+  .inputs-container {
+    width: 80%;
+    height: 100%;
+  }
+  .airports-list li:active {
+    background-color: none;
+  }
+
+  .search-button {
+    width: auto;
+  }
 }

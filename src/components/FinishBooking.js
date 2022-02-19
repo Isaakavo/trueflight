@@ -56,7 +56,6 @@ const FinishBooking = () => {
   const dispatch = useDispatch();
   const booking = useSelector(({ booking }) => booking);
 
-
   const handleChange = ({ target }) => {
     const name = target.name;
     const value = target.value;
@@ -156,6 +155,7 @@ const FinishBooking = () => {
     }
   }, [booking]);
 
+  let width = window.innerWidth;
   return (
     <Wrapper>
       <Modal show={showModal} handleClose={hideModal}>
@@ -163,58 +163,125 @@ const FinishBooking = () => {
       </Modal>
       <h3>Fill the form to get your tickets!</h3>
       <form className='inputs-container' onSubmit={handleSubmit}>
-        <div className='airports-container'>
-          <Input
-            name='firstname'
-            type='text'
-            className='inputs'
-            placeholder='First name'
-            onChange={handleChange}
-            disabled={disabled}
-          />
-          <Input
-            name='lastname'
-            className='inputs'
-            type='text'
-            placeholder='Last name'
-            onChange={handleChange}
-            disabled={disabled}
-          />
-          <Input
-            name='surname'
-            className='inputs'
-            type='text'
-            placeholder='Sur name'
-            onChange={handleChange}
-            disabled={disabled}
-          />
-        </div>
-        <div className='airports-container'>
-          <Input
-            name='direction'
-            className='inputs'
-            type='text'
-            placeholder='Direction'
-            onChange={handleChange}
-            disabled={disabled}
-          />
-          <Input
-            name='email'
-            className='inputs'
-            type='text'
-            placeholder='e-mail'
-            onChange={handleChange}
-            disabled={disabled}
-          />
-          <Input 
-            name='code'
-            className='inputs'
-            type='text'
-            placeholder='discount coupon'
-            onChange={handleChange}
-            disabled={disabled}
-          />
-        </div>
+        {width < 768 ? (
+          <>
+            <div className='airports-container'>
+              <Input
+                name='firstname'
+                type='text'
+                className='inputs'
+                placeholder='First name'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+            <div className='airports-container'>
+              <Input
+                name='lastname'
+                className='inputs'
+                type='text'
+                placeholder='Last name'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+            <div className='airports-container'>
+              <Input
+                name='surname'
+                className='inputs'
+                type='text'
+                placeholder='Sur name'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+            <div className='airports-container'>
+              <Input
+                name='direction'
+                className='inputs'
+                type='text'
+                placeholder='Direction'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+            <div className='airports-container'>
+              <Input
+                name='email'
+                className='inputs'
+                type='text'
+                placeholder='e-mail'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+            <div className='airports-container'>
+              <Input
+                name='code'
+                className='inputs'
+                type='text'
+                placeholder='discount coupon'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className='airports-container'>
+              <Input
+                name='firstname'
+                type='text'
+                className='inputs'
+                placeholder='First name'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+              <Input
+                name='lastname'
+                className='inputs'
+                type='text'
+                placeholder='Last name'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+              <Input
+                name='surname'
+                className='inputs'
+                type='text'
+                placeholder='Sur name'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+            <div className='airports-container'>
+              <Input
+                name='direction'
+                className='inputs'
+                type='text'
+                placeholder='Direction'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+              <Input
+                name='email'
+                className='inputs'
+                type='text'
+                placeholder='e-mail'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+              <Input
+                name='code'
+                className='inputs'
+                type='text'
+                placeholder='discount coupon'
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
+          </>
+        )}
         <FormErrors formErrors={formErrors} />
         <Input
           type='submit'

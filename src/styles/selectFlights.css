@@ -51,3 +51,13 @@
 .flights-departure-container p{
   margin: 0.3rem 1rem;
 }
+
+
+@media only screen and (max-width: 421px) { 
+  .flights-data  {
+    flex-direction: column;
+  }
+  .flights-list {
+    width: auto;
+  }
+}

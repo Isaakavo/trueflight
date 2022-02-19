@@ -11,7 +11,8 @@ const Header = () => {
   const handleClick = () => {
     debugger;
     if (location.pathname !== '/') {
-      dispatch({ type: 'airports/reset' });
+      dispatch({ type: 'airports/resetselected' });
+      dispatch({ type: 'flights/reset' });
     }
     navigate('/');
   };

@@ -43,7 +43,7 @@ const FinishModal = ({ inputs }) => {
                   {/* <b>Comeback</b> <p>{x.comeback}</p> */}
                 </div>
                 <div>
-                  <b>Passagers</b> <p>{x.passagers.number}</p>
+                  <b>Passengers</b> <p>{x.passagers.number}</p>
                   <b>Total</b>{' '}
                   <p>
                     ${x.total}

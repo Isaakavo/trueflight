@@ -41,10 +41,12 @@
 
 .flights-departure-price {
   cursor: pointer;
+  border: 1px solid #0361e4;
+  border-radius: 0 6px 6px 0;
 }
 
 .flights-departure-price:hover {
-  border: 1px solid #0361e4;
+  border: 2px solid #ff7961;
   border-radius: 0 6px 6px 0;
 }
 

@@ -34,11 +34,11 @@
   color: #e0e0e0;
 }
 
-/* input::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-} */
+}
 
 .airports-container {
   display: flex;
@@ -96,7 +96,7 @@ input::-webkit-inner-spin-button {
 }
 
 .search-button {
-  width: 30%;
+  width: 50%;
   padding: 0.25rem 1rem;   
   background-color: transparent;
   border-radius: 6px;
@@ -109,7 +109,7 @@ input::-webkit-inner-spin-button {
 }
 
 .search-button:disabled {
-  width: 30%;
+  width: 50%;
   padding: 0.25rem 1rem;   
   background-color: transparent;
   border-radius: 6px;
@@ -117,6 +117,7 @@ input::-webkit-inner-spin-button {
   color: #ff7961;
   font-size: 1.3rem;
   font-weight: 600;
+  cursor: auto;
   align-self: center;
 }
 

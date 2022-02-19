@@ -71,7 +71,7 @@ const SelectFlight = () => {
               <p>Origin: {input.origin.name}</p>
               <p>Destination: {input.destination.name}</p>
               <p>Departure: {dates.departure}</p>
-              <p>Number of passagers: {passagers.number}</p>
+              <p>Number of passengers: {passagers.number}</p>
             </div>
           </div>
           <div className='flights-data-container'>

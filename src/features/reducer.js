@@ -36,10 +36,10 @@ export const fetchAirports = () => async (dispatch) => {
   }
 };
 
-export const fetchFlights = () => async (dispatch) => {
+export const fetchFlights = (code) => async (dispatch) => {
   dispatch({ type: 'flights/pending' });
   try {
-    const collection = await firestore.collection('available-fligths').get();
+    const collection = await firestore.collection('fligths').where('code', '==', code).get();
     const flights = [];
     collection.forEach((x) => {
       flights.push(x.data());
@@ -126,7 +126,7 @@ const flightReducer = (state = {}, action) => {
   const { payload } = action;
   switch (action.type) {
     case 'flights/fulfilled':
-      return { ...state, payload };
+      return { ...state, ...payload };
 
     case 'flights/senddata':
       return { ...state, payload };

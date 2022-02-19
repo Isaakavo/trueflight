@@ -16,15 +16,16 @@ import '../styles/selectFlights.css';
 const SelectFlight = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { payload } = useSelector(getFlights);
+  const payload  = useSelector(getFlights);
   const { input, passagers, route } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
   const { loading } = useSelector(
     ({ flights: { fetchingFlightsReducer } }) => fetchingFlightsReducer
   );
+
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
-    const [selectedFlight] = payload[route].journeys.filter(
+    const [selectedFlight] = payload.journeys.filter(
       (x) => x.key === id
     );
     const amount = selectedFlight.fare.amount;
@@ -51,6 +52,7 @@ const SelectFlight = () => {
   //TODO create a component
 
   const getFlightsByDate = () => {
+    debugger;
     if (!payload) {
       return null;
     }
@@ -61,7 +63,12 @@ const SelectFlight = () => {
     moment.locale('en');
 
     debugger;
-    const flights = payload[route];
+    const flights = payload;
+    if (Object.keys(flights).length === 0) {
+      dispatch({ type: 'flights/error' });
+      return;
+    }
+
     return flights.journeys.map((x) => {
       return (
         <div
@@ -99,8 +106,13 @@ const SelectFlight = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchFlights());
-  }, [dispatch]);
+    debugger;
+    dispatch(fetchFlights(route));
+  }, [dispatch, route]);
+
+  if (loading === 'rejected') {
+    return <h1>Something went wrong :(</h1>;
+  }
   return (
     <>
       {loading !== 'pending' ? (

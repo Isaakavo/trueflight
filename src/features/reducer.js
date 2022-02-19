@@ -117,9 +117,6 @@ const bookingReducer = (state = [], action) => {
     case 'booking/set':
       return [...state, { ...payload }];
 
-    case 'booking/final':
-      return { ...state, ...payload };
-
     case 'booking/delete':
       const removedItem = state.filter((x) => x.id !== payload);
       return removedItem;

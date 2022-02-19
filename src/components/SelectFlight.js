@@ -55,11 +55,12 @@ const SelectFlight = () => {
     dispatch(fetchFlights(route));
   }, [dispatch, route]);
 
-  if (Object.keys(flights).length === 0 || loading === 'pending') {
-    return <Loading />;
-  } else if (loading === 'rejected') {
+  if (loading === 'rejected') {
     return <h1>Something went wrong in our side 🥺</h1>;
   }
+  if (Object.keys(flights).length === 0 || loading === 'pending') {
+    return <Loading />;
+  } 
 
   return (
     <>

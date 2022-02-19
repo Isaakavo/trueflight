@@ -34,7 +34,6 @@ const AirportList = () => {
       payload: {
         origin: inputs.origin,
         destination: inputs.destination,
-        route: inputs.origin.code + '-' + inputs.destination.code,
       },
     });
   }, [inputs, dispatch]);

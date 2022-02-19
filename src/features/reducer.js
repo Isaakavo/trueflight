@@ -48,6 +48,7 @@ export const fetchFlights = (code) => async (dispatch) => {
     dispatch({ type: 'flights/fulfilled', payload: flights[0] });
   } catch (error) {
     dispatch({ type: 'flights/error', error: error.message });
+    console.log(error);
   }
 };
 
@@ -58,10 +59,7 @@ const datesDefault = {
   minDate: '',
 };
 
-const availableDatesReducer = (
-  state = datesDefault,
-  action
-) => {
+const availableDatesReducer = (state = datesDefault, action) => {
   const { payload } = action;
   switch (action.type) {
     case 'dates/fulfilled':
@@ -80,7 +78,7 @@ const availableDatesReducer = (
 
 const airportReducerDefault = {
   input: { departure: '', origin: { code: '' }, destination: { code: '' } },
-  passagers: { number: 1 },
+  passagers: { number: 0 },
   hideR: true,
   selected: undefined,
 };
@@ -95,7 +93,12 @@ const airportsReducer = (state = airportReducerDefault, action) => {
       return { ...state, selected: payload };
 
     case 'airports/inputs':
-      return { ...state, input: payload };
+      const { origin, destination } = payload;
+      const route = origin.code + '-' + destination.code;
+      return {
+        ...state,
+        input: { route, origin: origin, destination: destination },
+      };
 
     case 'airports/passagers':
       return { ...state, ...payload };

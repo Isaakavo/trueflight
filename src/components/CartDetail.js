@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBooking } from '../features/bookingReducer';
 
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import '../styles/cartDetail.css';
 
 const CartDetail = ({ setShowCart }) => {
@@ -16,14 +16,9 @@ const CartDetail = ({ setShowCart }) => {
     navigate('/finish-purchase');
   };
 
-  const handleDelete = ({ target }) => {
-    debugger;
-    console.log(target.id);
+  const handleDelete = ({target}) => {
     dispatch({ type: 'booking/delete', payload: target.id });
   };
-
-  debugger;
-  console.log(booking);
 
   return (
     <div className='cart-detail-container'>
@@ -40,13 +35,15 @@ const CartDetail = ({ setShowCart }) => {
                   </div>
                   <div className='cart-price'>
                     <p>Passagers: {x.passagers.number}</p>
-                    <p>Price: ${x.passagers.number * x.amount}</p>
+                    <p>Price: ${x.total}</p>
                   </div>
+                  <span name={x.id} onClick={handleDelete}>
                   <DeleteIcon
                     id={x.id}
-                    fontSize='small'
+                    fontSize='medium'
                     onClick={handleDelete}
                   />
+                  </span>
                 </li>
               );
             })}

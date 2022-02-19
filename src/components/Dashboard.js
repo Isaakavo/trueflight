@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchDates, fetchAirports } from '../features/reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ import '../styles/dashboard.css';
 const airportsStatus = (state) => state.airports.fetchStatus;
 
 const Dashboard = () => {
+  const [disabled, setDisabled] = useState(true)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { input, hideR } = useSelector(availableAirports);
@@ -37,6 +38,12 @@ const Dashboard = () => {
     }
   }, [dispatch, loading]);
 
+  useEffect(() => {
+    if (dates.departure && input.destination && input.origin) {
+      setDisabled(false);
+    }
+  }, [dates.departure, input.destination, input.origin])
+
   if (loading === 'pending' || loading === 'idle') {
     return <Loading />;
   }
@@ -44,6 +51,7 @@ const Dashboard = () => {
   if (loading === 'rejected') {
     return <h1>Something went wrong</h1>;
   }
+
 
   return (
     <Wrapper className='wrapper'>
@@ -56,6 +64,7 @@ const Dashboard = () => {
           className='search-button'
           hidden={!hideR}
           onClick={handleSubmit}
+          disabled={disabled}
         >
           Submit
         </button>

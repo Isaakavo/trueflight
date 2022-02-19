@@ -8,24 +8,24 @@ const FinishModal = ({ inputs }) => {
       <h2>This tickets are yours!</h2>
       <h4>Your purchase: </h4>
       <section className='modal-section'>
-        <div>
+        <div className='info-container'>
           <b>Name: </b>{' '}
           <p>
             {inputs.firstname + ' ' + inputs.lastname + ' ' + inputs.surname}
           </p>
         </div>
-        <div>
+        <div className='info-container'>
           <b>Direction: </b>
           <p>{inputs.direction}</p>
         </div>
-        <div>
+        <div className='info-container'>
           <b>email:</b>
           <p>{inputs.email}</p>
         </div>
       </section>
       <section>
         <h4>Flight information: </h4>
-        <div>
+        <section className='flight-info-container'>
           {booking.map((x, i) => {
             return (
               <div className='flight-container' key={i}>
@@ -64,7 +64,7 @@ const FinishModal = ({ inputs }) => {
               )}
             </p>
           </div>
-        </div>
+        </section>
       </section>
     </div>
   );

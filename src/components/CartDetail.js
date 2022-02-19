@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBooking } from '../features/bookingReducer';
 
 import DeleteIcon from '@mui/icons-material/Delete';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import '../styles/cartDetail.css';
 
 const CartDetail = ({ setShowCart }) => {
@@ -53,7 +52,10 @@ const CartDetail = ({ setShowCart }) => {
           </button>
         </>
       ) : (
-        <h1>Nothing here!</h1>
+        <div className='nothing-here'>
+          <h3>Opss...! Nothing in here!</h3>
+          <p>Select a flight to add it to your cart!</p>
+        </div>
       )}
     </div>
   );

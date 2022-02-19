@@ -30,9 +30,12 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchDates());
-    dispatch(fetchAirports());
-  }, [dispatch]);
+    debugger;
+    if (loading !== 'succeed' && loading !== 'rejected') {
+      dispatch(fetchDates());
+      dispatch(fetchAirports());
+    }
+  }, [dispatch, loading]);
 
   if (loading === 'pending' || loading === 'idle') {
     return <Loading />;

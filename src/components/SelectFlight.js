@@ -30,7 +30,7 @@ const SelectFlight = () => {
     const { id } = target;
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);
     const amount = selectedFlight.fare.amount;
-    const total = ((amount * passagers.number) *100) / 100;
+    const total = (amount * passagers.number * 100) / 100;
     const newState = {
       id: id,
       amount: amount,
@@ -49,6 +49,7 @@ const SelectFlight = () => {
     dispatch({
       type: 'airports/resetselected',
     });
+    dispatch({ type: 'dates/reset' });
     navigate('/trueflight');
   };
 

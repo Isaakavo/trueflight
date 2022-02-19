@@ -30,11 +30,13 @@ const SelectFlight = () => {
     const { id } = target;
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);
     const amount = selectedFlight.fare.amount;
+    const total = ((amount * passagers.number) *100) / 100;
     const newState = {
       id: id,
       amount: amount,
       cartFlag: true,
       route: route,
+      total,
       passagers: passagers,
       ...input,
       ...dates,

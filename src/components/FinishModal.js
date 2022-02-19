@@ -47,7 +47,7 @@ const FinishModal = ({ inputs }) => {
                   <b>Passagers</b> <p>{x.passagers.number}</p>
                   <b>Total</b>{' '}
                   <p>
-                    ${Math.round(x.passagers.number * x.amount * 100) / 100}
+                    ${x.total}
                   </p>
                 </div>
               </div>

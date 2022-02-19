@@ -24,14 +24,12 @@ const Dashboard = () => {
   const { loading } = useSelector(airportsStatus);
 
   const handleSubmit = () => {
-    debugger;
     if (dates.departure && input.destination && input.origin) {
       navigate('/book');
     }
   };
 
   useEffect(() => {
-    debugger;
     if (loading !== 'succeed' && loading !== 'rejected') {
       dispatch(fetchDates());
       dispatch(fetchAirports());

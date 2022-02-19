@@ -2,7 +2,6 @@ import moment from 'moment';
 
 const FlightsList = ({ handleSelectedFlight, flights }) => {
   moment.locale('en');
-  debugger;
   return (
     <>
       {flights.journeys.map((x) => {

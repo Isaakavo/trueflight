@@ -16,7 +16,6 @@ const InputCalendar = ({ hide }) => {
   const { minDate, maxDate } = useSelector(selectDates);
 
   const handleSelectDate = ({ target }) => {
-    debugger;
     if (target.name === 'departure') {
       setDates({
         ...dates,

@@ -24,9 +24,7 @@ const SelectFlight = () => {
   const { loading } = useSelector(
     ({ flights: { fetchingFlightsReducer } }) => fetchingFlightsReducer
   );
-  debugger;
   const handleSelectedFlight = ({ target }) => {
-    debugger;
     const { id } = target;
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);
     const amount = selectedFlight.fare.amount;
@@ -57,7 +55,6 @@ const SelectFlight = () => {
     dispatch(fetchFlights(route));
   }, [dispatch, route]);
 
-  debugger;
   if (Object.keys(flights).length === 0 || loading === 'pending') {
     return <Loading />;
   } else if (loading === 'rejected') {

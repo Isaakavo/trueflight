@@ -18,7 +18,6 @@ export const fetchDates = () => async (dispatch) => {
     dispatch({ type: 'dates/fulfilled', payload: dates[0] });
   } catch (error) {
     dispatch({ type: 'dates/error', error: error.message });
-    console.log(error.message);
   }
 };
 
@@ -50,7 +49,6 @@ export const fetchFlights = (code) => async (dispatch) => {
     dispatch({ type: 'flights/fulfilled', payload: flights[0] });
   } catch (error) {
     dispatch({ type: 'flights/error', error: error.message });
-    console.log(error.message);
   }
 };
 

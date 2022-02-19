@@ -56,7 +56,6 @@ const FinishBooking = () => {
   const dispatch = useDispatch();
   const booking = useSelector(({ booking }) => booking);
 
-  console.log(booking);
 
   const handleChange = ({ target }) => {
     const name = target.name;
@@ -110,10 +109,6 @@ const FinishBooking = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const newObj = {...booking, ...inputs};
-    // debugger;
-    // console.log({newObj});
-    // dispatch({type: 'booking/final', payload: newObj});
     const {
       firstnameValid,
       lastnameValid,

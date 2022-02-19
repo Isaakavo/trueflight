@@ -4,7 +4,6 @@ export const availableAirports = (state) => {
       reducer: { airport, selected, input, hideR, passagers },
     },
   } = state;
-  debugger;
   if (selected) {
     const filtered = airport.filter((x) => x.code !== selected.selected);
     const newState = {

@@ -9,7 +9,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const handleClick = () => {
-    debugger;
     if (location.pathname !== '/') {
       dispatch({ type: 'airports/resetselected' });
       dispatch({ type: 'flights/reset' });

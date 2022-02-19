@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 
 const FinishModal = ({ inputs }) => {
   const booking = useSelector(({ booking }) => booking);
-  console.log(booking);
   return (
     <div className='modal-container'>
       <h2>This tickets are yours!</h2>

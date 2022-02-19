@@ -54,8 +54,15 @@ export const fetchFlights = (code) => async (dispatch) => {
   }
 };
 
+const datesDefault = {
+  comeback: '',
+  departure: '',
+  maxDate: '',
+  minDate: '',
+};
+
 const availableDatesReducer = (
-  state = { departure: '', comeback: '' },
+  state = datesDefault,
   action
 ) => {
   const { payload } = action;
@@ -67,6 +74,8 @@ const availableDatesReducer = (
 
     case 'dates/selectdate':
       return { ...state, ...payload };
+    case 'dates/reset':
+      return datesDefault;
     default:
       return state;
   }
@@ -75,6 +84,7 @@ const availableDatesReducer = (
 const airportReducerDefault = {
   input: { departure: '', origin: { code: '' }, destination: { code: '' } },
   passagers: { number: 1 },
+  hideR: true,
   selected: undefined,
 };
 

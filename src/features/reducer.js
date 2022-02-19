@@ -39,7 +39,10 @@ export const fetchAirports = () => async (dispatch) => {
 export const fetchFlights = (code) => async (dispatch) => {
   dispatch({ type: 'flights/pending' });
   try {
-    const collection = await firestore.collection('fligths').where('code', '==', code).get();
+    const collection = await firestore
+      .collection('fligths')
+      .where('code', '==', code)
+      .get();
     const flights = [];
     collection.forEach((x) => {
       flights.push(x.data());
@@ -71,8 +74,8 @@ const availableDatesReducer = (
 
 const airportReducerDefault = {
   input: { departure: '', origin: { code: '' }, destination: { code: '' } },
-  hideR: true,
   passagers: { number: 1 },
+  selected: undefined,
 };
 
 const airportsReducer = (state = airportReducerDefault, action) => {
@@ -92,6 +95,13 @@ const airportsReducer = (state = airportReducerDefault, action) => {
 
     case 'airports/hidelist':
       return { ...state, ...payload };
+
+    case 'airports/resetselected':
+      return {
+        ...state,
+        selected: undefined,
+        input: airportReducerDefault.input,
+      };
 
     case 'airports/reset':
       return airportReducerDefault;
@@ -131,6 +141,9 @@ const flightReducer = (state = {}, action) => {
     case 'flights/senddata':
       return { ...state, payload };
 
+    case 'flights/reset':
+      return {};
+
     default:
       return state;
   }
@@ -144,7 +157,7 @@ const fetchingAirportsReducer = (
     case 'airports/pending':
       return { ...state, loading: 'pending' };
     case 'airports/fulfilled':
-      return { ...state, loading: 'succeeded' };
+      return { ...state, loading: 'succeed' };
     case 'airports/error':
       return { error: action.error, loading: 'rejected' };
     default:
@@ -160,7 +173,7 @@ const fetchingFlightsReducer = (
     case 'flights/pending':
       return { ...state, loading: 'pending' };
     case 'flights/fulfilled':
-      return { ...state, loading: 'succeded' };
+      return { ...state, loading: 'succeed' };
     case 'flights/error':
       return { error: action.error, loading: 'rejected' };
     default:
@@ -177,6 +190,6 @@ export const reducer = combineReducers({
   booking: bookingReducer,
   flights: combineReducers({
     flightReducer,
-    fetchingFlightsReducer
+    fetchingFlightsReducer,
   }),
 });

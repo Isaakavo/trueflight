@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Input from './Input';
-import Modal from './Modal';
+import ConfirmationModal from './ConfirmationModal';
 import FinishModal from './FinishModal';
 import Wrapper from './Wrapper';
 
@@ -52,6 +52,7 @@ const FinishBooking = () => {
   const [disabled, setDisabled] = useState(true);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [confirmationModal, setConfirmationModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const booking = useSelector(({ booking }) => booking);
@@ -115,6 +116,7 @@ const FinishBooking = () => {
       directionValid,
       emailValid,
     } = inputs;
+    debugger;
     if (
       firstnameValid &&
       lastnameValid &&
@@ -122,16 +124,26 @@ const FinishBooking = () => {
       directionValid &&
       emailValid
     ) {
-      setShowModal(true);
+      setConfirmationModal(true);
       setDisabled(false);
     }
   };
 
   const hideModal = () => {
+    debugger;
     setShowModal(false);
     dispatch({ type: 'booking/reset' });
     navigate('/');
   };
+
+  const handleConfirmationModal = () => {
+    setConfirmationModal(false);
+    setShowModal(true);
+  };
+
+  const handleCloseConfirmation = () => {
+    setConfirmationModal(false);
+  }
 
   const validateDisabled = () => {
     if (
@@ -158,9 +170,13 @@ const FinishBooking = () => {
   let width = window.innerWidth;
   return (
     <Wrapper>
-      <Modal show={showModal} handleClose={hideModal}>
-        <FinishModal inputs={inputs} />
-      </Modal>
+      <ConfirmationModal
+        show={confirmationModal}
+        handleConfirm={handleConfirmationModal}
+        handleClose={handleCloseConfirmation}
+        showConfirmation
+      />
+      <FinishModal showModal={showModal} hideModal={hideModal} inputs={inputs} />
       <h3>Fill the form to get your tickets!</h3>
       <form className='inputs-container' onSubmit={handleSubmit}>
         {width < 768 ? (

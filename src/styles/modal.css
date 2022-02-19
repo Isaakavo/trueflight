@@ -59,6 +59,7 @@
   border: 3px solid #0361e4;
   color: #0361e4;
   cursor: pointer;
+  margin: 0.5rem 0.65rem;
 }
 
 .flight-container {
@@ -78,6 +79,10 @@
   overflow-y: scroll;
 }
 
+.button-container {
+  text-align: center;
+  
+}
 
 @media only screen and (max-width: 421px) {
   .modal-main{ 

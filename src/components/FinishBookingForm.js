@@ -28,7 +28,7 @@ const FinishBookingForm = ({
   handleChange,
   disabled,
 }) => {
-  const [width, height] = useWindowResize();
+  const [width] = useWindowResize();
   const [change, setChange] = useState(width);
 
   useEffect(() => {
@@ -72,10 +72,10 @@ const FinishBookingForm = ({
             </div>
             <div className='airports-container'>
               <Input
-                name='direction'
+                name='address'
                 className='inputs'
                 type='text'
-                placeholder='Direction'
+                placeholder='Address'
                 onChange={handleChange}
                 disabled={disabled}
               />
@@ -131,10 +131,10 @@ const FinishBookingForm = ({
             </div>
             <div className='airports-container'>
               <Input
-                name='direction'
+                name='address'
                 className='inputs'
                 type='text'
-                placeholder='Direction'
+                placeholder='Address'
                 onChange={handleChange}
                 disabled={disabled}
               />

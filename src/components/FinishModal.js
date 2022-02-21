@@ -17,8 +17,8 @@ const FinishModal = ({ inputs, showModal, hideModal }) => {
             </p>
           </div>
           <div className='info-container'>
-            <b>Direction: </b>
-            <p>{inputs.direction}</p>
+            <b>Address: </b>
+            <p>{inputs.address}</p>
           </div>
           <div className='info-container'>
             <b>email:</b>

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import Input from './Input';
 import ConfirmationModal from './ConfirmationModal';
 import FinishBookingForm from './FinishBookingForm';
 import FinishModal from './FinishModal';
@@ -12,12 +11,12 @@ const inputsDefault = {
   firstname: '',
   lastname: '',
   surname: '',
-  direction: '',
+  address: '',
   email: '',
   firstnameValid: false,
   lastnameValid: false,
   surnameValid: false,
-  directionValid: false,
+  addressValid: false,
   emailValid: false,
 };
 
@@ -25,7 +24,7 @@ const formErrorsDefault = {
   firstname: '',
   lastname: '',
   surname: '',
-  direction: '',
+  address: '',
   email: '',
 };
 
@@ -38,7 +37,6 @@ const FinishBooking = () => {
   const [confirmationModal, setConfirmationModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  debugger;
   const booking = useSelector(({ data }) => data.booking);
 
   const handleChange = ({ target }) => {
@@ -48,7 +46,7 @@ const FinishBooking = () => {
     let firstnameValid = inputs.firstnameValid;
     let lastnameValid = inputs.lastname;
     let surnameValid = inputs.surname;
-    let directionValid = inputs.direction;
+    let addressValid = inputs.address;
     let emailValid = inputs.email;
 
     switch (name) {
@@ -64,9 +62,9 @@ const FinishBooking = () => {
         surnameValid = value.length > 0;
         fieldValidationErrors.surname = surnameValid ? '' : ' not valid';
         break;
-      case 'direction':
-        directionValid = value.length > 0;
-        fieldValidationErrors.direction = directionValid ? '' : ' not valid';
+      case 'address':
+        addressValid = value.length > 0;
+        fieldValidationErrors.address = addressValid ? '' : ' not valid';
         break;
       case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -82,7 +80,7 @@ const FinishBooking = () => {
       firstnameValid,
       lastnameValid,
       surnameValid,
-      directionValid,
+      addressValid,
       emailValid,
     };
 
@@ -97,14 +95,14 @@ const FinishBooking = () => {
       firstnameValid,
       lastnameValid,
       surnameValid,
-      directionValid,
+      addressValid,
       emailValid,
     } = inputs;
     if (
       firstnameValid &&
       lastnameValid &&
       surnameValid &&
-      directionValid &&
+      addressValid &&
       emailValid
     ) {
       setConfirmationModal(true);
@@ -132,7 +130,7 @@ const FinishBooking = () => {
       inputs.firstnameValid &&
       inputs.lastnameValid &&
       inputs.surnameValid &&
-      inputs.directionValid &&
+      inputs.addressValid &&
       inputs.emailValid
     ) {
       setDisabled(false);

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Input from './Input';
 import ConfirmationModal from './ConfirmationModal';
+import FinishBookingForm from './FinishBookingForm';
 import FinishModal from './FinishModal';
 import Wrapper from './Wrapper';
 
@@ -28,34 +29,16 @@ const formErrorsDefault = {
   email: '',
 };
 
-const FormErrors = ({ formErrors }) => {
-  return (
-    <div>
-      {Object.keys(formErrors).map((x, i) => {
-        if (formErrors[x].length > 0) {
-          return (
-            <p key={i}>
-              {x} {formErrors[x]}
-            </p>
-          );
-        } else {
-          return '';
-        }
-      })}
-    </div>
-  );
-};
-
 const FinishBooking = () => {
-  const [inputs, setInputs] = useState(inputsDefault);
   const [formErrors, setFormErrors] = useState(formErrorsDefault);
+  const [inputs, setInputs] = useState(inputsDefault);
   const [disabled, setDisabled] = useState(true);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [confirmationModal, setConfirmationModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  debugger
+  debugger;
   const booking = useSelector(({ data }) => data.booking);
 
   const handleChange = ({ target }) => {
@@ -142,7 +125,7 @@ const FinishBooking = () => {
 
   const handleCloseConfirmation = () => {
     setConfirmationModal(false);
-  }
+  };
 
   const validateDisabled = () => {
     if (
@@ -166,7 +149,6 @@ const FinishBooking = () => {
     }
   }, [booking]);
 
-  let width = window.innerWidth;
   return (
     <Wrapper>
       <ConfirmationModal
@@ -175,136 +157,18 @@ const FinishBooking = () => {
         handleClose={handleCloseConfirmation}
         showConfirmation
       />
-      <FinishModal showModal={showModal} hideModal={hideModal} inputs={inputs} />
-      <h3>Fill the form to get your tickets!</h3>
-      <form className='inputs-container' onSubmit={handleSubmit}>
-        {width < 768 ? (
-          <>
-            <div className='airports-container'>
-              <Input
-                name='firstname'
-                type='text'
-                className='inputs'
-                placeholder='First name'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-            <div className='airports-container'>
-              <Input
-                name='lastname'
-                className='inputs'
-                type='text'
-                placeholder='Last name'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-            <div className='airports-container'>
-              <Input
-                name='surname'
-                className='inputs'
-                type='text'
-                placeholder='Sur name'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-            <div className='airports-container'>
-              <Input
-                name='direction'
-                className='inputs'
-                type='text'
-                placeholder='Direction'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-            <div className='airports-container'>
-              <Input
-                name='email'
-                className='inputs'
-                type='text'
-                placeholder='e-mail'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-            <div className='airports-container'>
-              <Input
-                name='code'
-                className='inputs'
-                type='text'
-                placeholder='discount coupon'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className='airports-container'>
-              <Input
-                name='firstname'
-                type='text'
-                className='inputs'
-                placeholder='First name'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-              <Input
-                name='lastname'
-                className='inputs'
-                type='text'
-                placeholder='Last name'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-              <Input
-                name='surname'
-                className='inputs'
-                type='text'
-                placeholder='Sur name'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-            <div className='airports-container'>
-              <Input
-                name='direction'
-                className='inputs'
-                type='text'
-                placeholder='Direction'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-              <Input
-                name='email'
-                className='inputs'
-                type='text'
-                placeholder='e-mail'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-              <Input
-                name='code'
-                className='inputs'
-                type='text'
-                placeholder='discount coupon'
-                onChange={handleChange}
-                disabled={disabled}
-              />
-            </div>
-          </>
-        )}
-        <FormErrors formErrors={formErrors} />
-        <Input
-          type='submit'
-          className='search-button'
-          value='Get Tickets!'
-          disabled={buttonDisabled}
-        />
-      </form>
+      <FinishModal
+        showModal={showModal}
+        hideModal={hideModal}
+        inputs={inputs}
+      />
+      <FinishBookingForm
+        buttonDisabled={buttonDisabled}
+        formErrors={formErrors}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        disabled={disabled}
+      />
     </Wrapper>
   );
 };

@@ -1,3 +1,5 @@
+import Button from './Button';
+
 import '../styles/modal.css';
 
 const Modal = ({
@@ -13,19 +15,19 @@ const Modal = ({
     <div className={showHideClassName}>
       <section className='modal-main'>
         {children}
-        <div className='button-container' >
+        <div className='button-container'>
           {showConfirmation ? (
-            <button
-              className='modal-button'
-              type='button'
-              onClick={handleConfirm}
-            >
-              Confirm
-            </button>
+            <Button
+              extraClass='small-button'
+              handler={handleConfirm}
+              label='Confirm'
+            />
           ) : null}
-          <button className='modal-button' type='button' onClick={handleClose}>
-            Close
-          </button>
+          <Button
+            extraClass='small-button'
+            handler={handleClose}
+            label='Close'
+          />
         </div>
       </section>
     </div>

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Button from './Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../styles/cartDetail.css';
 
@@ -46,9 +47,7 @@ const CartDetail = ({ setShowCart }) => {
               );
             })}
           </ul>
-          <button className='pay-button' onClick={handlePay}>
-            Go to pay
-          </button>
+          <Button  extraClass='small-button' handler={handlePay} label='Go to pay' />
         </>
       ) : (
         <div className='nothing-here'>

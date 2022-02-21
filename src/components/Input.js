@@ -21,10 +21,10 @@ const Input = ({
       value={value}
       onChange={onChange}
       onClick={onClick}
-      autoComplete='off'
       max={type === 'date' ? max : ''}
       min={type === 'date' ? min : ''}
       disabled={disabled}
+      autoComplete='off'
     />
   );
 };

@@ -46,20 +46,10 @@ const InputCalendar = ({ hide }) => {
         name='departure'
         id='departure'
         onChange={handleSelectDate}
+        placeholder='Departure Date'
         min={minDate?.date}
         max={maxDate?.date}
-        // disabled={disabled.dates}
       />
-      {/* <Input
-        className='inputs inputs-disabled'
-        type='date'
-        name='comeback'
-        id='comeback'
-        // disabled={disabled.dates}
-        max={maxDate?.date}
-        min={dates?.minDate}
-        onChange={handleSelectDate}
-      /> */}
     </div>
   );
 };

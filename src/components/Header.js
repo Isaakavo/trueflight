@@ -19,7 +19,7 @@ const Header = () => {
     <div className='header-container'>
       <div className='logo' onClick={handleClick}>
         <FlightTakeoffIcon fontSize='large' />
-        <p>TrueFligth</p>
+        <p>TrueFlight</p>
       </div>
       <Cart />
     </div>

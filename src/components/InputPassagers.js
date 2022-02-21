@@ -56,7 +56,7 @@ const InputPassagers = ({ hide }) => {
         type='number'
         name='passagers'
         id='passagers'
-        placeholder='Passagers'
+        placeholder='Passengers'
         value={passagers.number}
         onChange={handlePassagersNumber}
         // disabled={disabled.passagers}

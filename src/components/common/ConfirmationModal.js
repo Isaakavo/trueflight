@@ -1,4 +1,4 @@
-import Modal from './Modal';
+import Modal from '../Modal/Modal';
 
 const ConfirmationModal = ({
   show,

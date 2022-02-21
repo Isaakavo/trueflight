@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import FlightsList from './FlightsList';
-import Wrapper from './Wrapper';
-import Loading from './Loading';
+import FlightsList from './FlightsList'
+import Wrapper from '../common/Wrapper';
+import Loading from '../common/Loading';
 
-import { fetchFlights } from '../actions/dataActions';
-import { availableAirports, selectDates } from '../reducers/helperFunctions';
+import { fetchFlights } from '../../actions/dataActions';
+import { availableAirports, selectDates } from '../../reducers/helperFunctions';
 
-import '../styles/selectFlights.css';
+import '../../styles/selectFlights.css';
 
 const SelectFlight = () => {
   const navigate = useNavigate();

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import ConfirmationModal from './ConfirmationModal';
+import ConfirmationModal from '../common/ConfirmationModal';
 import FinishBookingForm from './FinishBookingForm';
 import FinishModal from './FinishModal';
-import Wrapper from './Wrapper';
+import Wrapper from '../common/Wrapper'
 
 const inputsDefault = {
   firstname: '',

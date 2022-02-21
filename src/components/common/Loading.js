@@ -1,7 +1,7 @@
 import FlightIcon from '@mui/icons-material/Flight';
 
 import Wrapper from './Wrapper';
-import '../styles/loading.css'
+import '../../styles/loading.css'
 
 const Loading = () => {
 return (

@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Button from './Button';
+import Button from '../common/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
-import '../styles/cartDetail.css';
+import '../../styles/cartDetail.css';
 
 const CartDetail = ({ setShowCart }) => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import '../styles/header.css';
-import Cart from './Cart';
+import '../../styles/header.css';
+import Cart from '../Cart';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 const Header = () => {

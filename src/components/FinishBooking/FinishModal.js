@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import Modal from './Modal';
+import Modal from '../Modal/Modal';
 
 const FinishModal = ({ inputs, showModal, hideModal }) => {
   const booking = useSelector(({ data }) => data.booking);

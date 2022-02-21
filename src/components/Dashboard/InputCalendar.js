@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Input from './Input';
+import Input from '../common/Input';
 
-import { selectDates } from '../reducers/helperFunctions';
+import { selectDates } from '../../reducers/helperFunctions';
 
 const InputCalendar = ({ hide }) => {
   const dispatch = useDispatch();

@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import Loading from './Loading';
-import Wrapper from './Wrapper';
+import Loading from '../common/Loading';
+import Wrapper from '../common/Wrapper';
 import InputAirport from './InputAirport';
 import AirportList from './AirportsList';
 import InputCalendar from './InputCalendar';
 import InputPassagers from './InputPassagers';
-import Button from './Button';
+import Button from '../common/Button';
 
-import { fetchDates, fetchAirports } from '../actions/dataActions';
-import { availableAirports, selectDates } from '../reducers/helperFunctions';
-import '../styles/dashboard.css';
+import { fetchDates, fetchAirports } from '../../actions/dataActions';
+import { availableAirports, selectDates }  from '../../reducers/helperFunctions'
+import '../../styles/dashboard.css';
 
 const Dashboard = () => {
   const [disabled, setDisabled] = useState(true);

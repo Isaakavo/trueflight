@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Input from './Input';
-import FormErrors from './FormErrors';
+import Input from '../common/Input';
+import FormErrors from '../common/FormErrors';
 
 function useWindowResize() {
   const [dimension, setDimension] = useState([0, 0]);

@@ -1,6 +1,6 @@
-import Button from './Button';
+import Button from '../common/Button';
 
-import '../styles/modal.css';
+import '../../styles/modal.css';
 
 const Modal = ({
   handleClose,

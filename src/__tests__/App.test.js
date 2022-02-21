@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, cleanup, prettyDOM, screen } from './setupTests';
-import App from './App';
+import { render, cleanup, prettyDOM, screen } from '../setupTests';
+import App from '../App';
 
 test('renders header', () => {
   render(<App />);

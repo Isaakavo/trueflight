@@ -7,8 +7,7 @@ import Wrapper from './Wrapper';
 import Loading from './Loading';
 
 import { fetchFlights } from '../actions/dataActions';
-import { availableAirports } from '../reducers/airportReducer';
-import { selectDates } from '../reducers/airportReducer';
+import { availableAirports, selectDates } from '../reducers/helperFunctions';
 
 import '../styles/selectFlights.css';
 

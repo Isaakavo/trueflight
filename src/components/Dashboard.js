@@ -10,7 +10,7 @@ import Loading from './Loading';
 import Wrapper from './Wrapper';
 
 import { fetchDates, fetchAirports } from '../actions/dataActions';
-import { availableAirports, selectDates } from '../reducers/airportReducer';
+import { availableAirports, selectDates } from '../reducers/helperFunctions';
 import '../styles/dashboard.css';
 
 const airportsStatus = ({ ui }) => ui.loading;

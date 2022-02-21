@@ -20,7 +20,6 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { input, hideList } = useSelector(availableAirports);
-  const airportSelector = useSelector((state) => state)
   const dates = useSelector(selectDates);
   const { loading } = useSelector(airportsStatus);
 

@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux';
 import Modal from './Modal';
 
 const FinishModal = ({ inputs, showModal, hideModal }) => {
-  const booking = useSelector(({ booking }) => booking);
-  debugger;
+  const booking = useSelector(({ data }) => data.booking);
   return (
     <Modal show={showModal} handleClose={hideModal}>
       <div className='modal-container'>

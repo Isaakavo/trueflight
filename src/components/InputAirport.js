@@ -11,7 +11,7 @@ const InputAirport = () => {
     origin: { code: '' },
     destination: { code: '' },
   });
-  const { airport, input, hideR } = useSelector(availableAirports);
+  const { airport, input, hideList } = useSelector(availableAirports);
   const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
@@ -34,20 +34,20 @@ const InputAirport = () => {
     if (target.id === 'destination' && inputs.origin.code !== '') {
       return;
     }
-    dispatchHideR(!hideR);
+    dispatchhideList(!hideList);
   };
 
   const handleCancelButton = () => {
     dispatch({ type: 'airports/resetselected' });
-    if (!hideR) {
-      dispatchHideR(true)
+    if (!hideList) {
+      dispatchhideList(true)
     }
   };
 
-  const dispatchHideR = (value) => {
+  const dispatchhideList = (value) => {
     dispatch({
       type: 'airports/hidelist',
-      payload: { hideR: value },
+      payload: { hideList: value },
     });
   };
 

@@ -17,7 +17,7 @@ const AirportList = () => {
     }
     dispatch({
       type: 'airports/selected',
-      payload: { ...airport, selected: target.id },
+      payload: { selected: target.id },
     });
   };
 
@@ -25,7 +25,7 @@ const AirportList = () => {
     if (inputs.origin !== '' && inputs.destination !== '') {
       dispatch({
         type: 'airports/hidelist',
-        payload: { hideR: true },
+        payload: { hideList: true },
       });
     }
     

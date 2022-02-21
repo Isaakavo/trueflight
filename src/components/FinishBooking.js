@@ -55,7 +55,8 @@ const FinishBooking = () => {
   const [confirmationModal, setConfirmationModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const booking = useSelector(({ booking }) => booking);
+  debugger
+  const booking = useSelector(({ data }) => data.booking);
 
   const handleChange = ({ target }) => {
     const name = target.name;
@@ -116,7 +117,6 @@ const FinishBooking = () => {
       directionValid,
       emailValid,
     } = inputs;
-    debugger;
     if (
       firstnameValid &&
       lastnameValid &&
@@ -130,7 +130,6 @@ const FinishBooking = () => {
   };
 
   const hideModal = () => {
-    debugger;
     setShowModal(false);
     dispatch({ type: 'booking/reset' });
     navigate('/');

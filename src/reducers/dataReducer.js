@@ -1,102 +1,130 @@
-const datesDefault = {
-  comeback: '',
-  departure: '',
-  maxDate: '',
-  minDate: '',
-};
-
-export const availableDatesReducer = (state = datesDefault, action) => {
-  const { payload } = action;
-  switch (action.type) {
-    case 'dates/fulfilled':
-      const minDate = payload[0];
-      const maxDate = payload[payload.length - 1];
-      return { ...state, minDate, maxDate };
-
-    case 'dates/selectdate':
-      return { ...state, ...payload };
-    case 'dates/reset':
-      return datesDefault;
-    default:
-      return state;
-  }
-};
+import {
+  SET_AIPORTS,
+  SET_AIPORTS_SELECTED,
+  SET_AIPORTS_INPUT,
+  SET_AIPORTS_PASSANGERS,
+  SET_AIPORTS_HIDELIST,
+  SET_AIRPORTS_RESETSELECTED,
+  RESET_AIPORTS,
+  SET_AIRPORTS_DATES,
+  SET_AIRPORTS_SELECTED_DATE,
+  RESET_AIRPORTS_DATES,
+  SET_BOOKING,
+  DELETE_BOOKING,
+  RESET_BOOKING,
+  SET_FLIGHTS,
+  RESET_FLIGHTS,
+} from './types';
 
 const airportReducerDefault = {
+  airport: [],
   input: { departure: '', origin: { code: '' }, destination: { code: '' } },
-  passagers: { number: 0 },
-  hideR: true,
+  passengers: { number: 0 },
+  hideList: true,
   selected: undefined,
+  dates: {
+    allDates: [],
+    comeback: '',
+    departure: '',
+    maxDate: '',
+    minDate: '',
+  },
 };
 
-export const airportsReducer = (state = airportReducerDefault, action) => {
-  const { payload } = action;
-  switch (action.type) {
-    case 'airports/fulfilled': {
-      return { ...state, airport: payload };
-    }
-    case 'airports/selected':
-      return { ...state, selected: payload };
+const defaultState = {
+  airport: airportReducerDefault,
+  booking: [],
+  flights: {},
+};
 
-    case 'airports/inputs':
+export const dataReducer = (state = defaultState, action) => {
+  const { payload, type } = action;
+  switch (type) {
+    //Input airport select cases
+    case SET_AIPORTS:
+      return { ...state, airport: { ...state.airport, airport: [...payload] } };
+    case SET_AIPORTS_SELECTED:
+      return { ...state, airport: { ...state.airport, selected: payload } };
+    case SET_AIPORTS_INPUT:
       const { origin, destination } = payload;
       const route = origin.code + '-' + destination.code;
       return {
         ...state,
-        input: { route, origin: origin, destination: destination },
+        airport: {
+          ...state.airport,
+          input: { route, origin: origin, destination: destination },
+        },
       };
-
-    case 'airports/passagers':
-      return { ...state, ...payload };
-
-    case 'airports/hidelist':
-      return { ...state, ...payload };
-
-    case 'airports/resetselected':
+    case SET_AIPORTS_PASSANGERS:
       return {
         ...state,
-        selected: undefined,
-        input: airportReducerDefault.input,
+        airport: { ...state.airport, ...payload },
       };
-
-    case 'airports/reset':
+    case SET_AIPORTS_HIDELIST:
+      return { ...state, airport: { ...state.airport, ...payload } };
+    case SET_AIRPORTS_RESETSELECTED:
+      return {
+        ...state,
+        airport: {
+          ...state.airport,
+          selected: undefined,
+          input: airportReducerDefault.input,
+        },
+      };
+    case RESET_AIPORTS:
       return airportReducerDefault;
 
-    default:
-      return state;
-  }
-};
+    //Dates cases
+    case SET_AIRPORTS_DATES:
+      const minDate = payload[0];
+      const maxDate = payload[payload.length - 1];
+      return {
+        ...state,
+        airport: {
+          ...state.airport,
+          dates: { allDates: [...payload], minDate, maxDate },
+        },
+      };
+    case SET_AIRPORTS_SELECTED_DATE:
+      return {
+        ...state,
+        airport: {
+          ...state.airport,
+          dates: { ...state.airport.dates, ...payload },
+        },
+      };
+    case RESET_AIRPORTS_DATES:
+      return {
+        ...state,
+        airport: {
+          ...state.airport,
+          dates: airportReducerDefault.dates,
+        },
+      };
+    //Booking cases
+    case SET_BOOKING:
+      return {
+        ...state,
+        booking: [...state.booking, { ...payload }],
+      };
 
-export const bookingReducer = (state = [], action) => {
-  const { payload } = action;
-  switch (action.type) {
-    case 'booking/set':
-      return [...state, { ...payload }];
+    case DELETE_BOOKING:
+      const removedItem = state.booking.filter((x) => x.id !== payload);
+      return { ...state, booking: removedItem };
+    case RESET_BOOKING:
+      return {
+        ...state,
+        booking: [],
+      };
 
-    case 'booking/delete':
-      const removedItem = state.filter((x) => x.id !== payload);
-      return removedItem;
-
-    case 'booking/reset':
-      return [];
-
-    default:
-      return state;
-  }
-};
-
-export const flightReducer = (state = {}, action) => {
-  const { payload } = action;
-  switch (action.type) {
-    case 'flights/fulfilled':
-      return { ...state, ...payload };
-
-    case 'flights/senddata':
-      return { ...state, payload };
-
-    case 'flights/reset':
-      return {};
-
+    //Flights cases
+    case SET_FLIGHTS:
+      return { ...state, flights: { ...state.flights, ...payload } };
+    case RESET_FLIGHTS:
+      return {
+        ...state,
+        flights: {},
+      };
     default:
       return state;
   }

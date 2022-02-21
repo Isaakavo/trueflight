@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooking } from '../reducers/bookingReducer';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../styles/cartDetail.css';
@@ -8,14 +7,14 @@ import '../styles/cartDetail.css';
 const CartDetail = ({ setShowCart }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { booking } = useSelector(getBooking);
+  const booking = useSelector(({ data }) => data.booking);
 
   const handlePay = () => {
     setShowCart(false);
     navigate('/finish-purchase');
   };
 
-  const handleDelete = ({target}) => {
+  const handleDelete = ({ target }) => {
     dispatch({ type: 'booking/delete', payload: target.id });
   };
 
@@ -37,11 +36,11 @@ const CartDetail = ({ setShowCart }) => {
                     <p>Price: ${x.total}</p>
                   </div>
                   <span name={x.id} onClick={handleDelete}>
-                  <DeleteIcon
-                    id={x.id}
-                    fontSize='medium'
-                    onClick={handleDelete}
-                  />
+                    <DeleteIcon
+                      id={x.id}
+                      fontSize='medium'
+                      onClick={handleDelete}
+                    />
                   </span>
                 </li>
               );

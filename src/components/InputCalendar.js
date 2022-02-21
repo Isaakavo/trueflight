@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 import Input from './Input';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 import { selectDates } from '../reducers/airportReducer';
 
@@ -28,13 +27,13 @@ const InputCalendar = ({ hide }) => {
       // return;
       dispatch({
         type: 'dates/selectdate',
-        payload: { ...dates, [target.name]: target.value },
+        payload: { [target.name]: target.value },
       });
     }
     setDates({ ...dates, [target.name]: target.value, maxDate: target.value });
     dispatch({
       type: 'dates/selectdate',
-      payload: { ...dates, [target.name]: target.value },
+      payload: { [target.name]: target.value },
     });
   };
 

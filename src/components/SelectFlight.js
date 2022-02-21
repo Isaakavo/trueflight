@@ -15,27 +15,22 @@ import '../styles/selectFlights.css';
 const SelectFlight = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const { input, passagers, route } = useSelector(availableAirports);
+  const { input, passengers, route } = useSelector(availableAirports);
   const dates = useSelector(selectDates);
-  const flights = useSelector(
-    ({ flights: { flightReducer } }) => flightReducer
-  );
-  const { loading } = useSelector(
-    ({ flights: { fetchingFlightsReducer } }) => fetchingFlightsReducer
-  );
+  const flights = useSelector(({ data }) => data.flights);
+  const { loading } = useSelector(({ ui }) => ui);
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);
     const amount = selectedFlight.fare.amount;
-    const total = (amount * passagers.number * 100) / 100;
+    const total = (amount * passengers.number * 100) / 100;
     const newState = {
       id: id,
       amount: amount,
       cartFlag: true,
       route: route,
       total,
-      passagers: passagers,
+      passagers: passengers,
       ...input,
       ...dates,
     };
@@ -60,7 +55,7 @@ const SelectFlight = () => {
   }
   if (Object.keys(flights).length === 0 || loading === 'pending') {
     return <Loading />;
-  } 
+  }
 
   return (
     <>
@@ -71,7 +66,7 @@ const SelectFlight = () => {
               <p>Origin: {input.origin.name}</p>
               <p>Destination: {input.destination.name}</p>
               <p>Departure: {dates.departure}</p>
-              <p>Number of passengers: {passagers.number}</p>
+              <p>Number of passengers: {passengers.number}</p>
             </div>
           </div>
           <div className='flights-data-container'>

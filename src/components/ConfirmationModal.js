@@ -6,7 +6,6 @@ const ConfirmationModal = ({
   handleClose,
   showConfirmation,
 }) => {
-  debugger;
   return (
     <Modal
       show={show}

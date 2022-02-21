@@ -13,13 +13,14 @@ import { fetchDates, fetchAirports } from '../actions/dataActions';
 import { availableAirports, selectDates } from '../reducers/airportReducer';
 import '../styles/dashboard.css';
 
-const airportsStatus = (state) => state.airports.fetchStatus;
+const airportsStatus = ({ ui }) => ui.loading;
 
 const Dashboard = () => {
-  const [disabled, setDisabled] = useState(true)
+  const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { input, hideR } = useSelector(availableAirports);
+  const { input, hideList } = useSelector(availableAirports);
+  const airportSelector = useSelector((state) => state)
   const dates = useSelector(selectDates);
   const { loading } = useSelector(airportsStatus);
 
@@ -40,7 +41,7 @@ const Dashboard = () => {
     if (dates.departure && input.destination && input.origin) {
       setDisabled(false);
     }
-  }, [dates.departure, input.destination, input.origin])
+  }, [dates.departure, input.destination, input.origin]);
 
   if (loading === 'pending' || loading === 'idle') {
     return <Loading />;
@@ -50,17 +51,16 @@ const Dashboard = () => {
     return <h1>Something went wrong</h1>;
   }
 
-
   return (
     <Wrapper className='wrapper'>
       <div className='inputs-container'>
         <InputAirport />
-        {!hideR ? <AirportList /> : null}
-        {hideR ? <InputCalendar /> : null}
-        {hideR ? <InputPassagers /> : null}
+        {!hideList ? <AirportList /> : null}
+        {hideList ? <InputCalendar /> : null}
+        {hideList ? <InputPassagers /> : null}
         <button
           className='search-button'
-          hidden={!hideR}
+          hidden={!hideList}
           onClick={handleSubmit}
           disabled={disabled}
         >

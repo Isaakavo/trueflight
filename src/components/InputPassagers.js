@@ -39,8 +39,8 @@ const InputPassagers = ({ hide }) => {
 
   const dispatchPassasgers = (value) => {
     dispatch({
-      type: 'airports/passagers',
-      payload: { passagers: { number: value } },
+      type: 'airports/passengers',
+      payload: { passengers: { number: value } },
     });
   };
 

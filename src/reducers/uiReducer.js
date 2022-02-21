@@ -1,3 +1,26 @@
+import { LOADING_UI, STOP_LOADING_UI, ERROR_UI } from './types';
+
+
+const defaultUi = {
+  loading: 'idle',
+  error: null
+}
+
+export const uiReducer = (state = defaultUi, action) => {
+  const { type } = action;
+  switch (type) {
+    case LOADING_UI:
+      return { ...state, loading: 'pending' };
+    case STOP_LOADING_UI:
+      return { ...state, loading: 'succeed' };
+    case ERROR_UI:
+      return { error: action.error, loading: 'rejected' };
+
+    default:
+      return state;
+  }
+};
+
 export const fetchingAirportsReducer = (
   state = { loading: 'idle', error: null },
   action

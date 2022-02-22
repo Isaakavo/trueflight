@@ -143,6 +143,10 @@ svg:hover {
   font-weight: bolder;
 }
 
+.discount {
+  text-decoration: line-through;
+}
+
 
 @media only screen and (max-width: 421px) {
   .inputs-container {

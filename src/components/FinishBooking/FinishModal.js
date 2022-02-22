@@ -2,8 +2,26 @@ import { useSelector } from 'react-redux';
 
 import Modal from '../Modal/Modal';
 
-const FinishModal = ({ inputs, showModal, hideModal }) => {
+import { coupons } from '../../reducers/types';
+
+const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
   const booking = useSelector(({ data }) => data.booking);
+  const discountClass = coupon ? 'discount' : '';
+
+  const calculateTotal = () => {
+    const total = booking.reduce(
+      (acc, val) =>
+        Math.round((acc + val.amount * val.passagers.number) * 100) / 100,
+      0
+    );
+    if (coupon !== undefined) {
+      const discount = (coupons[coupon] * total) / 100;
+      return total - discount;
+    }
+
+    return total;
+  };
+
   return (
     <Modal show={showModal} handleClose={hideModal}>
       <div className='modal-container'>
@@ -21,11 +39,17 @@ const FinishModal = ({ inputs, showModal, hideModal }) => {
             <p>{inputs.address}</p>
           </div>
           <div className='info-container'>
-            <b>email:</b>
+            <b>e-mail:</b>
             <p>{inputs.email}</p>
           </div>
         </section>
         <section>
+          {coupon ? (
+            <div className='info-container'>
+              <b>coupon:</b>
+              <p>{coupons[coupon] + '% applied'}</p>
+            </div>
+          ) : null}
           <h4>Flight information: </h4>
           <section className='flight-info-container'>
             {booking.map((x, i) => {
@@ -43,26 +67,16 @@ const FinishModal = ({ inputs, showModal, hideModal }) => {
                   </div>
                   <div>
                     <b>Departure</b> <p>{x.departure}</p>
-                    {/* <b>Comeback</b> <p>{x.comeback}</p> */}
                   </div>
                   <div>
                     <b>Passengers</b> <p>{x.passagers.number}</p>
-                    <b>Total</b> <p>${x.total}</p>
+                    <b>Total</b> <p className={discountClass}>${x.total}</p>
                   </div>
                 </div>
               );
             })}
             <div className='flight-container'>
-              <p className='total-column'>
-                Total: $
-                {booking.reduce(
-                  (acc, val) =>
-                    Math.round(
-                      (acc + val.amount * val.passagers.number) * 100
-                    ) / 100,
-                  0
-                )}
-              </p>
+              <p className={'total-column '}>Total: ${calculateTotal()}</p>
             </div>
           </section>
         </section>

@@ -20,3 +20,10 @@ export const RESET_FLIGHTS = 'flights/reset';
 export const LOADING_UI = 'ui/pending'
 export const STOP_LOADING_UI = 'ui/fulfilled'
 export const ERROR_UI = 'ui/error'
+
+
+export const coupons = {
+  'hire me': 100,
+  'i want to travel': 50,
+  'let me out': 25
+};

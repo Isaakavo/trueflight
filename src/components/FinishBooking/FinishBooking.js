@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import ConfirmationModal from '../common/ConfirmationModal';
 import FinishBookingForm from './FinishBookingForm';
 import FinishModal from './FinishModal';
-import Wrapper from '../common/Wrapper'
+import Wrapper from '../common/Wrapper';
+
+import {coupons} from '../../reducers/types';
 
 const inputsDefault = {
   firstname: '',
@@ -13,11 +15,13 @@ const inputsDefault = {
   surname: '',
   address: '',
   email: '',
+  coupon: undefined,
   firstnameValid: false,
   lastnameValid: false,
   surnameValid: false,
   addressValid: false,
   emailValid: false,
+  couponValid: false,
 };
 
 const formErrorsDefault = {
@@ -26,6 +30,7 @@ const formErrorsDefault = {
   surname: '',
   address: '',
   email: '',
+  coupon: '',
 };
 
 const FinishBooking = () => {
@@ -48,6 +53,7 @@ const FinishBooking = () => {
     let surnameValid = inputs.surname;
     let addressValid = inputs.address;
     let emailValid = inputs.email;
+    let couponValid = inputs.coupon;
 
     switch (name) {
       case 'firstname':
@@ -69,6 +75,10 @@ const FinishBooking = () => {
       case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? '' : ' not valid';
+        break;
+      case 'coupon':
+        couponValid = coupons[value];
+        fieldValidationErrors.coupon = couponValid ? 'The coupon is valid' : '';
         break;
       default:
         break;
@@ -159,6 +169,7 @@ const FinishBooking = () => {
         showModal={showModal}
         hideModal={hideModal}
         inputs={inputs}
+        coupon={inputs.coupon}
       />
       <FinishBookingForm
         buttonDisabled={buttonDisabled}

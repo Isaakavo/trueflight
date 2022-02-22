@@ -92,7 +92,7 @@ const FinishBookingForm = ({
             </div>
             <div className='airports-container'>
               <Input
-                name='code'
+                name='coupon'
                 className='inputs'
                 type='text'
                 placeholder='discount coupon'
@@ -147,7 +147,7 @@ const FinishBookingForm = ({
                 disabled={disabled}
               />
               <Input
-                name='code'
+                name='coupon'
                 className='inputs'
                 type='text'
                 placeholder='discount coupon'

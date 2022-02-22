@@ -1,5 +1,8 @@
 import moment from 'moment';
 
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+import FlightLandIcon from '@mui/icons-material/FlightLand';
+
 const FlightsList = ({ handleSelectedFlight, flights }) => {
   moment.locale('en');
   return (
@@ -16,9 +19,15 @@ const FlightsList = ({ handleSelectedFlight, flights }) => {
                 <p>{moment(x.departureDate).format('H:m')} hrs</p>
                 <p>{x.origin.code}</p>
               </div>
+              <div className='flights-departure-container' >
+                <FlightTakeoffIcon />
+              </div>
               <div className='flights-departure-container'>
                 <p> {moment(x.arrivalDate).format('H:m')} hrs</p>
                 <p> {x.destination.code}</p>
+              </div>
+              <div className='flights-departure-container' >
+                <FlightLandIcon />
               </div>
               <div className='flights-departure-container'>
                 <p>Duration </p>

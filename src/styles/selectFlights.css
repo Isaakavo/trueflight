@@ -40,12 +40,14 @@
 }
 
 .flights-departure-price {
+  width: 100px;
   cursor: pointer;
   border: 1px solid #0361e4;
   border-radius: 0 6px 6px 0;
 }
 
 .flights-departure-price:hover {
+  width: 100px;
   border: 2px solid #ff7961;
   border-radius: 0 6px 6px 0;
 }
@@ -67,11 +69,14 @@
 
   .flights-departure-container {
     margin: 0.5rem;
+    text-align: center;
   }
   .flights-departure-price {
+    width: auto;
     border-radius: 0 0px 6px 6px;
   }
   .flights-departure-price:hover {
+    width: auto;
     border-radius: 0 0px 6px 6px;
   }
 }

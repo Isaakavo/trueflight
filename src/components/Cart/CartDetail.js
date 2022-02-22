@@ -5,10 +5,12 @@ import Button from '../common/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../../styles/cartDetail.css';
 
+import { getBooking } from '../../selectors'
+
 const CartDetail = ({ setShowCart }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const booking = useSelector(({ data }) => data.booking);
+  const booking = useSelector(getBooking);
 
   const handlePay = () => {
     setShowCart(false);

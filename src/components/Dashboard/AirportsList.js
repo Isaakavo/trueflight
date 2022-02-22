@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { availableAirports } from '../../reducers/helperFunctions';
+import { getAvailableAirports } from '../../selectors';
 
 const AirportList = () => {
   const [inputs, setInputs] = useState({ origin: '', destination: '' });
   const dispatch = useDispatch();
-  const { airport } = useSelector(availableAirports);
+  const { airport } = useSelector(getAvailableAirports);
 
   const handleSelectedAirport = ({ target }) => {
     const name = target.getAttribute('name');

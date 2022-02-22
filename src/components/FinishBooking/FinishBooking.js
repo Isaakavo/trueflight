@@ -7,6 +7,8 @@ import FinishBookingForm from './FinishBookingForm';
 import FinishModal from './FinishModal';
 import Wrapper from '../common/Wrapper';
 
+import { getBooking } from '../../selectors';
+
 import {coupons} from '../../reducers/types';
 
 const inputsDefault = {
@@ -42,7 +44,7 @@ const FinishBooking = () => {
   const [confirmationModal, setConfirmationModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const booking = useSelector(({ data }) => data.booking);
+  const booking = useSelector(getBooking);
 
   const handleChange = ({ target }) => {
     const name = target.name;

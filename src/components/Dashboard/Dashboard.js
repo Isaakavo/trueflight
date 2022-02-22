@@ -11,19 +11,19 @@ import InputPassagers from './InputPassagers';
 import Button from '../common/Button';
 
 import { fetchDates, fetchAirports } from '../../actions/dataActions';
-import { availableAirports, selectDates }  from '../../reducers/helperFunctions'
+import { getAvailableAirports, getDates, getUi } from '../../selectors';
 import '../../styles/dashboard.css';
 
 const Dashboard = () => {
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { input, hideList } = useSelector(availableAirports);
-  const dates = useSelector(selectDates);
-  const { loading } = useSelector(({ ui }) => ui.loading);
+  const { input, hideList } = useSelector(getAvailableAirports);
+  const { departure } = useSelector(getDates);
+  const { loading } = useSelector(getUi);
 
   const handleSubmit = () => {
-    if (dates.departure && input.destination && input.origin) {
+    if (departure && input.destination && input.origin) {
       navigate('/book');
     }
   };
@@ -36,10 +36,10 @@ const Dashboard = () => {
   }, [dispatch, loading]);
 
   useEffect(() => {
-    if (dates.departure && input.destination && input.origin) {
+    if (departure && input.destination && input.origin) {
       setDisabled(false);
     }
-  }, [dates.departure, input.destination, input.origin]);
+  }, [departure, input.destination, input.origin]);
 
   if (loading === 'pending' || loading === 'idle') {
     return <Loading />;
@@ -57,11 +57,7 @@ const Dashboard = () => {
           <>
             <InputCalendar />
             <InputPassagers />
-            <Button
-              handler={handleSubmit}
-              disabled={disabled}
-              label='Submit'
-            />
+            <Button handler={handleSubmit} disabled={disabled} label='Submit' />
           </>
         ) : (
           <AirportList />

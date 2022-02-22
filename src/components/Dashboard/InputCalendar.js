@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import Input from '../common/Input';
 
-import { selectDates } from '../../reducers/helperFunctions';
+import { getDates } from '../../selectors';
 
 const InputCalendar = ({ hide }) => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const InputCalendar = ({ hide }) => {
     maxDate: '',
   });
 
-  const { minDate, maxDate } = useSelector(selectDates);
+  const { minDate, maxDate } = useSelector(getDates);
   const getActualMinDate = moment(minDate?.date).isBefore(moment().toISOString(), 'day') ? moment().format('YYYY-MM-DD') : minDate?.date;
 
   const handleSelectDate = ({ target }) => {

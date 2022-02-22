@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { availableAirports } from '../../reducers/helperFunctions';
+import { getAvailableAirports } from '../../selectors';
 
 import Input from '../common/Input';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -11,7 +11,7 @@ const InputAirport = () => {
     origin: { code: '' },
     destination: { code: '' },
   });
-  const { airport, input, hideList } = useSelector(availableAirports);
+  const { airport, input, hideList } = useSelector(getAvailableAirports);
   const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {

@@ -7,17 +7,17 @@ import Wrapper from '../common/Wrapper';
 import Loading from '../common/Loading';
 
 import { fetchFlights } from '../../actions/dataActions';
-import { availableAirports, selectDates } from '../../reducers/helperFunctions';
+import { getAvailableAirports, getFlights, getUi } from '../../selectors';
 
 import '../../styles/selectFlights.css';
 
 const SelectFlight = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { input, passengers, route } = useSelector(availableAirports);
-  const dates = useSelector(selectDates);
-  const flights = useSelector(({ data }) => data.flights);
-  const { loading } = useSelector(({ ui }) => ui);
+  const { input, passengers, route } = useSelector(getAvailableAirports);
+  const dates = useSelector(({ data }) => data.airport);
+  const flights = useSelector(getFlights);
+  const { loading } = useSelector(getUi);
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);

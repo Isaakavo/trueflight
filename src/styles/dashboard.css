@@ -148,16 +148,26 @@ svg:hover {
 }
 
 
-@media only screen and (max-width: 421px) {
+@media only screen and (max-width: 426px) {
   .inputs-container {
     width: 80%;
     height: 100%;
   }
+
+  .inputs{
+    font-size: 1rem;
+  }
+
   .airports-list li:active {
     background-color: none;
   }
 
   .search-button {
     width: auto;
+    font-size: 1rem;
+  }
+  .search-button:disabled {
+    width: auto;
+    font-size: 1rem;
   }
 }

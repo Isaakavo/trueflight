@@ -55,11 +55,23 @@
 }
 
 
-@media only screen and (max-width: 421px) { 
+@media only screen and (max-width: 426px) { 
   .flights-data  {
     flex-direction: column;
   }
-  .flights-list {
+  .flights-list li{
     width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flights-departure-container {
+    margin: 0.5rem;
+  }
+  .flights-departure-price {
+    border-radius: 0 0px 6px 6px;
+  }
+  .flights-departure-price:hover {
+    border-radius: 0 0px 6px 6px;
   }
 }

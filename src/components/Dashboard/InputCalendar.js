@@ -16,7 +16,7 @@ const InputCalendar = ({ hide }) => {
   });
 
   const { minDate, maxDate } = useSelector(selectDates);
-  const getActualMinDate = moment(minDate.date).isBefore(moment().toISOString(), 'day') ? moment().format('YYYY-MM-DD') : minDate.date;
+  const getActualMinDate = moment(minDate?.date).isBefore(moment().toISOString(), 'day') ? moment().format('YYYY-MM-DD') : minDate?.date;
 
   const handleSelectDate = ({ target }) => {
     if (target.name === 'departure') {

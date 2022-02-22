@@ -15,7 +15,7 @@ const Cart = () => {
     <div className='shopping-cart'>
       {numberOfItems > 0 ? (
         <span className='bubble'>
-          <span className='bubble-alert' style={{color: '#fff;', fontSize: '0.9rem'}}>
+          <span className='bubble-alert' style={{color: '#fff', fontSize: '0.9rem'}}>
             {numberOfItems < 10 ? numberOfItems : '9+'}
           </span>
         </span>

@@ -19,7 +19,7 @@ import {
 const airportReducerDefault = {
   airport: [],
   input: { departure: '', origin: { code: '' }, destination: { code: '' } },
-  passengers: { number: 0 },
+  passengers: { number: 1 },
   hideList: true,
   selected: undefined,
   dates: {
@@ -69,6 +69,7 @@ export const dataReducer = (state = defaultState, action) => {
           ...state.airport,
           selected: undefined,
           input: airportReducerDefault.input,
+          passengers: airportReducerDefault.passengers
         },
       };
     case RESET_AIPORTS:
@@ -109,7 +110,7 @@ export const dataReducer = (state = defaultState, action) => {
       };
 
     case DELETE_BOOKING:
-      const removedItem = state.booking.filter((x) => x.id !== payload);
+      const removedItem = state.booking.filter((x) => x.id + x.dates.departure !== payload);
       return { ...state, booking: removedItem };
     case RESET_BOOKING:
       return {

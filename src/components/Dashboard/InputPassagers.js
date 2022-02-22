@@ -15,6 +15,10 @@ const InputPassagers = ({ hide }) => {
 
     if (target.id === 'increase') {
       const value = Number(number + 1);
+      if (value > 10) {
+        setPassagers({ ...passagers, number: 10 });
+        return;
+      }
       setPassagers({ number: value });
       dispatchPassasgers(value);
     } else if (target.id === 'decrease' && number >= 1) {
@@ -24,6 +28,7 @@ const InputPassagers = ({ hide }) => {
     }
     if (number === 0) {
       setPassagers({ number: '' });
+      dispatchPassasgers(1);
     }
   };
 
@@ -31,6 +36,11 @@ const InputPassagers = ({ hide }) => {
     const { value } = target;
     if (value < 0) {
       setPassagers({ ...passagers, number: 1 });
+      return;
+    }
+    if (value > 10) {
+      setPassagers({ ...passagers, number: 10 });
+      dispatchPassasgers(10);
       return;
     }
     setPassagers({ ...passagers, number: value });
@@ -56,7 +66,7 @@ const InputPassagers = ({ hide }) => {
         type='number'
         name='passagers'
         id='passagers'
-        placeholder='Passengers'
+        placeholder='Passengers (max 10)'
         value={passagers.number}
         onChange={handlePassagersNumber}
         // disabled={disabled.passagers}

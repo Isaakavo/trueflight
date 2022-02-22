@@ -1,13 +1,27 @@
 import React from 'react';
-import { render, cleanup, prettyDOM, screen, fireEvent } from '../setupTests';
+import {
+  render,
+  cleanup,
+  prettyDOM,
+  fireEvent,
+  screen,
+  waitFor,
+} from '../setupTests';
 import Dashboard from '../components/Dashboard';
-import firebase from 'firebase';
 import * as reactRedux from 'react-redux';
 
 const mockedAiports = {
   input: { origin: { code: '' }, destination: { code: '' } },
-  hideR: true,
+  hideList: true,
   loading: 'succeded',
+  airport: [],
+  dates: {
+    allDates: [],
+    comeback: '',
+    departure: '',
+    maxDate: '',
+    minDate: { date: '2022-02-15' },
+  },
 };
 
 const airportListMock = [
@@ -22,30 +36,18 @@ const airportListMock = [
 ];
 
 describe('Test of dashboard component', () => {
-  afterEach(() => {
-    cleanup();
+  beforeEach(() => {
     jest.clearAllMocks();
   });
-  jest.mock('react-redux', () => ({
-    useDispatch: () => jest.fn(),
-  }));
+
+  afterEach(() => {
+    cleanup();
+  });
+
   const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
-  const fetchAiports = Promise.resolve([
-    {
-      code: 'MX',
-      name: 'Ciudad de Mexico',
-    },
-  ]);
-  jest.spyOn(firebase, 'app').mockImplementation(() => ({
-    firestore: () => ({
-      collection: () => ({
-        get: () => fetchAiports,
-      }),
-    }),
-  }));
 
   test('check loading display', () => {
-    useSelectorMock.mockReturnValue(mockedAiports);
+    useSelectorMock.mockReturnValue({ ...mockedAiports, loading: 'idle' });
     render(<Dashboard />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
@@ -66,16 +68,28 @@ describe('Test of dashboard component', () => {
     expect(submitButton).toBeInTheDocument();
   });
 
-  test.only('Check if aiportList is being render', () => {
+  test('Check if aiportList is being render', async () => {
+    useSelectorMock.mockReturnValue({
+      ...mockedAiports,
+      airport: airportListMock,
+      hideList: false,
+    });
+    render(<Dashboard />);
+    let originInput = screen.getByPlaceholderText('Origin');
+    let destinationInput = screen.getByPlaceholderText('Destination');
+    let airportList = screen.getByText('MX');
+    expect(originInput).toBeInTheDocument();
+    expect(destinationInput).toBeInTheDocument();
+    expect(airportList).toBeInTheDocument();
+  });
+
+  test('Form must not send data when inputs are empty', () => {
     useSelectorMock.mockReturnValue({
       ...mockedAiports,
       airport: airportListMock,
     });
     render(<Dashboard />);
-    let originInput = screen.getByPlaceholderText('Origin');
-    let destinationInput = screen.getByPlaceholderText('Destination');
-    fireEvent.click(originInput);
-    fireEvent.click(destinationInput);
-    console.log(prettyDOM());
+    let button = screen.getByText('Submit');
+    expect(button).toBeDisabled();
   });
 });

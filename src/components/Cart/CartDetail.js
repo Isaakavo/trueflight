@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 
 import Button from '../common/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -28,11 +29,12 @@ const CartDetail = ({ setShowCart }) => {
           <ul>
             {booking.map((x, i) => {
               return (
-                <li className='cart-item' key={x.id}>
+                <li className='cart-item' key={x.id + x.dates.departure}>
                   <h4>Flight {i + 1}</h4>
                   <div className='cart-flight'>
                     <p>Origin: {x.origin.name}</p>
                     <p>Arrival: {x.destination.name}</p>
+                    <p>Departure: {moment(x.dates.departure).format('ddd D MMM YYYY')}</p>
                   </div>
                   <div className='cart-price'>
                     <p>Passagers: {x.passagers.number}</p>
@@ -40,7 +42,7 @@ const CartDetail = ({ setShowCart }) => {
                   </div>
                   <span name={x.id} onClick={handleDelete}>
                     <DeleteIcon
-                      id={x.id}
+                      id={x.id + x.dates.departure}
                       fontSize='medium'
                       onClick={handleDelete}
                     />

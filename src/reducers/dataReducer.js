@@ -102,6 +102,7 @@ export const dataReducer = (state = defaultState, action) => {
           dates: airportReducerDefault.dates,
         },
       };
+      
     //Booking cases
     case SET_BOOKING:
       return {

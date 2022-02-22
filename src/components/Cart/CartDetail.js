@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import moment from 'moment';
 
 import Button from '../common/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../../styles/cartDetail.css';
 
-import { getBooking } from '../../selectors'
+import { getBooking } from '../../selectors';
+import { formatDate } from '../../reducers/helpers';
 
 const CartDetail = ({ setShowCart }) => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const CartDetail = ({ setShowCart }) => {
                   <div className='cart-flight'>
                     <p>Origin: {x.origin.name}</p>
                     <p>Arrival: {x.destination.name}</p>
-                    <p>Departure: {moment(x.dates.departure).format('ddd D MMM YYYY')}</p>
+                    <p>Departure: {formatDate(x.dates.departure)}</p>
                   </div>
                   <div className='cart-price'>
                     <p>Passagers: {x.passagers.number}</p>
@@ -51,7 +51,11 @@ const CartDetail = ({ setShowCart }) => {
               );
             })}
           </ul>
-          <Button  extraClass='small-button' handler={handlePay} label='Go to pay' />
+          <Button
+            extraClass='small-button'
+            handler={handlePay}
+            label='Go to pay'
+          />
         </>
       ) : (
         <div className='nothing-here'>

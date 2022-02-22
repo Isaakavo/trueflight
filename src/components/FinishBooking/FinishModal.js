@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import moment from 'moment';
 
 import Modal from '../Modal/Modal';
 
+import { formatDate } from '../../reducers/helpers';
 import { coupons } from '../../reducers/types';
 
 const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
@@ -68,7 +68,7 @@ const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
                     </p>
                   </div>
                   <div>
-                    <b>Departure</b> <p>{moment(x.dates.departure).format('ddd D MMM YYYY')}</p>
+                    <b>Departure</b> <p>{formatDate(x.dates.departure)}</p>
                   </div>
                   <div>
                     <b>Passengers</b> <p>{x.passagers.number}</p>

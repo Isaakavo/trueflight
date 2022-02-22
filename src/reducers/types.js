@@ -23,7 +23,9 @@ export const ERROR_UI = 'ui/error'
 
 
 export const coupons = {
-  'hire me': 100,
-  'i want to travel': 50,
-  'let me out': 25
+  'HIRE ME': 100,
+  'HIRE Me :D': 100,
+  'HIRE ME :)': 100,
+  'I WANT TO TRAVEL': 50,
+  'LET ME OUT': 25
 };

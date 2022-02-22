@@ -95,7 +95,7 @@ const FinishBookingForm = ({
                 name='coupon'
                 className='inputs'
                 type='text'
-                placeholder='discount coupon'
+                placeholder='Discount coupon (use uppercase)'
                 onChange={handleChange}
                 disabled={disabled}
               />
@@ -150,7 +150,7 @@ const FinishBookingForm = ({
                 name='coupon'
                 className='inputs'
                 type='text'
-                placeholder='discount coupon'
+                placeholder='Discount coupon (use uppercase)'
                 onChange={handleChange}
                 disabled={disabled}
               />

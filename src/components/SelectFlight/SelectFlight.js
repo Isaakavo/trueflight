@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import FlightsList from './FlightsList'
+import FlightsList from './FlightsList';
 import Wrapper from '../common/Wrapper';
 import Loading from '../common/Loading';
 
@@ -22,7 +22,7 @@ const SelectFlight = () => {
     const { id } = target;
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);
     const amount = selectedFlight.fare.amount;
-    const total = (amount * passengers.number * 100) / 100;
+    const total = ((amount * passengers.number) * 100) / 100;
     const newState = {
       id: id,
       amount: amount,

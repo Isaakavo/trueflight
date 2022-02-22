@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import moment from 'moment';
 
 import Input from '../common/Input';
 
@@ -15,6 +16,7 @@ const InputCalendar = ({ hide }) => {
   });
 
   const { minDate, maxDate } = useSelector(selectDates);
+  const getActualMinDate = moment(minDate.date).isBefore(moment().toISOString(), 'day') ? moment().format('YYYY-MM-DD') : minDate.date;
 
   const handleSelectDate = ({ target }) => {
     if (target.name === 'departure') {
@@ -45,7 +47,7 @@ const InputCalendar = ({ hide }) => {
         id='departure'
         onChange={handleSelectDate}
         placeholder='Departure Date'
-        min={minDate?.date}
+        min={getActualMinDate}
         max={maxDate?.date}
       />
     </div>

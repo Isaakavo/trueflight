@@ -14,7 +14,8 @@ const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
         Math.round((acc + val.amount * val.passagers.number) * 100) / 100,
       0
     );
-    if (coupon !== undefined) {
+    debugger;
+    if (coupons[coupon] !== undefined) {
       const discount = (coupons[coupon] * total) / 100;
       return total - discount;
     }
@@ -44,7 +45,7 @@ const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
           </div>
         </section>
         <section>
-          {coupon ? (
+          {coupons[coupon] ? (
             <div className='info-container'>
               <b>coupon:</b>
               <p>{coupons[coupon] + '% applied'}</p>

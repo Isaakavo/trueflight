@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/trueflight/static/css/main.fafcafc4.css",
-    "main.js": "/trueflight/static/js/main.f8a99e10.js",
+    "main.css": "/trueflight/static/css/main.17adf084.css",
+    "main.js": "/trueflight/static/js/main.1062c961.js",
     "static/js/787.2589662e.chunk.js": "/trueflight/static/js/787.2589662e.chunk.js",
     "index.html": "/trueflight/index.html",
-    "main.fafcafc4.css.map": "/trueflight/static/css/main.fafcafc4.css.map",
-    "main.f8a99e10.js.map": "/trueflight/static/js/main.f8a99e10.js.map",
+    "main.17adf084.css.map": "/trueflight/static/css/main.17adf084.css.map",
+    "main.1062c961.js.map": "/trueflight/static/js/main.1062c961.js.map",
     "787.2589662e.chunk.js.map": "/trueflight/static/js/787.2589662e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fafcafc4.css",
-    "static/js/main.f8a99e10.js"
+    "static/css/main.17adf084.css",
+    "static/js/main.1062c961.js"
   ]
 }

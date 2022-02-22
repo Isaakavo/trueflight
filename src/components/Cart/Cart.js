@@ -6,16 +6,18 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 const Cart = () => {
   const [showCart, setShowCart] = useState(false);
   const booking = useSelector(({data}) => data.booking);
-
+  const numberOfItems = booking.length;
   const handleShowCart = () => {
     setShowCart(!showCart);
   };
 
   return (
     <div className='shopping-cart'>
-      {booking.length > 0 ? (
+      {numberOfItems > 0 ? (
         <span className='bubble'>
-          <span className='bubble-alert'></span>
+          <span className='bubble-alert' style={{color: '#fff;', fontSize: '0.9rem'}}>
+            {numberOfItems < 10 ? numberOfItems : '9+'}
+          </span>
         </span>
       ) : null}
       <ShoppingBagIcon fontSize='large' onClick={handleShowCart} />

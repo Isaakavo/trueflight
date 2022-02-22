@@ -26,7 +26,7 @@ const CartDetail = ({ setShowCart }) => {
           <ul>
             {booking.map((x, i) => {
               return (
-                <li className='cart-item' key={i}>
+                <li className='cart-item' key={x.id}>
                   <h4>Flight {i + 1}</h4>
                   <div className='cart-flight'>
                     <p>Origin: {x.origin.name}</p>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FormErrors = ({ formErrors }) => {
   return (
     <div>

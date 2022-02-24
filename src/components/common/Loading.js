@@ -1,3 +1,5 @@
+import React from 'react';
+
 import FlightIcon from '@mui/icons-material/Flight';
 
 import Wrapper from './Wrapper';

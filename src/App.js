@@ -1,7 +1,8 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Dashboard from './components/Dashboard';
-import SelectFlight from './components/SelectFlight/index'
+import SelectFlight from './components/SelectFlight/index';
 import FinishBooking from './components/FinishBooking';
 import Header from './components/Header';
 

@@ -1,3 +1,5 @@
+@import './constants.css';
+
 .wrapper {
   min-height: 80vh;
   display: flex;
@@ -10,7 +12,7 @@
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
-  border: 1px solid #b7c2cc;
+  border: 1px solid var(--borders-color);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -31,7 +33,7 @@
 }
 
 .inputs-disabled:disabled {
-  color: #e0e0e0;
+  color: var(--disabled-color);
 }
 
 input::-webkit-outer-spin-button,
@@ -42,7 +44,7 @@ input::-webkit-inner-spin-button {
 
 .airports-container {
   display: flex;
-  background: #fff;
+  background: var(--background-color);
   width: 100%;
   height: 2rem;
   display: flex;
@@ -56,11 +58,11 @@ input::-webkit-inner-spin-button {
 
 .airports-container:focus {
   outline: none !important;
-  border: 4px solid #0361e4;
+  border: 4px solid var(--main-color);
 }
 
 .airports-list {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: flex-start;
   width: 100%;
@@ -76,19 +78,19 @@ input::-webkit-inner-spin-button {
 .airports-list li {
   display: flex;
   padding: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  width: 100%;
   justify-content: space-between;
   cursor: pointer;
 }
 
 .airports-list li:hover {
-  background-color: #b7c2cc;
+  background-color: var(--main-light-color);
+  color: var(--text-color);
+  border-radius: 2px;
 }
 
 .airports-list p {
   width: 50%;
+  padding-left: 2.5rem;
 }
 
 .airports-code {
@@ -97,11 +99,11 @@ input::-webkit-inner-spin-button {
 
 .search-button {
   width: 30%;
-  padding: 0.25rem 1rem;   
+  padding: 0.25rem 1rem;
   background-color: transparent;
   border-radius: 6px;
-  border: 3px solid #0361e4;
-  color: #0361e4;
+  border: 3px solid var(--main-color);
+  color: var(--main-color);
   font-size: 1.3rem;
   font-weight: 600;
   align-self: center;
@@ -111,26 +113,25 @@ input::-webkit-inner-spin-button {
 
 .search-button:disabled {
   width: 50%;
-  padding: 0.25rem 1rem;   
+  padding: 0.25rem 1rem;
   background-color: transparent;
   border-radius: 6px;
-  border: 3px solid #ff7961;
-  color: #ff7961;
+  border: 3px solid var(--main-disabled-color);
+  color: var(--main-disabled-color);
   font-size: 1.3rem;
   font-weight: 600;
   cursor: auto;
   align-self: center;
 }
 
-
 svg {
   cursor: pointer;
-  color: #0361e4;
+  color: var(--main-color);
   padding: 0.3rem;
 }
 
 svg:hover {
-  background-color: #0361e4;
+  background-color: var(--main-color);
   color: white;
   border-radius: 3px;
   padding: 0.3rem;
@@ -147,14 +148,13 @@ svg:hover {
   text-decoration: line-through;
 }
 
-
 @media only screen and (max-width: 426px) {
   .inputs-container {
     width: 80%;
     height: 100%;
   }
 
-  .inputs{
+  .inputs {
     font-size: 1rem;
   }
 

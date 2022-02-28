@@ -30,7 +30,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { airport, dates } = useSelector(({ data }) => data.airports);
-  const loading  = useSelector(getUi);
+  const loading = useSelector(getUi);
 
   const getActualMinDate = moment(dates.minDate?.date).isBefore(
     moment().toISOString(),
@@ -87,6 +87,9 @@ const Dashboard = () => {
     if (target.id === 'destination' && inputs.origin.code !== '') {
       return;
     }
+    if (inputs.origin.code !== '' && inputs.destination.code !== '') {
+      setInputs(inputsDefault);
+    }
     setHideList(!hideList);
   };
 
@@ -131,8 +134,8 @@ const Dashboard = () => {
     if (inputs.departure && inputs.destination && inputs.origin) {
       const newObj = {
         ...inputs,
-        route: inputs.origin.code + '-' + inputs.destination.code
-      }
+        route: inputs.origin.code + '-' + inputs.destination.code,
+      };
       dispatch({
         type: 'booking/inputs',
         payload: newObj,

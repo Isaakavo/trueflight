@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import Wrapper from '../common/Wrapper';
 import Loading from '../common/Loading';
+import ErrorScreen from '../common/ErrorScreen';
 
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
@@ -58,9 +59,12 @@ const SelectFlight = () => {
     return <Loading />;
   }
 
-  debugger;
   if (loading === 'rejected') {
-    return <h1>Something went wrong in our side 🥺</h1>;
+    return (
+      <ErrorScreen>
+        <h1>Sorry, we dont have flights for this route 😢</h1>
+      </ErrorScreen>
+    );
   }
   if (Object.keys(flights).length === 0 || loading === 'pending') {
     return <Loading />;

@@ -54,7 +54,6 @@ export const fetchFlights = (code) => async (dispatch) => {
 export const addPurchasedTickets = (obj) => async (dispatch) => {
   dispatch({ type: 'ui/pending' });
   try {
-    debugger;
     firestore
       .collection('tickets')
       .add(obj)

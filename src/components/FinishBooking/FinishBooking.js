@@ -133,7 +133,6 @@ const FinishBooking = () => {
   };
 
   const handleConfirmationModal = () => {
-    debugger;
     let newObj = {
       firstname: inputs.firstname,
       lastname: inputs.lastname,

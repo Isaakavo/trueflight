@@ -9,12 +9,11 @@ import {
   SET_INPUTS,
 } from './types';
 
+import { getActualMinDate } from './helpers';
+
 const airportReducerDefault = {
   airport: [],
   dates: {
-    allDates: [],
-    comeback: '',
-    departure: '',
     maxDate: '',
     minDate: '',
   },
@@ -46,7 +45,7 @@ const bookingDefault = {
 
 const defaultState = {
   airports: airportReducerDefault,
-  inputs: {},
+  inputs: inputsDefault,
   booking: bookingDefault,
   flights: {},
 };
@@ -63,13 +62,13 @@ export const dataReducer = (state = defaultState, action) => {
 
     // //Dates cases
     case SET_AIRPORTS_DATES:
-      const minDate = payload[0];
+      const minDate = getActualMinDate(payload[0]);
       const maxDate = payload[payload.length - 1];
       return {
         ...state,
         airports: {
           ...state.airports,
-          dates: { allDates: [...payload], minDate, maxDate },
+          dates: { minDate, maxDate },
         },
       };
 

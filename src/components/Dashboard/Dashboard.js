@@ -32,12 +32,12 @@ const Dashboard = () => {
   const { airport, dates } = useSelector(({ data }) => data.airports);
   const loading = useSelector(getUi);
 
-  const getActualMinDate = moment(dates.minDate?.date).isBefore(
-    moment().toISOString(),
-    'day'
-  )
-    ? moment().format('YYYY-MM-DD')
-    : dates.minDate?.date;
+  // const getActualMinDate = moment(dates.minDate?.date).isBefore(
+  //   moment().toISOString(),
+  //   'day'
+  // )
+  //   ? moment().format('YYYY-MM-DD')
+  //   : dates.minDate?.date;
 
   const handleChange = ({ target }) => {
     const value = target.value.toUpperCase();
@@ -100,7 +100,7 @@ const Dashboard = () => {
     }
   };
 
-  const handleButtons = ({ target, value }) => {
+  const handleButtons = ({ target }) => {
     const { number } = inputs.passengers;
 
     if (target.id === 'increase') {
@@ -235,7 +235,7 @@ const Dashboard = () => {
                 value={inputs.departure}
                 onChange={handleChange}
                 placeholder='Departure Date'
-                min={getActualMinDate}
+                min={dates.minDate.date}
                 max={dates.maxDate?.date}
               />
             </div>

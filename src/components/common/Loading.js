@@ -8,7 +8,7 @@ import '../../styles/loading.css'
 const Loading = () => {
 return (
   <Wrapper>
-    <FlightIcon sx={{ fontSize: 40 }} className='loading-icon' fontSize='large' />
+    <FlightIcon sx={{ fontSize: 50 }} className='loading-icon' fontSize='large' />
     <div>
       <h1 className='loading-text'>Loading...</h1>
     </div>

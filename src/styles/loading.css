@@ -11,18 +11,35 @@
 
 @keyframes move {
   0% {
-    transform: translateX(-25%);
-  }
-
-  25% {
     transform: translateX(0%);
   }
 
+  10% {
+    transform: translateX(-10%);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  35% {
+    transform: translateX(-10%);
+  }
+
   50% {
+    transform: translateX(0%);
+  }
+
+  65% {
+    transform: translateX(10%);
+  }
+
+  75% {
     transform: translateX(25%);
   }
-  75% {
-    transform: translateX(-25%);
+
+  90% {
+    transform:  translateX(10%);
   }
 
   100% {

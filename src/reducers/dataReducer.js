@@ -23,22 +23,31 @@ const airportReducerDefault = {
 const inputsDefault = {
   origin: {
     code: '',
-    name: ''
+    name: '',
   },
   destination: {
     code: '',
-    name: ''
-  }, 
+    name: '',
+  },
   departure: '',
-  passengers: {number: 0},
+  passengers: { number: 0 },
   route: '',
+};
 
-}
+const bookingDefault = {
+  firstname: '',
+  lastname: '',
+  surname: '',
+  address: '',
+  email: '',
+  coupon: '',
+  reservations: [],
+};
 
 const defaultState = {
   airports: airportReducerDefault,
   inputs: {},
-  booking: [],
+  booking: bookingDefault,
   flights: {},
 };
 
@@ -47,7 +56,10 @@ export const dataReducer = (state = defaultState, action) => {
   switch (type) {
     //Input airport select cases
     case SET_AIPORTS:
-      return { ...state, airports: { ...state.airports, airport: [...payload] } };
+      return {
+        ...state,
+        airports: { ...state.airports, airport: [...payload] },
+      };
 
     // //Dates cases
     case SET_AIRPORTS_DATES:
@@ -67,18 +79,35 @@ export const dataReducer = (state = defaultState, action) => {
         ...state,
         inputs: inputsDefault,
         flights: [],
-        booking: [...state.booking, { ...payload }],
+        booking: {
+          ...state.booking,
+          reservations: [...state.booking.reservations, payload],
+        },
+      };
+
+    case 'setTickets':
+      return {
+        ...state,
+        inputs: inputsDefault,
+        flights: [],
+        booking: { ...payload },
       };
 
     case DELETE_BOOKING:
-      const removedItem = state.booking.filter(
+      const removedItem = state.booking.reservations.filter(
         (x) => x.id + x.dates.departure !== payload
       );
-      return { ...state, booking: removedItem };
+      return {
+        ...state,
+        booking: {
+          ...state.booking,
+          reservations: removedItem,
+        },
+      };
     case RESET_BOOKING:
       return {
         ...state,
-        booking: [],
+        booking: bookingDefault,
       };
 
     //Flights cases
@@ -93,8 +122,8 @@ export const dataReducer = (state = defaultState, action) => {
     case SET_INPUTS:
       return {
         ...state,
-        inputs: {...payload}
-      }
+        inputs: { ...payload },
+      };
     default:
       return state;
   }

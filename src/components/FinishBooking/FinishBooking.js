@@ -7,10 +7,12 @@ import ConfirmationModal from '../common/ConfirmationModal';
 import FinishBookingForm from './FinishBookingForm';
 import FinishModal from './FinishModal';
 import Wrapper from '../common/Wrapper';
+import Loading from '../common/Loading';
 
-import { getBooking } from '../../selectors';
+import { addPurchasedTickets } from '../../actions/dataActions';
+import { getUi, getBooking } from '../../selectors';
 
-import {coupons} from '../../reducers/types';
+import { coupons } from '../../reducers/types';
 
 const inputsDefault = {
   firstname: '',
@@ -46,6 +48,7 @@ const FinishBooking = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const booking = useSelector(getBooking);
+  const loading = useSelector(getUi);
 
   const handleChange = ({ target }) => {
     const name = target.name;
@@ -130,6 +133,17 @@ const FinishBooking = () => {
   };
 
   const handleConfirmationModal = () => {
+    debugger;
+    let newObj = {
+      firstname: inputs.firstname,
+      lastname: inputs.lastname,
+      surname: inputs.surname,
+      address: inputs.address,
+      email: inputs.email,
+      coupon: inputs.coupon ? inputs.coupon : '',
+      reservations: [...booking.reservations],
+    };
+    dispatch(addPurchasedTickets(newObj));
     setConfirmationModal(false);
     setShowModal(true);
   };
@@ -152,13 +166,17 @@ const FinishBooking = () => {
   };
 
   useEffect(() => {
-    if (booking.length === 0) {
+    if (booking.reservations.length === 0) {
       setDisabled(true);
       setButtonDisabled(true);
     } else {
       setDisabled(false);
     }
   }, [booking]);
+
+  if (loading === 'pending') {
+    return <Loading />;
+  }
 
   return (
     <Wrapper>

@@ -67,9 +67,6 @@ const Dashboard = () => {
       case 'passengers':
         verifyPassengersNumber(value);
         break;
-      case 'increase':
-        console.log('pressed');
-        break;
 
       default:
         break;
@@ -141,7 +138,6 @@ const Dashboard = () => {
         payload: newObj,
       });
       navigate('/book');
-      console.log(newObj);
     }
   };
 

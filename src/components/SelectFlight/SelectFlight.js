@@ -30,7 +30,7 @@ const SelectFlight = () => {
     const [selectedFlight] = flights.journeys.filter((x) => x.key === id);
     const amount = selectedFlight.fare.amount;
     const total = (amount * inputs.passengers.number * 100) / 100;
-    const bookingState = {
+    const reservations = {
       id: id + inputs.departure,
       amount: amount,
       cartFlag: true,
@@ -43,7 +43,7 @@ const SelectFlight = () => {
     };
     dispatch({
       type: 'booking/set',
-      payload: bookingState,
+      payload: reservations,
     });
     navigate('/trueflight');
   };
@@ -67,15 +67,21 @@ const SelectFlight = () => {
 
   return (
     <Wrapper>
-      <div className='flights-container'>
-        <div className='flights-data'>
+      <section className='flights-data'>
+        <div className='flights-data-div' >
           <p>Origin: {inputs.origin.name}</p>
+        </div>
+        <div className='flights-data-div'>
           <p>Destination: {inputs.destination.name}</p>
+        </div>
+        <div className='flights-data-div'>
           <p>Departure: {formatDate(inputs.departure)}</p>
+        </div>
+        <div>
           <p>Number of passengers: {inputs.passengers.number}</p>
         </div>
-      </div>
-      <div className='flights-data-container'>
+      </section>
+      <section className='flights-data-container'>
         {flights.journeys.map((x) => {
           return (
             <div
@@ -118,7 +124,7 @@ const SelectFlight = () => {
             </div>
           );
         })}
-      </div>
+      </section>
     </Wrapper>
   );
 };

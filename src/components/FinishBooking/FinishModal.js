@@ -11,12 +11,11 @@ const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
   const discountClass = coupon ? 'discount' : '';
 
   const calculateTotal = () => {
-    const total = booking.reduce(
+    const total = booking.reservations.reduce(
       (acc, val) =>
         Math.round((acc + val.amount * val.passagers.number) * 100) / 100,
       0
     );
-    debugger;
     if (coupons[coupon] !== undefined) {
       const discount = (coupons[coupon] * total) / 100;
       return total - discount;
@@ -30,6 +29,7 @@ const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
       <div className='modal-container'>
         <h2>This tickets are yours!</h2>
         <h4>Your purchase: </h4>
+        <h5>Order id: {booking.orderId}</h5>
         <section className='modal-section'>
           <div className='info-container'>
             <b>Name: </b>{' '}
@@ -55,7 +55,7 @@ const FinishModal = ({ inputs, showModal, hideModal, coupon }) => {
           ) : null}
           <h4>Flight information: </h4>
           <section className='flight-info-container'>
-            {booking.map((x, i) => {
+            {booking.reservations.map((x, i) => {
               return (
                 <div className='flight-container' key={i}>
                   <div>

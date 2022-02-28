@@ -10,7 +10,7 @@ import { getBooking } from '../../selectors'
 const Cart = () => {
   const [showCart, setShowCart] = useState(false);
   const booking = useSelector(getBooking);
-  const numberOfItems = booking.length;
+  const numberOfItems = booking.reservations.length;
   const handleShowCart = () => {
     setShowCart(!showCart);
   };

@@ -50,3 +50,23 @@ export const fetchFlights = (code) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const addPurchasedTickets = (obj) => async (dispatch) => {
+  dispatch({ type: 'ui/pending' });
+  try {
+    debugger;
+    firestore
+      .collection('tickets')
+      .add(obj)
+      .then((x) => {
+        const newObj = { ...obj, orderId: x.id };
+        dispatch({
+          type: 'setTickets',
+          payload: newObj
+        })
+        dispatch({type: 'ui/fulfilled'})
+      });
+  } catch (error) {
+    console.log(error.message);
+  }
+};

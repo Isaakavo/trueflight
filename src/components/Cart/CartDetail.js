@@ -25,10 +25,10 @@ const CartDetail = ({ setShowCart }) => {
 
   return (
     <div className='cart-detail-container'>
-      {booking.length ? (
+      {booking.reservations.length ? (
         <>
           <ul>
-            {booking.map((x, i) => {
+            {booking.reservations.map((x, i) => {
               return (
                 <li className='cart-item' key={x.id + x.dates.departure}>
                   <h4>Flight {i + 1}</h4>

@@ -38,7 +38,7 @@ const FinishBookingForm = ({
     <>
       <h3>Fill the form to get your tickets!</h3>
       <form className='inputs-container' onSubmit={handleSubmit}>
-        {change < minWidth ? (
+        {change <= minWidth ? (
           <>
             <div className='airports-container'>
               <input

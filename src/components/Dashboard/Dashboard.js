@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import moment from 'moment';
 
 import Loading from '../common/Loading';
 import Wrapper from '../common/Wrapper';

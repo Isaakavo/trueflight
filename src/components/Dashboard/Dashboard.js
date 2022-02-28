@@ -30,7 +30,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { airport, dates } = useSelector(({ data }) => data.airports);
-  const { loading } = useSelector(getUi);
+  const loading  = useSelector(getUi);
 
   const getActualMinDate = moment(dates.minDate?.date).isBefore(
     moment().toISOString(),

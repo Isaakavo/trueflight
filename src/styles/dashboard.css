@@ -157,6 +157,10 @@ svg:hover {
   .inputs {
     font-size: 1rem;
   }
+  .airports-list li:hover {
+    background-color: inherit;
+    color: black;
+  }
 
   .airports-list li:active {
     background-color: none;

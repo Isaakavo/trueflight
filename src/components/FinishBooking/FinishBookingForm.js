@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Input from '../common/Input';
 import FormErrors from '../common/FormErrors';
 
 function useWindowResize() {
@@ -42,7 +41,7 @@ const FinishBookingForm = ({
         {change < minWidth ? (
           <>
             <div className='airports-container'>
-              <Input
+              <input
                 name='firstname'
                 type='text'
                 className='inputs'
@@ -52,7 +51,7 @@ const FinishBookingForm = ({
               />
             </div>
             <div className='airports-container'>
-              <Input
+              <input
                 name='lastname'
                 className='inputs'
                 type='text'
@@ -62,7 +61,7 @@ const FinishBookingForm = ({
               />
             </div>
             <div className='airports-container'>
-              <Input
+              <input
                 name='surname'
                 className='inputs'
                 type='text'
@@ -72,7 +71,7 @@ const FinishBookingForm = ({
               />
             </div>
             <div className='airports-container'>
-              <Input
+              <input
                 name='address'
                 className='inputs'
                 type='text'
@@ -82,17 +81,17 @@ const FinishBookingForm = ({
               />
             </div>
             <div className='airports-container'>
-              <Input
+              <input
                 name='email'
                 className='inputs'
-                type='text'
+                type='email'
                 placeholder='e-mail'
                 onChange={handleChange}
                 disabled={disabled}
               />
             </div>
             <div className='airports-container'>
-              <Input
+              <input
                 name='coupon'
                 className='inputs'
                 type='text'
@@ -105,7 +104,7 @@ const FinishBookingForm = ({
         ) : (
           <>
             <div className='airports-container'>
-              <Input
+              <input
                 name='firstname'
                 type='text'
                 className='inputs'
@@ -113,7 +112,7 @@ const FinishBookingForm = ({
                 onChange={handleChange}
                 disabled={disabled}
               />
-              <Input
+              <input
                 name='lastname'
                 className='inputs'
                 type='text'
@@ -121,7 +120,7 @@ const FinishBookingForm = ({
                 onChange={handleChange}
                 disabled={disabled}
               />
-              <Input
+              <input
                 name='surname'
                 className='inputs'
                 type='text'
@@ -131,7 +130,7 @@ const FinishBookingForm = ({
               />
             </div>
             <div className='airports-container'>
-              <Input
+              <input
                 name='address'
                 className='inputs'
                 type='text'
@@ -139,15 +138,15 @@ const FinishBookingForm = ({
                 onChange={handleChange}
                 disabled={disabled}
               />
-              <Input
+              <input
                 name='email'
                 className='inputs'
-                type='text'
+                type='email'
                 placeholder='e-mail'
                 onChange={handleChange}
                 disabled={disabled}
               />
-              <Input
+              <input
                 name='coupon'
                 className='inputs'
                 type='text'
@@ -159,7 +158,7 @@ const FinishBookingForm = ({
           </>
         )}
         <FormErrors formErrors={formErrors} />
-        <Input
+        <input
           type='submit'
           className='search-button'
           value='Get Tickets!'

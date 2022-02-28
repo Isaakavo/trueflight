@@ -121,6 +121,7 @@ export const dataReducer = (state = defaultState, action) => {
       return {
         ...state,
         inputs: inputsDefault,
+        flights: [],
         booking: [...state.booking, { ...payload }],
       };
 

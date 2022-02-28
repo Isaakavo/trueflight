@@ -29,7 +29,7 @@ const Dashboard = () => {
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { airport, dates } = useSelector(({ data }) => data.airport);
+  const { airport, dates } = useSelector(({ data }) => data.airports);
   const { loading } = useSelector(getUi);
 
   const getActualMinDate = moment(dates.minDate?.date).isBefore(
@@ -129,9 +129,16 @@ const Dashboard = () => {
 
   const handleSubmit = () => {
     if (inputs.departure && inputs.destination && inputs.origin) {
-
-      // navigate('/book');
-      console.log(inputs);
+      const newObj = {
+        ...inputs,
+        route: inputs.origin.code + '-' + inputs.destination.code
+      }
+      dispatch({
+        type: 'booking/inputs',
+        payload: newObj,
+      });
+      navigate('/book');
+      console.log(newObj);
     }
   };
 
@@ -233,10 +240,7 @@ const Dashboard = () => {
                 max={dates.maxDate?.date}
               />
             </div>
-            <div
-              className='airports-container '
-              onChange={handleChange}
-            >
+            <div className='airports-container ' onChange={handleChange}>
               <input
                 className='inputs inputs-disabled'
                 type='number'

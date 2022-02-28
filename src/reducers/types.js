@@ -14,6 +14,7 @@ export const DELETE_BOOKING = 'booking/delete';
 export const RESET_BOOKING = 'booking/reset';
 export const SET_FLIGHTS = 'flights/fulfilled';
 export const RESET_FLIGHTS = 'flights/reset';
+export const SET_INPUTS = 'booking/inputs'
 
 export const LOADING_UI = 'ui/pending';
 export const STOP_LOADING_UI = 'ui/fulfilled';

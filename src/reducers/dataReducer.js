@@ -56,37 +56,6 @@ export const dataReducer = (state = defaultState, action) => {
     //Input airport select cases
     case SET_AIPORTS:
       return { ...state, airports: { ...state.airports, airport: [...payload] } };
-    // case SET_AIPORTS_SELECTED:
-    //   return { ...state, airport: { ...state.airport, selected: payload } };
-    // case SET_AIPORTS_INPUT:
-    //   const { origin, destination } = payload;
-    //   const route = origin.code + '-' + destination.code;
-    //   return {
-    //     ...state,
-    //     airport: {
-    //       ...state.airport,
-    //       input: { route, origin: origin, destination: destination },
-    //     },
-    //   };
-    // case SET_AIPORTS_PASSANGERS:
-    //   return {
-    //     ...state,
-    //     airport: { ...state.airport, ...payload },
-    //   };
-    // case SET_AIPORTS_HIDELIST:
-    //   return { ...state, airport: { ...state.airport, ...payload } };
-    // case SET_AIRPORTS_RESETSELECTED:
-    //   return {
-    //     ...state,
-    //     airport: {
-    //       ...state.airport,
-    //       selected: undefined,
-    //       input: airportReducerDefault.input,
-    //       passengers: airportReducerDefault.passengers,
-    //     },
-    //   };
-    // case RESET_AIPORTS:
-    //   return airportReducerDefault;
 
     // //Dates cases
     case SET_AIRPORTS_DATES:
@@ -99,22 +68,6 @@ export const dataReducer = (state = defaultState, action) => {
           dates: { allDates: [...payload], minDate, maxDate },
         },
       };
-    // case SET_AIRPORTS_SELECTED_DATE:
-    //   return {
-    //     ...state,
-    //     airport: {
-    //       ...state.airport,
-    //       dates: { ...state.airport.dates, ...payload },
-    //     },
-    //   };
-    // case RESET_AIRPORTS_DATES:
-    //   return {
-    //     ...state,
-    //     airport: {
-    //       ...state.airport,
-    //       dates: airportReducerDefault.dates,
-    //     },
-    //   };
 
     //Booking cases
     case SET_BOOKING:

@@ -1,14 +1,7 @@
 //Data types
 export const SET_AIPORTS = 'airports/fulfilled';
-export const SET_AIPORTS_SELECTED = 'airports/selected';
-export const SET_AIPORTS_INPUT = 'airports/inputs';
-export const SET_AIPORTS_PASSANGERS = 'airports/passengers';
-export const SET_AIPORTS_HIDELIST = 'airports/hidelist';
-export const SET_AIRPORTS_RESETSELECTED = 'airports/resetselected';
 export const SET_AIRPORTS_DATES = 'dates/fulfilled';
 export const SET_AIRPORTS_SELECTED_DATE = 'dates/selectdate';
-export const RESET_AIRPORTS_DATES = 'dates/reset';
-export const RESET_AIPORTS = 'airports/reset';
 export const SET_BOOKING = 'booking/set';
 export const DELETE_BOOKING = 'booking/delete';
 export const RESET_BOOKING = 'booking/reset';

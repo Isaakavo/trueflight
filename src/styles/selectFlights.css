@@ -13,12 +13,22 @@
 
 .flights-data{
   display: flex;
+  flex-direction: row;
+  width: 80%;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flights-data-div {
+  border-right: 1px solid var(--borders-color);
 }
 
 .flights-data p {
   margin: 0.5rem 1rem;
   font-weight: bolder;
   font-size: 1.5rem;
+  padding: 0.5rem;
 }
 
 .flights-list {

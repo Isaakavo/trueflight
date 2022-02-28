@@ -1,4 +1,5 @@
-import { LOADING_UI, STOP_LOADING_UI, ERROR_UI } from './types';
+//Data types
+import { LOADING_UI, STOP_LOADING_UI, ERROR_UI, RESET_UI } from './types';
 
 
 const defaultUi = {
@@ -15,6 +16,8 @@ export const uiReducer = (state = defaultUi, action) => {
       return { ...state, loading: 'succeed' };
     case ERROR_UI:
       return { error: action.error, loading: 'rejected' };
+    case RESET_UI:
+      return { error: null, loading: 'idle' }
 
     default:
       return state;

@@ -1,17 +1,18 @@
 //Data types
 export const SET_AIPORTS = 'airports/fulfilled';
 export const SET_AIRPORTS_DATES = 'dates/fulfilled';
-export const SET_AIRPORTS_SELECTED_DATE = 'dates/selectdate';
 export const SET_BOOKING = 'booking/set';
 export const DELETE_BOOKING = 'booking/delete';
 export const RESET_BOOKING = 'booking/reset';
 export const SET_FLIGHTS = 'flights/fulfilled';
 export const RESET_FLIGHTS = 'flights/reset';
 export const SET_INPUTS = 'booking/inputs'
+export const RESET_INPUTS = 'booking/resetinputs'
 
 export const LOADING_UI = 'ui/pending';
 export const STOP_LOADING_UI = 'ui/fulfilled';
 export const ERROR_UI = 'ui/error';
+export const RESET_UI = 'ui/reset';
 
 export const coupons = {
   'HIRE ME': 100,

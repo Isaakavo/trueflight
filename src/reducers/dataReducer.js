@@ -7,6 +7,7 @@ import {
   SET_FLIGHTS,
   RESET_FLIGHTS,
   SET_INPUTS,
+  RESET_INPUTS
 } from './types';
 
 import { getActualMinDate } from './helpers';
@@ -123,6 +124,11 @@ export const dataReducer = (state = defaultState, action) => {
         ...state,
         inputs: { ...payload },
       };
+      case RESET_INPUTS:
+        return {
+          ...state,
+          inputs: inputsDefault
+        }
     default:
       return state;
   }

@@ -11,8 +11,9 @@ const Header = () => {
   const location = useLocation();
   const handleClick = () => {
     if (location.pathname !== '/') {
-      dispatch({ type: 'airports/resetselected' });
+      dispatch({ type: 'booking/resetinputs' });
       dispatch({ type: 'flights/reset' });
+      dispatch({ type: 'ui/reset' });
     }
     navigate('/');
   };

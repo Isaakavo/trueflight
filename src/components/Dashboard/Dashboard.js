@@ -11,7 +11,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-import { fetchDates, fetchAirports } from '../../actions/dataActions';
+import { fetchDates, fetchAirports } from '../../actions/apiActions';
 import { getUi } from '../../selectors';
 import '../../styles/dashboard.css';
 
@@ -31,13 +31,6 @@ const Dashboard = () => {
   const { airport, dates } = useSelector(({ data }) => data.airports);
   const loading = useSelector(getUi);
 
-  // const getActualMinDate = moment(dates.minDate?.date).isBefore(
-  //   moment().toISOString(),
-  //   'day'
-  // )
-  //   ? moment().format('YYYY-MM-DD')
-  //   : dates.minDate?.date;
-
   const handleChange = ({ target }) => {
     const value = target.value.toUpperCase();
 
@@ -51,12 +44,6 @@ const Dashboard = () => {
     }
 
     switch (target.name) {
-      case 'origin':
-        setInputs({ ...inputs, [target.name]: { code: value } });
-        break;
-      case 'destination':
-        setInputs({ ...inputs, [target.name]: { code: value } });
-        break;
       case 'departure':
         setInputs({
           ...inputs,
@@ -200,23 +187,23 @@ const Dashboard = () => {
           <input
             id='origin'
             name='origin'
-            className='inputs'
+            className='inputs inputs-read-only'
             type='text'
             placeholder='Origin'
             value={inputs.origin.code}
-            onChange={handleChange}
             onClick={handleHide}
+            readOnly
             autoComplete='off'
           />
           <input
             id='destination'
             name='destination'
-            className='inputs'
+            className='inputs inputs-read-only'
             type='text'
             placeholder='Destination'
             value={inputs.destination.code}
-            onChange={handleChange}
             onClick={handleHide}
+            readOnly
             autoComplete='off'
           />
           <span>

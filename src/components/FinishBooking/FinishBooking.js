@@ -9,7 +9,7 @@ import FinishModal from './FinishModal';
 import Wrapper from '../common/Wrapper';
 import Loading from '../common/Loading';
 
-import { addPurchasedTickets } from '../../actions/dataActions';
+import { addPurchasedTickets } from '../../actions/apiActions';
 import { getUi, getBooking } from '../../selectors';
 
 import { coupons } from '../../reducers/types';

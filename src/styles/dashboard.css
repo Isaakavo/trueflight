@@ -28,6 +28,10 @@
   /* border-radius: 2px; */
 }
 
+.inputs-read-only:hover {
+cursor: pointer;
+}
+
 .input-airports:focus::placeholder {
   color: transparent;
 }

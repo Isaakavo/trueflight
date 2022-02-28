@@ -10,7 +10,7 @@ import Loading from '../common/Loading';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 
-import { fetchFlights } from '../../actions/dataActions';
+import { fetchFlights } from '../../actions/apiActions';
 import { getFlights, getUi } from '../../selectors';
 import { formatDate } from '../../reducers/helpers';
 
@@ -23,7 +23,7 @@ const SelectFlight = () => {
   const { inputs } = useSelector((state) => state.data);
   // const { dates } = useSelector((state) => data.airport);
   const flights = useSelector(getFlights);
-  const { loading } = useSelector(getUi);
+  const loading = useSelector(getUi);
 
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;
@@ -58,6 +58,7 @@ const SelectFlight = () => {
     return <Loading />;
   }
 
+  debugger;
   if (loading === 'rejected') {
     return <h1>Something went wrong in our side 🥺</h1>;
   }
@@ -68,7 +69,7 @@ const SelectFlight = () => {
   return (
     <Wrapper>
       <section className='flights-data'>
-        <div className='flights-data-div' >
+        <div className='flights-data-div'>
           <p>Origin: {inputs.origin.name}</p>
         </div>
         <div className='flights-data-div'>

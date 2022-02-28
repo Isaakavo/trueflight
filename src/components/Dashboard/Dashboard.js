@@ -160,11 +160,17 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if (loading !== 'succeed' && loading !== 'rejected') {
+    if (
+      loading !== 'succeed' &&
+      loading !== 'rejected' &&
+      loading !== 'pending' &&
+      !airport.length &&
+      !airport.dates
+    ) {
       dispatch(fetchDates());
       dispatch(fetchAirports());
     }
-  }, [dispatch, loading]);
+  }, [dispatch, loading, airport]);
 
   useEffect(() => {
     if (inputs.departure && inputs.destination && inputs.origin) {
@@ -172,7 +178,7 @@ const Dashboard = () => {
     }
   }, [inputs.departure, inputs.destination, inputs.origin]);
 
-  if (loading === 'pending' || loading === 'idle') {
+  if ((loading === 'pending' || loading === 'idle') && !airport.length) {
     return <Loading />;
   }
 

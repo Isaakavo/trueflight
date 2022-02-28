@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../common/Loading';
 import Wrapper from '../common/Wrapper';
 import Button from '../common/Button';
+import ErrorScreen from '../common/ErrorScreen';
 
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
@@ -183,7 +184,12 @@ const Dashboard = () => {
   }
 
   if (loading === 'rejected') {
-    return <h1>Something went wrong</h1>;
+    return (
+      <ErrorScreen>
+        <h1>Something went wrong 🥺 </h1>
+        <h4>We sorry</h4>
+      </ErrorScreen>
+    );
   }
 
   return (

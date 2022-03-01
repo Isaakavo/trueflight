@@ -1,7 +1,7 @@
 export const getBooking = ({data}) => data.booking;
 export const getDates = ({ data }) => data.airport.dates;
 export const getFlights = ({ data }) => data.flights;
-export const getUi = ({ ui }) => ui.loading;
+export const getUi = ({ ui }) => ui;
 export const getAvailableAirports = ({ data }) => {
   const {
     airport: { airport, selected, input, hideList, passengers },

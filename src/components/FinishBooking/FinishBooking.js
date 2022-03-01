@@ -48,7 +48,7 @@ const FinishBooking = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const booking = useSelector(getBooking);
-  const loading = useSelector(getUi);
+  const {loading} = useSelector(getUi);
 
   const handleChange = ({ target }) => {
     const name = target.name;

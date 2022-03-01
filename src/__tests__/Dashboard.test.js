@@ -10,11 +10,13 @@ import {
 import Dashboard from '../components/Dashboard';
 import * as reactRedux from 'react-redux';
 
+import { initialStateMock,inputsMock } from './mocks/mocks';
+
 const mockedAiports = {
   input: { origin: { code: '' }, destination: { code: '' } },
   hideList: true,
   loading: 'succeded',
-  airport: [],
+  airport: ['MX', 'MID', 'TOR'],
   dates: {
     allDates: [],
     comeback: '',
@@ -47,18 +49,18 @@ describe('Test of dashboard component', () => {
   const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
 
   test('check loading display', () => {
-    useSelectorMock.mockReturnValue({ ...mockedAiports, loading: 'idle' });
+    useSelectorMock.mockReturnValue(initialStateMock);
     render(<Dashboard />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  test('check if inputs are render', async () => {
-    useSelectorMock.mockReturnValue(mockedAiports);
+  test.only('check if inputs are render', async () => {
+    useSelectorMock.mockReturnValue(inputsMock);
     render(<Dashboard />);
     let originInput = screen.getByPlaceholderText('Origin');
     let destinationInput = screen.getByPlaceholderText('Destination');
     let dateInput = screen.getByPlaceholderText('Departure Date');
-    let passengersInput = screen.getByPlaceholderText('Passengers');
+    let passengersInput = screen.getByPlaceholderText('Passengers (max 10)');
     let submitButton = screen.getByText('Submit');
 
     expect(originInput).toBeInTheDocument();

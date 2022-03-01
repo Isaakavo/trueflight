@@ -24,7 +24,7 @@ const SelectFlight = () => {
   const { inputs } = useSelector((state) => state.data);
   // const { dates } = useSelector((state) => data.airport);
   const flights = useSelector(getFlights);
-  const loading = useSelector(getUi);
+  const {loading} = useSelector(getUi);
 
   const handleSelectedFlight = ({ target }) => {
     const { id } = target;

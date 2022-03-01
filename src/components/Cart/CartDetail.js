@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,21 +10,38 @@ import { getBooking } from '../../selectors';
 import { formatDate } from '../../reducers/helpers';
 
 const CartDetail = ({ setShowCart }) => {
+  const cartDetailRef = useRef(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const booking = useSelector(getBooking);
 
-  const handlePay = () => {
+  const handlePay = (e) => {
     setShowCart(false);
     navigate('/finish-purchase');
+  };
+
+  const handleBlur = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setShowCart(false);
+    }
   };
 
   const handleDelete = ({ target }) => {
     dispatch({ type: 'booking/delete', payload: target.id });
   };
 
+  useEffect(() => {
+    cartDetailRef.current.focus();
+  });
+
   return (
-    <div className='cart-detail-container'>
+    <div
+      id='cart-container'
+      tabIndex={0}
+      ref={cartDetailRef}
+      className='cart-detail-container'
+      onBlur={handleBlur}
+    >
       {booking.reservations.length ? (
         <>
           <ul>
@@ -53,6 +70,7 @@ const CartDetail = ({ setShowCart }) => {
             })}
           </ul>
           <Button
+            id='go-to-pay'
             extraClass='small-button'
             handler={handlePay}
             label='Go to pay'

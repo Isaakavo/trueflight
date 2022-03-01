@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,10 +27,11 @@ const Dashboard = () => {
   const [inputs, setInputs] = useState(inputsDefault);
   const [hideList, setHideList] = useState(true);
   const [disabled, setDisabled] = useState(true);
+  const listRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { airport, dates } = useSelector(({ data }) => data.airports);
-  const loading = useSelector(getUi);
+  const { loading } = useSelector(getUi);
 
   const handleChange = ({ target }) => {
     const value = target.value.toUpperCase();
@@ -179,6 +180,12 @@ const Dashboard = () => {
     }
   }, [inputs.departure, inputs.destination, inputs.origin]);
 
+  useEffect(() => {
+    if (!hideList) {
+      listRef.current.focus();
+    }
+  }, [hideList]);
+
   if ((loading === 'pending' || loading === 'idle') && !airport.length) {
     return <Loading />;
   }
@@ -261,7 +268,12 @@ const Dashboard = () => {
             <Button handler={handleSubmit} disabled={disabled} label='Submit' />
           </>
         ) : (
-          <div className='airports-list'>
+          <div
+            tabIndex={0}
+            ref={listRef}
+            onBlur={() => setHideList(true)}
+            className='airports-list'
+          >
             <ul>{renderAirportList()}</ul>
           </div>
         )}
